@@ -104,7 +104,7 @@ if (mysqli_num_rows($result1) > 0) {
     
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Account registered successfully!");';
-                echo 'window.location.href = "index.php";';
+                echo 'window.location.href = "home.php";';
                 echo '</script>';
     
             } else {

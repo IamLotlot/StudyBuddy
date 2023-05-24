@@ -4,7 +4,7 @@ include "db_conn.php";
 <nav>
     <div class="circleContainer">
         <div class="circleNav">
-            <a href="index.php" title="Go to home page"><img id="logo" src="css/img/StudyBuddy.png"></a>
+            <a href="home.php" title="Go to home page"><img id="logo" src="css/img/StudyBuddy.png"></a>
         </div>
     </div>
     <ul class="ulLeft">
@@ -20,7 +20,7 @@ include "db_conn.php";
         <li id="registerNav" title="Go to register page"><a href="register.php">Register</a></li>
         <li id="loginNav" title="Go to login page"><a href="login.php">Login</a></li>
         <i class="fa-solid fa-user" id="userIcon"></i><a href="profile.php" title="Go to your profile" id="onlineUser" name="onlineUser"></a>
-        <li id="logoutNav" title="Logout your account"><a href="index.php">| Logout</a></li>
+        <li id="logoutNav" title="Logout your account"><a href="home.php">| Logout</a></li>
     </ul>
     <button onclick="topFunction()" id="scrollTop" title="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
     <div class="toolCon">
