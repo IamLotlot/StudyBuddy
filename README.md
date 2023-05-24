@@ -1,6 +1,6 @@
 # StudyBuddy
 
-Import mysql database
+Import mysql database:
 
 1. Make a database named "studybuddy".
     - If you are going to overwrite the studybuddy database simply remove all the tables make sure the database is empty.
