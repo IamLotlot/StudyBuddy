@@ -1,0 +1,198 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #F0ECE6;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+/*
+.hero{
+    border: 1px solid black;
+    background-image: url("img/book2.jpg");
+    background-size: auto;
+}
+*/
+.hero{
+    height: 380px;
+    width: 100%;
+    padding: 150px 0 80px 0;
+    background-color: #F0ECE6;
+    background-image: url("img/bg1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.titleContainer{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.videoCon{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+video{
+    width: 100%;
+    height: 100%;
+}
+.hero h1{
+    font-family: fantasy;
+    font-size: 11rem;
+    transition: 0.2s;
+    color: #3B3141;
+    /*background-image: url("img/book5.gif");
+    filter: grayscale(100%);
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;*/
+}
+.hero h1:hover{
+    transform: translateY(-1rem);
+    margin-bottom: 40px;
+    transition: 0.2s;
+    font-weight: bold;
+    background: -webkit-linear-gradient(120deg, #437e28, #57a931, #71fc2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#space{
+    width: 50px;
+}
+#tagLine{
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttonContainer{
+    height: 08px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0 0 0;
+}
+.buttonContainer a{
+    height: 30px;
+    width: 150px;
+    padding: 10px;
+    border-radius: 35px;
+    font-size: 20px;
+    color: #3B3141;
+    background-color: #72EF36;
+    text-decoration-line: none;
+    display: grid;
+    place-content: center;
+    transition: 0.3s;
+}
+#getStarted{
+    margin-right: 50px;
+}
+#searchBuddy:hover, #getStarted:hover{
+    color: #3B3141;
+    transition: 0.3s;
+    box-shadow: 10px 5px 5px #3B3141;
+    border: 1px solid #3B3141;
+    margin-left: 10px;
+}
+.separator{
+    height: 0.1rem;
+    width: 100%;
+    background-color: #3B3141;
+}
+.about{
+    margin-bottom: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about h1{
+
+}
+.blob{
+    height: 250px;
+    width: 250px;
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.blob h2{
+    width: 25rem;
+    font-size: 2.5rem;
+}
+#aboutIcon{
+    margin-left: 5rem;
+}
+#goalIcon{
+    margin-right: 5rem;
+}
+.blobImage{
+    height: 10rem;
+    width: 10rem;
+    background-color: #72EF36;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    height: 200px;
+    width: 200px;
+    padding: 50px;
+    box-shadow: 0 20px 5px 5px rgba(0, 0, 0, 0.2);
+    animation: animate 5s ease-in-out infinite;
+    transition: all 1s ease-in-out;
+}
+@keyframes animate{
+    0%{
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50%{
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100%{
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+}
+.features h1{
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3B3141;
+    margin: 5rem 0 5rem 0;
+}
+.featuresWrap{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.feature{
+    height: 25rem;
+    width: 20%;
+    margin: 1rem;
+    border-radius: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3B3141;
+    box-shadow: 10px 15px 15px black;
+}
+.feature img{
+    height: 7rem;
+    margin-bottom: 3rem;
+}
+.feature label{
+    font-size: 1rem;
+    color: #F0ECE6;
+}

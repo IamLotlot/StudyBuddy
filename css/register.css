@@ -1,0 +1,179 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #F0ECE6;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+/*Personal Section*/
+.personal{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    background-image: url("img/bg4.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+label{
+	color: #F0ECE6;
+}
+input{
+	margin-bottom: 20px;
+}
+.perTitle{
+	color: #3B3141;
+	font-size: 60px;
+	margin: 80px 0 40px 0;
+}
+.perCon{
+	width: 55%;
+	border-radius: 35px;
+	padding: 50px 0 50px 0;
+	background-color: #3B3141;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    box-shadow: 10px 15px 15px black;
+}
+.perCol1{
+	display: flex;
+	flex-direction: column;
+	margin-right: 50px;
+}
+#inputImg{
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	font-size: 50px;
+	margin-bottom: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #F0ECE6;
+	border: 1px solid #F0ECE6;
+	transition: 0.3s;
+}
+#inputImg:hover{
+	color: #72EF36;
+	border: 1px solid #72EF36;
+	transition: 0.3s;
+}
+.perCol2{
+	display: flex;
+	flex-direction: column;
+}
+.perSeparator{
+	column-count: 2;
+}
+.perBox{
+	display: flex;
+	flex-direction: column;
+}
+#age, #sex{
+	width: 30%;
+}
+/*Account Section*/
+.account{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    background-image: url("img/bg5.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.accTitle{
+	color: #3B3141;
+	font-size: 60px;
+	margin: 50px 0 40px 0;
+}
+.accCon{
+	width: 55%;
+	border-radius: 35px;
+	padding: 50px 0 50px 0;
+	background-color: #3B3141;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    box-shadow: 10px 15px 15px black;
+}
+.accCol1{
+	margin-right: 20px;
+	display: flex;
+	flex-direction: column;
+}
+.accCol2{
+	display: flex;
+	flex-direction: column;
+}
+.accInput{
+	width: 200px;
+}
+/*Verification Section*/
+.verification{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    background-image: url("img/bg6.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.verTitle{
+	color: #3B3141;
+	font-size: 60px;
+	margin: 50px 0 40px 0;
+}
+.verCon{
+	width: 55%;
+	border-radius: 35px;
+	padding: 50px 0 50px 0;
+	background-color: #3B3141;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    box-shadow: 10px 15px 15px black;
+}
+.verCol1{
+	width: 400px;
+	column-count: 2;
+	margin-bottom: 20px;
+}
+.verCol2{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.verInput{
+	width: 200px;
+}
+#registerBtn{
+	font-size: 40px;
+	border-radius: 100px;
+	padding: 20px 60px 20px 60px;
+	margin: 50px 0 100px 0;
+	transition: 0.3s;
+    border: 1px solid #3B3141;
+	color: #3B3141;
+	background-color: #72EF36;
+	cursor: pointer;
+}
+#registerBtn:hover{
+    transition: 0.3s;
+    box-shadow: 10px 5px 5px #3B3141;
+    margin-left: 10px;
+}

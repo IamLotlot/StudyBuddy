@@ -1,0 +1,75 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #F0ECE6;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+section{
+    height: 33.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("img/bg3.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.separator{
+    width: 60%;
+}
+.loginContainer{
+    height: 320px;
+    width: 250px;
+    padding: 30px 50px 10px 50px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #3B3141;
+    box-shadow: 10px 15px 15px black;
+}
+.loginCol1{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+label{
+    color: #F0ECE6;
+    margin-bottom: 10px;
+}
+input{
+    height: 30px;
+    border-radius: 35px;
+    margin-bottom: 20px;
+    padding: 0 0 0 10px;
+}
+.loginContainer a{
+    width: 100%;
+    color: #72EF36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.loginContainer a:hover{
+    color: #F0ECE6;
+    transition: 0.3s;
+}
+.loginCol2 i{
+    font-size: 2rem;
+    transition: 0.3s;
+    margin-left: 85%;
+    color: #F0ECE6;
+    cursor: pointer;
+}
+.loginCol2 i:hover{
+    transition: 0.3s;
+    color: #72EF36;
+}

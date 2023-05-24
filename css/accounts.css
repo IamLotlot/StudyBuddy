@@ -1,0 +1,143 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #F0ECE6;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+#usernameTitle{
+    color: #F0ECE6;
+}
+.usernameCol .username{
+    transition: 0.3s;
+    color: #F0ECE6;
+}
+.usernameCol .username:hover{
+    transition: 0.3s;
+    color: #72EF36;
+}
+.accountsCon{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.usernameCol{
+    width: 10%;
+    border-radius: 35px;
+    padding: 20px 20px 20px 10px;
+    box-shadow: 10px 15px 15px black;
+    background-color: #3B3141;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#usernameTitle{
+    font-size: 20px;
+    margin: 10px 0 20px 15px;
+}
+.username{
+    margin-left: 20px;
+    cursor: pointer;
+}
+.username:hover{
+    
+}
+.detailsCol{
+    width: 53%;
+    border-radius: 35px;
+    padding: 20px 10px 20px 10px;
+    box-shadow: 10px 15px 15px black;
+    background-color: #3B3141;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.firstCon{
+    display: flex;
+    flex-direction: row;
+}
+.imageCon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#profileLabel{
+    height: 270px;
+    width: 200px;
+    font-size: 50px;
+    margin-left: 30px;
+    border-radius: 35px;
+    transition: 0.3s;
+    border: 1px solid #F0ECE6;
+    color: #F0ECE6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#profileLabel:hover{
+    transition: 0.3s;
+    border: 1px solid #72EF36;
+    color: #72EF36;
+}
+#profilePreview{
+    height: 270px;
+    width: 200px;
+    margin-left: 30px;
+    border-radius: 35px;
+}
+.detailsCon{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.detailsCon input{
+    width: 180px;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    padding-left: 10px;
+}
+.detailsCon label{
+    color: #F0ECE6;
+    margin-bottom: 3px;
+}
+.buttonsCol{
+    width: 13%;
+    border-radius: 35px;
+    padding: 30px 0 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.buttonsCol i{
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: #72EF36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.buttonsCol i:hover{
+}
+.buttonsWrap{
+    display: inline-flex;
+}
+.show-content{
+    font-size: 1.5rem;
+    margin-left: 10px;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.5s ease, height 1s ease;
+    color: #3B3141;
+}
+.fa-solid:hover + .show-content {
+    opacity: 1;
+    height: auto;
+}

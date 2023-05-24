@@ -1,0 +1,153 @@
+nav{
+	/*
+	GumTree
+	#72EF36 green
+	#3B3141 light black
+	#F0ECE6 bone white
+	*/
+	background: #3B3141;
+	height: 60px;
+	width: 100%;
+	top: 0;
+	position: sticky;
+	z-index: 999;
+	box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+}
+.circleContainer{
+	height: 110px;
+	width: 110px;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	border-radius: 50%;
+	overflow: hidden;
+	transition: 0.5s;
+	z-index: 999;
+}
+.circleNav img{
+	border-radius: 50%;
+	background-color: #F0ECE6;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	transition: 0.3s;
+	border: 3px solid #3B3141;
+	box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.2);
+}
+.circleNav img:hover{
+	background-color: #3B3141;
+	border: 3px solid #F0ECE6;
+	transition: 0.3s;
+}
+.ulLeft{
+	float: left;
+}  
+.ulRight{
+	float: right;
+	margin-right: 20px;
+}
+nav ul li{
+	display: inline-block;
+	line-height: 50px;
+	margin: 0 30px;
+}
+nav ul li a{
+	height: 150px;
+	color: #72EF36;
+	font-size: 18px;
+  	text-decoration: none;
+	font-weight: bold;
+	position: relative;
+}
+nav ul li a:after{
+	height: 5px;
+	width: 0;
+	left: 0;
+	position: absolute;
+	content: "";
+	border-radius: 0 0 15px 15px;
+	background-color: #72EF36;
+	transition: 0.5s;
+}
+nav ul li a:hover:after{
+	width: 100%;
+	transition: 0.5s;
+}
+#userIcon{
+	height: 100px;
+	font-size: 20px;
+	margin-right: 0.5rem;
+	transition: 0.3s;
+	color: #F0ECE6;
+}
+#onlineUser{
+	height: 100px;
+	font-size: 20px;
+	transition: 0.3s;
+	color: #F0ECE6;
+  	text-decoration: none;
+	font-weight: bold;
+	position: relative;
+}
+#onlineUser:hover {
+	transition: 0.3s;
+	color: #72EF36;
+}
+#scrollTop{
+	display: none;
+	bottom: 20px;
+	right: 20px;
+	z-index: 599;
+	padding: 8px;
+	border-radius: 30px;
+	font-size: 30px;
+	border: 2px solid #72EF36;
+	transition: 0.3s;
+	position: fixed;
+	outline: none;
+	background-color: #3B3141;
+	color: #72EF36;
+	cursor: pointer;
+}
+#scrollTop:hover{
+	transition: 0.3s;
+  	border: 2px solid #72EF36;
+	background-color: #72EF36;
+	color: #3B3141;
+}
+.toolCon{
+	height: 20rem;
+	left: 0;
+	width: 4rem;
+	margin-top: 10rem;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.toolWrapper{
+	width: 5rem;
+	transition: 0.3s;
+	padding-left: 1rem;
+	margin: 0 3.5rem 1rem 0;
+	display: flex;
+	align-items: flex-end;
+}
+.toolWrapper:hover{
+	margin-left: 5rem;
+	transition: 0.3s;
+}
+.toolCon i{
+	height: 3rem;
+	width: 3rem;
+	font-size: 2rem;
+	transition: 0.3s;
+	border-radius: 50%;
+	color: #72EF36;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #3B3141;
+	cursor: pointer;
+}

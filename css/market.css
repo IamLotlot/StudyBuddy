@@ -1,0 +1,162 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+    scroll-behavior: smooth;
+}
+body{
+    background-color: #F0ECE6;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}
+.marketCon{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.utilityCol{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.utilityCon{
+    width: 100%;
+    border-radius: 35px;
+    padding: 50px 25px 50px 25px;
+    margin-bottom: 20px;
+    background-color: #3B3141;
+}
+#searchBar{
+    height: 40px;
+    width: 95%;
+    padding-left: 10px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.utilityTitle{
+    color: #F0ECE6;
+    margin-bottom: 10px;
+}
+.minMax input{
+    width: 20%;
+    border-radius: 35px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+.minMax label{
+    font-size: 20px;
+    font-weight: bold;
+    color: #F0ECE6;
+}
+.filters{
+    margin-bottom: 20px;
+}
+.filters input{
+    border-radius: 35px;
+    color: #3B3141;
+    border: 1px solid transparent;
+    background-color: #F0ECE6;
+    transition: 0.3s;
+}
+.filters input:hover{
+    color: #72EF36;
+    border: 1px solid #72EF36;
+    background-color: #3B3141;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.ascDes input{
+    cursor: pointer;
+}
+.ascDes label{
+    color: #F0ECE6;
+    cursor: pointer;
+}
+.Buttons{
+    width: 100%;
+    padding: 30px 25px 30px 25px;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.productBtn{
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 35px;
+    transition: 0.3s;
+    margin-bottom: 10px;
+    border-color: 1px sold #72EF36;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3B3141;
+    background-color: #72EF36;
+    cursor: pointer;
+}
+.productBtn:hover{
+    transition: 0.3s;
+    box-shadow: 10px 5px 5px #3B3141;
+    margin-left: 10px;
+}
+.productCol{
+    height: auto;
+    width: 67%;
+    border-radius: 35px;
+    padding-bottom: 20px;
+    background-color: #3B3141;
+    display: block;
+    text-align: center;
+}
+.productCon{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    color: #3B3141;
+    justify-content: space-evenly;
+}
+.product{
+    width: 200px;
+    padding: 15px 5px 15px 5px;
+    border-radius: 25px;
+    margin: 20px 5px 0 5px;
+    transition: 0.5s ease;
+    background-color: #332A39;
+    position: relative;
+    cursor: pointer;
+}
+.product img{
+    height: 250px;
+    width: 180px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: 1px solid #F0ECE6;
+}
+.description{
+    width: 100%;
+    padding: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.description label{
+    color: #F0ECE6;
+}
+#productName{
+    font-size: 15px;
+    margin-top: 5px;
+}
+#productPrice{
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+#productSeller{
+    color: gray;
+}
+.product i{
+    color: #F0ECE6;
+}
