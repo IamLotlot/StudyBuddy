@@ -34,7 +34,7 @@ if ($conn===false) {
         //Store online username in local storage
         echo "localStorage.setItem('userOnline', '$username');";
 
-        echo 'window.location.href = "home.php";</script>';
+        echo 'window.location.href = "index.php";</script>';
 
     } else if ($row2["role"]=="user") {
         //Store online username in session
@@ -47,7 +47,7 @@ if ($conn===false) {
         //Store online username in local storage
         echo "localStorage.setItem('userOnline', '$username');";
 
-	    echo 'window.location.href = "home.php";';
+	    echo 'window.location.href = "index.php";';
 	    echo '</script>';
     } else {
         echo '<script type="text/javascript">'; 
