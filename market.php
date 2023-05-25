@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/market.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
 </head>
-<body onload="Online()">
+<body onload="Online(); OnlineMarket()">
 <?php
 	include 'nav.php';
 ?>
@@ -133,5 +133,6 @@
     	</div>
     </section>
 	<script src="js/main.js"></script>
+	<script src="js/market.js"></script>
 </body>
 </html>

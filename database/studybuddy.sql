@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2023 at 02:22 PM
+-- Generation Time: May 25, 2023 at 12:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -93,6 +93,27 @@ INSERT INTO `market` (`productid`, `rate`, `name`, `price`, `seller`, `date`, `c
 (11, 0, 'ExploringAndruino', 299, 'user', '2023-05-16', 'Computer', 0x4578706c6f72696e67416e647275696e6f5f757365722e6a7067, 0x4578706c6f72696e67416e647275696e6f5f757365722e706466),
 (12, 0, 'GrobsBasicElectronics', 499, 'user', '2023-05-16', 'Computer', 0x47726f62734261736963456c656374726f6e6963735f757365722e706e67, 0x47726f62734261736963456c656374726f6e6963735f757365722e706466),
 (13, 0, 'ComputerScienceIlluminated', 523, 'user', '2023-05-16', 'qweqwe', 0x436f6d7075746572536369656e6365496c6c756d696e617465645f50726f66696c652d506963747572652e6a7067, 0x436f6d7075746572536369656e6365496c6c756d696e617465645f5044462e706466);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `note`
+--
+
+CREATE TABLE `note` (
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `note`
+--
+
+INSERT INTO `note` (`title`, `content`, `user`, `date`, `time`) VALUES
+('note1', 'I am to be and not to be but a tutubi', 'admin', '2023-05-25', '17:23:38');
 
 --
 -- Indexes for dumped tables

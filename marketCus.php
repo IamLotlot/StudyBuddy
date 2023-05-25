@@ -107,5 +107,6 @@
 		</section>
 	</form>
 	<script src="js/main.js"></script>
+	<script src="js/marketCus.js"></script>
 </body>
 </html>

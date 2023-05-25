@@ -67,6 +67,71 @@ function closeAllContents() {
   });
 }
 
+////Image shows up when picked from a file element (accounts.php)
+const label = document.getElementById('profileLabel');
+const fileInput = document.getElementById('profileInput');
+const preview = document.getElementById('profilePreview');
+
+label.addEventListener('click', () => {
+  fileInput.click();
+});
+
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+
+  if (file) {
+    label.textContent = file.name;
+    const reader = new FileReader();
+    reader.onload = () => {
+      preview.src = reader.result;
+      label.style.display = 'none';
+      preview.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+////Gets the username's other information and set it into the inputs
+function getUsername(label) {
+
+  var inputs = document.getElementsByClassName("inputField");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
+
+  var userOnline = label.innerHTML;
+
+  var username = document.getElementById("username").value = userOnline;
+  var password = document.getElementById(userOnline + "-password").value;
+  var state = document.getElementById(userOnline + "-state").value;
+  var email = document.getElementById(userOnline + "-email").value;
+  var fullname = document.getElementById(userOnline + "-fullname").value;
+  var yearSection = document.getElementById(userOnline + "-yearSection").value;
+  var age = document.getElementById(userOnline + "-age").value;
+  var studentid = document.getElementById(userOnline + "-studentid").value;
+  var sex = document.getElementById(userOnline + "-sex").value;
+  var address = document.getElementById(userOnline + "-address").value;
+  var contact = document.getElementById(userOnline + "-contact").value;
+  var profile = document.getElementById(userOnline + "-profile").value;
+
+  document.getElementById("username").value = username;
+  document.getElementById("password").value = password;
+  document.getElementById("state").value = state;
+  document.getElementById("email").value = email;
+  document.getElementById("fullname").value = fullname;
+  document.getElementById("yearSection").value = yearSection;
+  document.getElementById("age").value = age;
+  document.getElementById("studentid").value = studentid;
+  document.getElementById("sex").value = sex;
+  document.getElementById("address").value = address;
+  document.getElementById("contact").value = contact;
+  document.getElementById("profilePreview").src = "../StudyBuddy/documents/profile/"+profile;
+
+  document.getElementById('profileLabel').style.display = "none";
+  document.getElementById('profilePreview').style.display = "block";
+
+}
+
 //////////////////// JQuery //////////////////////////////
 //If
 // $(document).ready(function() {
