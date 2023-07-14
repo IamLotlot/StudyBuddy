@@ -6,6 +6,7 @@
 	<title>StudyBuddy | Register Page</title>
     <link rel="shortcut icon" type="icon" href="img">
 	<link rel="icon" type="image/x-icon" href="css/img/StudyBuddy.ico">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/register.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">

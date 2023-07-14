@@ -10,7 +10,7 @@ body::-webkit-scrollbar{
     width: 0;
 }
 section{
-    height: 33.5rem;
+    height: 90vh;
     width: 100%;
     display: flex;
     align-items: center;

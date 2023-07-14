@@ -101,8 +101,6 @@ video{
     color: #3B3141;
     transition: 0.3s;
     box-shadow: 10px 5px 5px #3B3141;
-    border: 1px solid #3B3141;
-    margin-left: 10px;
 }
 .separator{
     height: 0.1rem;
