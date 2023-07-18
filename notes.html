@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Draggable Div Example</title>
+  <style>
+    #draggableDiv {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      cursor: move;
+    }
+  </style>
+</head>
+<body>
+  <div id="draggableDiv"></div>
+
+  <script>
+    var draggableDiv = document.getElementById('draggableDiv');
+    var offsetX = 0;
+    var offsetY = 0;
+    var isDragging = false;
+
+    // Function to start dragging
+    function startDragging(e) {
+      isDragging = true;
+      offsetX = e.clientX - draggableDiv.offsetLeft;
+      offsetY = e.clientY - draggableDiv.offsetTop;
+    }
+
+    // Function to stop dragging
+    function stopDragging() {
+      isDragging = false;
+    }
+
+    // Function to move the div
+    function dragDiv(e) {
+      if (isDragging) {
+        draggableDiv.style.left = (e.clientX - offsetX) + 'px';
+        draggableDiv.style.top = (e.clientY - offsetY) + 'px';
+      }
+    }
+
+    // Event listeners for mouse events
+    draggableDiv.addEventListener('mousedown', startDragging);
+    draggableDiv.addEventListener('mouseup', stopDragging);
+    window.addEventListener('mousemove', dragDiv);
+  </script>
+</body>
+</html>

@@ -32,7 +32,7 @@ include "db_conn.php";
     </ul>
     <button onclick="topFunction()" id="scrollTop" title="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
     <div class="toolCon">
-        <div class="toolWrapper" id="noteCon">
+        <div class="toolWrapper" id="msgCon">
             <i class="fa-solid fa-comment-dots" title="Quick Message Tool"></i>
         </div>
         <div class="toolWrapper" id="noteCon">
