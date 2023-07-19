@@ -31,3 +31,45 @@ $(document).ready(function() {
       $("#notepad").hide();
     });
   });
+
+//// When the title is clicked it will show the content and other icons
+$(document).ready(function() {
+  $('.title').click(function() {
+    const id = $(this).attr('id');
+    
+    // Call your function and pass the labelID as an argument
+    showContent(id);
+  });
+});
+
+function showContent(id) {
+  var content = $("#content"+id);
+
+  if (content.is(":hidden")){
+    $("#content"+id).show();
+    $("#share-icon").show();
+    $("#save-icon").show();
+
+  } else {
+    $("#content"+id).hide();
+    $("#share-icon").hide();
+    $("#save-icon").hide();
+  }
+}
+
+//// Add notes function
+$(document).ready(function() {
+  $('#add-icon').click(function() {
+    var title = $("#add-title");
+    var content = $("#add-content");
+    
+    if (title.is(":hidden") && content.is(":hidden")){
+      $("#add-title").show();
+      $("#add-content").show();
+
+    } else {
+      $("#add-title").hide();
+      $("#add-content").hide();
+    }
+  });
+});

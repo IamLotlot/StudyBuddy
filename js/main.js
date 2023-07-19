@@ -114,20 +114,26 @@ function validateInput(input) {
 //// Function for notepad tool icon
 $(document).ready(function() {
   $("#noteCon").click(function() {
+    var notepad = $("#notepad");
 
-    sendOnline();
-    $("#notepad").show();
+    // sendOnline();
+    if (notepad.is(":hidden")) {
+      $("#notepad").show();
+
+    } else {
+      $("#notepad").hide();
+    }
   });
 });
 
 //// Get the online  form
-function sendOnline() {
-  var userOnline = localStorage.getItem("userOnline");
-  // Use AJAX or form submission to send labelText to a PHP script
-  // for further processing on the server-side.
-  // Example using AJAX:
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "notepad.php", true);
-  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("userOnline=" + userOnline);
-}
+// function sendOnline() {
+//   var userOnline = localStorage.getItem("userOnline");
+//   // Use AJAX or form submission to send labelText to a PHP script
+//   // for further processing on the server-side.
+//   // Example using AJAX:
+//   var xhttp = new XMLHttpRequest();
+//   xhttp.open("POST", "main.php", true);
+//   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//   xhttp.send("userOnline=" + userOnline);
+// }
