@@ -8,24 +8,24 @@ include "db_conn.php";
         </div>
     </div>
     <ul class="ulLeft">
-        <li id="buddyNav" title="Go to buddy page" ><a href="buddy.php">Buddy</a></li>
-        <li id="marketNav" title="Go to market page"><a href="market.php">Market</a></li>
-        <li id="creatorsNav" title="Go to creators page"><a href="#">Creators</a></li>
+        <li id="buddyNav" title="Go to buddy page" class="navList"><a href="buddy.php" class="navLabel">Buddy</a></li>
+        <li id="marketNav" title="Go to market page" class="navList"><a href="market.php" class="navLabel">Market</a></li>
+        <li id="creatorsNav" title="Go to creators page" class="navList"><a href="#" class="navLabel">Creators</a></li>
         <!-- Hidden Nav for admin access -->
-        <li id="accountsNav" title="Go to account list page"><a href="accounts.php">Accounts</a></li>
-        <li id="productsNav" title="Go to product list page"><a href="products.php">Products</a></li>
-        <li id="logsNav" title="Go to logs page"><a href="logs.php">Logs</a></li>
+        <li id="accountsNav" title="Go to account list page" class="navList"><a href="accounts.php" class="navLabel">Accounts</a></li>
+        <li id="productsNav" title="Go to product list page" class="navList"><a href="products.php" class="navLabel">Products</a></li>
+        <li id="logsNav" title="Go to logs page" class="navList"><a href="logs.php" class="navLabel">Logs</a></li>
     </ul>
     <ul class="ulRight">
-        <li id="registerNav" title="Go to register page"><a href="register.php">Register</a></li>
-        <li id="loginNav" title="Go to login page"><a href="login.php">Login</a></li>
+        <li id="registerNav" title="Go to register page" class="navList"><a href="register.php" class="navLabel">Register</a></li>
+        <li id="loginNav" title="Go to login page" class="navList"><a href="login.php" class="navLabel">Login</a></li>
         <div id="online-container">
             <i class="fa-solid fa-user" id="userIcon"></i>
-            <a id="onlineUser" name="onlineUser"></a>
+            <a id="onlineUser" name="onlineUser" class="navLabel"></a>
         </div>
         <ul id="dropdown">
             <li><span>0 SC</span></li>
-            <li id="profileNav" title="Go to your profile"><a href="profile.php">Setting</a></li>
+            <li id="profileNav" title="Go to your profile"><a href="profile.php">Profile</a></li>
             <li id="settingNav" title="Go to settings"><a href="setting.php">Setting</a></li>
             <li id="logoutNav" title="Logout your account"><a href="home.php">Logout</a></li>
         </ul>

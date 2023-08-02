@@ -52,12 +52,12 @@ nav{
 	transition: 0.3s;
 	color: var(--green);
 }
-nav ul li{
+.navList{
 	line-height: 3.5rem;
 	margin-right: 2rem;
 	display: inline-block;
 }
-nav ul li a{
+.navLabel{
 	color: var(--white);
 	font-size: 1.2rem;
   	text-decoration: none;
@@ -81,9 +81,38 @@ nav ul li a{
 	cursor: pointer;
 }
 #dropdown{
-	width: 100%;
+	width: auto;
+	right: 2rem;
 	z-index: 999;
-	display: none;
+	background-color: var(--white);
+	border: 0.1rem solid var(--black);
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+}
+#dropdown li{
+	width: 100%;
+	line-height: 3.5rem;
+	margin: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#dropdown span,#dropdown a{
+	width: 100%;
+	font-size: 1.2rem;
+	transition: 0.3s ease;
+	color: var(--black);
+	margin: none;
+	text-decoration: none;
+	font-weight: bold;
+	position: relative;
+}
+#dropdown a:hover{
+	transition: 0.3s ease;
+	background-color: var(--black);
+	color: var(--green);
 }
 #scrollTop{
 	display: none;

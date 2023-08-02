@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/login.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online()">
 <?php
@@ -17,19 +18,17 @@
 ?>
     <section>
     	<div class="separator"></div>
-        <form action="loginEx.php" method="post" class="input-group">
-        	<div class="loginContainer">
-        		<div class="loginCol1">
-	                <label>Username</label><input type="text" class="input-field" name="username" id="username" required>
-	                <label>Password</label><input type="password" class="input-field" name="password" id="password" required>
-	                <a href="#ss-container">Don't have an account?</a>
-        		</div>
-	        	<div class="loginCol2">
-	                <button type="submit" id="loginBtn" class="submit-btn" style="display:none"></button>
-					<i class="fa-solid fa-right-to-bracket" for="loginBtn" onclick="clickLogin()"></i>
-	        	</div>
+        <div class="loginContainer">
+        	<div class="loginCol1">
+	            <label>Username</label><input type="text" class="input-field" name="username" id="username" required>
+	            <label>Password</label><input type="password" class="input-field" name="password" id="password" required>
+				<span id="message"></span>
+	            <a href="#ss-container">Don't have an account?</a>
         	</div>
-        </form>
+	        <div class="loginCol2">
+				<i class="fa-solid fa-right-to-bracket" id="loginBtn" for="loginBtn"></i>
+	        </div>
+        </div>
     </section>
 	<script src="js/main.js"></script>
 	<script src="js/login.js"></script>

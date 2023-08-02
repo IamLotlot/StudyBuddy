@@ -7,7 +7,7 @@
     border-radius: 0.5rem;
     background-color: var(--white);
     border: 0.1rem solid var(--black);
-    display: block;
+    display: none;
     position: absolute;
 }
 #tab{

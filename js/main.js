@@ -5,6 +5,8 @@
     var username = localStorage.getItem('userOnline');
     document.getElementById("onlineUser").innerHTML = username;
 
+    $("#dropdown").hide();
+
     //If someone is logged it will remove register and login label
     var register = document.getElementById("registerNav");
     var userIcon = document.getElementById("userIcon");
@@ -57,6 +59,8 @@
       logout.style.display = "none";
       logs.style.display = "none";
     }
+
+    // Send the userOnline data from localstorage to session
   }
 
 ////Logout function
@@ -79,7 +83,7 @@
       register.style.display = "inline-block";
       login.style.display = "inline-block";
       logout.style.display = "none";
-    }
+    } else {}
   }
 
 ////Scroll to top button
@@ -111,6 +115,13 @@ function validateInput(input) {
   }
 }
 
+//// Show the dropdown div when onlineuser is clicked
+$(document).ready(function() {
+  $("#onlineUser").click(function() {
+    $("#dropdown").toggle();
+  });
+});
+
 //// Function for notepad tool icon
 $(document).ready(function() {
   $("#noteCon").click(function() {
@@ -125,15 +136,3 @@ $(document).ready(function() {
     }
   });
 });
-
-//// Get the online  form
-// function sendOnline() {
-//   var userOnline = localStorage.getItem("userOnline");
-//   // Use AJAX or form submission to send labelText to a PHP script
-//   // for further processing on the server-side.
-//   // Example using AJAX:
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.open("POST", "main.php", true);
-//   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//   xhttp.send("userOnline=" + userOnline);
-// }

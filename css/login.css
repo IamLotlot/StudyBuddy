@@ -4,7 +4,7 @@
     scroll-behavior: smooth;
 }
 body{
-    background-color: #F0ECE6;
+    background-color: var(--white);
 }
 body::-webkit-scrollbar{
     width: 0;
@@ -31,7 +31,7 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #3B3141;
+    background-color: var(--black);
     box-shadow: 10px 15px 15px black;
 }
 .loginCol1{
@@ -41,7 +41,7 @@ section{
     justify-content: center;
 }
 label{
-    color: #F0ECE6;
+    color: var(--white);
     margin-bottom: 10px;
 }
 input{
@@ -52,24 +52,29 @@ input{
 }
 .loginContainer a{
     width: 100%;
-    color: #72EF36;
+    color: var(--green);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.3s;
 }
 .loginContainer a:hover{
-    color: #F0ECE6;
+    color: var(--white);
     transition: 0.3s;
 }
 .loginCol2 i{
     font-size: 2rem;
     transition: 0.3s;
     margin-left: 85%;
-    color: #F0ECE6;
+    color: var(--white);
     cursor: pointer;
 }
 .loginCol2 i:hover{
     transition: 0.3s;
-    color: #72EF36;
+    color: var(--green);
+}
+#message{
+    height: 2rem;
+    margin-bottom: 1rem;
+    color: red;
 }
