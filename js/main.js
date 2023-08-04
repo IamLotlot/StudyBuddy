@@ -1,13 +1,29 @@
-////Enable function when the page loads
+//// Enable function when the page loads
   function Online() {
 
-    //Show online user
-    var username = localStorage.getItem('userOnline');
+    // Sets the account online if only for just a session or to remember them
+    var username = "";
+    var sessionUsername = sessionStorage.getItem('userOnline');
+    var localUsername = localStorage.getItem('userOnline');
+
+    if (localUsername !== null && localUsername !== undefined && localUsername !== '') {
+
+      username = localUsername;
+
+    } else if (sessionUsername !== null && sessionUsername !== undefined && sessionUsername !== '') {
+
+      username = sessionUsername;
+
+    } else {
+
+      console.log("Both session and local are empty.");
+    }
+
     document.getElementById("onlineUser").innerHTML = username;
 
     $("#dropdown").hide();
 
-    //If someone is logged it will remove register and login label
+    // If someone is logged it will remove register and login label
     var register = document.getElementById("registerNav");
     var userIcon = document.getElementById("userIcon");
     var login = document.getElementById("loginNav");
@@ -21,7 +37,7 @@
     
     if (username) {
 
-      if (username=="admin") {
+      if (username == "admin") {
         buddy.style.display = "none";
         market.style.display = "none";
         creators.style.display = "none";
@@ -59,8 +75,6 @@
       logout.style.display = "none";
       logs.style.display = "none";
     }
-
-    // Send the userOnline data from localstorage to session
   }
 
 ////Logout function

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2023 at 08:17 AM
+-- Generation Time: May 25, 2023 at 12:06 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -57,35 +57,6 @@ INSERT INTO `account` (`username`, `password`, `role`, `state`, `email`, `fullna
 -- --------------------------------------------------------
 
 --
--- Table structure for table `conversation`
---
-
-CREATE TABLE `conversation` (
-  `name` varchar(255) NOT NULL,
-  `owner` varchar(255) NOT NULL,
-  `conversation` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `example`
---
-
-CREATE TABLE `example` (
-  `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `example`
---
-
-INSERT INTO `example` (`name`) VALUES
-('test');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `log`
 --
 
@@ -119,32 +90,17 @@ CREATE TABLE `market` (
 --
 
 INSERT INTO `market` (`productid`, `rate`, `name`, `price`, `seller`, `date`, `category`, `image`, `file`) VALUES
-(11, 0, 'ExploringAndruino', 299, 'user1', '2023-05-16', 'Computer', 0x4578706c6f72696e67416e647275696e6f5f757365722e6a7067, 0x4578706c6f72696e67416e647275696e6f5f757365722e706466),
-(12, 0, 'GrobsBasicElectronics', 499, 'user2', '2023-05-16', 'Computer', 0x47726f62734261736963456c656374726f6e6963735f757365722e706e67, 0x47726f62734261736963456c656374726f6e6963735f757365722e706466),
-(13, 0, 'ComputerScienceIlluminated', 523, 'user2', '2023-05-16', 'qweqwe', 0x436f6d7075746572536369656e6365496c6c756d696e617465645f50726f66696c652d506963747572652e6a7067, 0x436f6d7075746572536369656e6365496c6c756d696e617465645f5044462e706466),
-(16, 0, 'Testing', 13, 'user1', '0000-00-00', '', '', '');
+(11, 0, 'ExploringAndruino', 299, 'user', '2023-05-16', 'Computer', 0x4578706c6f72696e67416e647275696e6f5f757365722e6a7067, 0x4578706c6f72696e67416e647275696e6f5f757365722e706466),
+(12, 0, 'GrobsBasicElectronics', 499, 'user', '2023-05-16', 'Computer', 0x47726f62734261736963456c656374726f6e6963735f757365722e706e67, 0x47726f62734261736963456c656374726f6e6963735f757365722e706466),
+(13, 0, 'ComputerScienceIlluminated', 523, 'user', '2023-05-16', 'qweqwe', 0x436f6d7075746572536369656e6365496c6c756d696e617465645f50726f66696c652d506963747572652e6a7067, 0x436f6d7075746572536369656e6365496c6c756d696e617465645f5044462e706466);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages`
+-- Table structure for table `note`
 --
 
-CREATE TABLE `messages` (
-  `message` varchar(255) NOT NULL,
-  `receiver` varchar(255) NOT NULL,
-  `sender` varchar(255) NOT NULL,
-  `time` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `notes`
---
-
-CREATE TABLE `notes` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `note` (
   `title` varchar(255) NOT NULL,
   `content` varchar(255) NOT NULL,
   `user` varchar(255) NOT NULL,
@@ -153,14 +109,11 @@ CREATE TABLE `notes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data for table `notes`
+-- Dumping data for table `note`
 --
 
-INSERT INTO `notes` (`id`, `title`, `content`, `user`, `date`, `time`) VALUES
-(1, 'testing', 'testing testing testing testing testingsingdsigndisgnsdignsdigsn', 'user1', '2023-07-17', '18:46:09'),
-(2, 'ITEC106 Tips', 'Wag ka makinig matulog ka para lahat ng sasabihin ng teacher mo papasok sa panaginip mo at makikita mo ang visual presentation at mabilis mo maiintindihan', 'user1', '2023-07-19', '17:34:30'),
-(3, 'qweqw', 'qewqeeqewe', 'user1', '0000-00-00', '00:00:00'),
-(4, 'dasdasd', 'asdavdadwada', 'user1', '0000-00-00', '00:00:00');
+INSERT INTO `note` (`title`, `content`, `user`, `date`, `time`) VALUES
+('note1', 'I am to be and not to be but a tutubi', 'admin', '2023-05-25', '17:23:38');
 
 --
 -- Indexes for dumped tables
@@ -174,12 +127,6 @@ ALTER TABLE `market`
   ADD UNIQUE KEY `productid` (`productid`);
 
 --
--- Indexes for table `notes`
---
-ALTER TABLE `notes`
-  ADD UNIQUE KEY `id` (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -187,13 +134,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `market`
 --
 ALTER TABLE `market`
-  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `notes`
---
-ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

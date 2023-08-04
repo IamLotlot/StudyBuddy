@@ -29,12 +29,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
             if ($role === "admin") {
 
-                // $_SESSION['userOnline'] = ''+$username;
+                $_SESSION['userOnline'] = $username;
                 echo "Admin";
         
             } else if ($role === "user") {
 
-                // $_SESSION['userOnline'] = $username;
+                $_SESSION['userOnline'] = $username;
                 echo "User";
                 
             } else {

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,12 +24,15 @@
 			<div class="productCon">
 				<label class="productTitle">Product List:</label>
 				<?php
+				$username = "";
 
-				//session_start()
+				if (isset($_SESSION['userOnline'])) {
+					$username = $_SESSION['userOnline'];
+				} else {
+					echo 'Try to re-login!';
+				}
 
-				//$userOnline = $_SESSION['userOnline'];   WHERE `seller` = '$userOnline'
-
-	            $sql = "SELECT * FROM `market`";
+	            $sql = "SELECT * FROM `market` WHERE `seller` = '$username'";
 
 	            $result = mysqli_query($conn, $sql);
 	

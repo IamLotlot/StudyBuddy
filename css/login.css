@@ -24,8 +24,8 @@ section{
     width: 60%;
 }
 .loginContainer{
-    height: 320px;
-    width: 250px;
+    height: 25rem;
+    width: 18rem;
     padding: 30px 50px 10px 50px;
     border-radius: 35px;
     display: flex;
@@ -73,8 +73,21 @@ input{
     transition: 0.3s;
     color: var(--green);
 }
+.loginCol1 div{
+    display: flex;
+    align-content: center;
+    justify-content: start;
+}
+#remember-me{
+    height: 1rem;
+}
+#remember-me-label{
+    height: 1rem;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    color: var(--white);
+}
 #message{
     height: 2rem;
-    margin-bottom: 1rem;
     color: red;
 }
