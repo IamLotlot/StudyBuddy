@@ -7,6 +7,9 @@ unset($_SESSION['userOnline']);
 echo '<script type="text/javascript">'; 
 echo 'localStorage.removeItem("userOnline");';
 echo 'sessionStorage.removeItem("userOnline");';
+
+session_destroy();
+
 echo 'window.location.href = "home.php";';
 echo '</script>';
 ?>

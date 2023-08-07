@@ -81,6 +81,7 @@ nav{
 	cursor: pointer;
 }
 #dropdown{
+	height: auto;
 	width: auto;
 	right: 2rem;
 	z-index: 999;
@@ -92,24 +93,27 @@ nav{
 }
 #dropdown li{
 	width: 100%;
-	line-height: 3.5rem;
+	line-height: 3rem;
 	margin: none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	border: 1px solid blue;
 }
-#dropdown span,#dropdown a{
+#dropdown span,.dropdown-label{
 	width: 100%;
 	font-size: 1.2rem;
+	padding: 0 1rem 0 1rem;
 	transition: 0.3s ease;
 	color: var(--black);
 	margin: none;
 	text-decoration: none;
 	font-weight: bold;
 	position: relative;
+	border: 1px solid red;
 }
-#dropdown a:hover{
+.dropdown-label:hover{
 	transition: 0.3s ease;
 	background-color: var(--black);
 	color: var(--green);

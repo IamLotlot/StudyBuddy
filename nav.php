@@ -23,12 +23,14 @@ include "db_conn.php";
             <i class="fa-solid fa-user" id="userIcon"></i>
             <a id="onlineUser" name="onlineUser" class="navLabel"></a>
         </div>
-        <ul id="dropdown">
-            <li><span>0 SC</span></li>
-            <li id="profileNav" title="Go to your profile"><a href="profile.php">Profile</a></li>
-            <li id="settingNav" title="Go to settings"><a href="setting.php">Setting</a></li>
-            <li id="logoutNav" title="Logout your account"><a href="home.php">Logout</a></li>
-        </ul>
+        <div id="dropdown">
+            <ul>
+                <li><span>0 SC</span></li>
+                <li id="profileNav" title="Go to your profile"><a href="profile.php" class="dropdown-label">Profile</a></li>
+                <li id="settingNav" title="Go to settings"><a href="setting.php" class="dropdown-label">Setting</a></li>
+                <li id="logoutNav" title="Logout your account"><a href="home.php" class="dropdown-label">Logout</a></li>
+            </ul>
+        </div>
     </ul>
     <button onclick="topFunction()" id="scrollTop" title="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
     <div class="toolCon">

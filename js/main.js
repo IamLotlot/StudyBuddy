@@ -14,10 +14,7 @@
 
       username = sessionUsername;
 
-    } else {
-
-      console.log("Both session and local are empty.");
-    }
+    } else {}
 
     document.getElementById("onlineUser").innerHTML = username;
 
