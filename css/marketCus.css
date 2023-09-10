@@ -4,7 +4,7 @@
     scroll-behavior: smooth;
 }
 body{
-    background-color: #F0ECE6;
+    background-color: var(--white);
 }
 body::-webkit-scrollbar{
     width: 0;
@@ -28,7 +28,7 @@ section{
     width: 67%;
     border-radius: 35px;
     padding: 50px 40px 20px 40px;
-    background-color: #3B3141;
+    background-color: var(--black);
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -41,7 +41,7 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3B3141;
+    color: var(--black);
 }
 .product{
     width: 30%;
@@ -50,17 +50,17 @@ section{
     border-radius: 35px;
     margin-bottom: 10px;
     transition: 0.3s;
-    border: 1px solid #3B3141;
+    border: 1px solid var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3B3141;
-    background-color: #72EF36;
+    color: var(--black);
+    background-color: var(--green);
     cursor: pointer;
 }
 .product:hover{
     transition: 0.3s;
-    box-shadow: 10px 5px 5px #3B3141;
+    box-shadow: 10px 5px 5px var(--black);
     margin-left: 10px;
 }
 .firstCol{
@@ -75,13 +75,13 @@ img{
     width: 200px;
     margin: 0 20px 20px 0;
     border-radius: 35px;
-    border: 1px solid #F0ECE6;
+    border: 1px solid var(--white);
 }
 .rateCon i{
-    color: #F0ECE6;
+    color: var(--white);
 }
 label{
-    color: #F0ECE6;
+    color: var(--white);
 }
 .detailsCon{
     column-count: 2;
@@ -97,7 +97,7 @@ label{
 }
 .detailsCon input[disabled] {
   opacity: 0.5;
-  background-color: #f2f2f2;
+  background-color: var(--white);
 }
 #dateLabel{
     width: 100px;
@@ -127,21 +127,21 @@ iframe{
     padding: 10px;
     border-radius: 25px;
     transition: 0.3s;
-    border: 1px solid #F0ECE6;
+    border: 1px solid var(--white);
     cursor: pointer;
-    background-color: #72EF36;
-    color: #3B3141;
+    background-color: var(--green);
+    color: var(--black);
 }
 .buttonCon input:hover{
     transition: 0.3s;
-    box-shadow: 4px 3px 2px #F0ECE6;
+    box-shadow: 4px 3px 2px var(--white);
     margin-left: 10px;
-    color: #F0ECE6;
+    color: var(--white);
 }
 .buttonCon i{
     height: 3rem;
     font-size: 2rem;
-    color: #72EF36;
+    color: var(--green);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -153,7 +153,7 @@ iframe{
     height: 0;
     transition: opacity 0.5s ease, height 1s ease;
     overflow: hidden;
-    color: #72EF36;
+    color: var(--green);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -4,21 +4,21 @@
     scroll-behavior: smooth;
 }
 body{
-    background-color: #F0ECE6;
+    background-color: var(--white);
 }
 body::-webkit-scrollbar{
     width: 0;
 }
 #usernameTitle{
-    color: #F0ECE6;
+    color: var(--white);
 }
 .usernameCol .username{
     transition: 0.3s;
-    color: #F0ECE6;
+    color: var(--white);
 }
 .usernameCol .username:hover{
     transition: 0.3s;
-    color: #72EF36;
+    color: var(--green);
 }
 .accountsCon{
     width: 100%;
@@ -32,7 +32,7 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     padding: 20px 20px 20px 10px;
     box-shadow: 10px 15px 15px black;
-    background-color: #3B3141;
+    background-color: var(--black);
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -53,7 +53,7 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     padding: 20px 10px 20px 10px;
     box-shadow: 10px 15px 15px black;
-    background-color: #3B3141;
+    background-color: var(--black);
     display: inline-flex;
     align-items: center;
     justify-content: space-evenly;
@@ -74,8 +74,8 @@ body::-webkit-scrollbar{
     margin-left: 30px;
     border-radius: 35px;
     transition: 0.3s;
-    border: 1px solid #F0ECE6;
-    color: #F0ECE6;
+    border: 1px solid var(--white);
+    color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,8 +83,8 @@ body::-webkit-scrollbar{
 }
 #profileLabel:hover{
     transition: 0.3s;
-    border: 1px solid #72EF36;
-    color: #72EF36;
+    border: 1px solid var(--green);
+    color: var(--green);
 }
 #profilePreview{
     height: 270px;
@@ -104,7 +104,7 @@ body::-webkit-scrollbar{
     padding-left: 10px;
 }
 .detailsCon label{
-    color: #F0ECE6;
+    color: var(--white);
     margin-bottom: 3px;
 }
 .buttonsCol{
@@ -118,7 +118,7 @@ body::-webkit-scrollbar{
 .buttonsCol i{
     font-size: 2.5rem;
     margin-bottom: 25px;
-    color: #72EF36;
+    color: var(--green);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,7 +135,7 @@ body::-webkit-scrollbar{
     opacity: 0;
     height: 0;
     transition: opacity 0.5s ease, height 1s ease;
-    color: #3B3141;
+    color: var(--black);
 }
 .fa-solid:hover + .show-content {
     opacity: 1;

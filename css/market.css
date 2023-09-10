@@ -4,7 +4,7 @@
     scroll-behavior: smooth;
 }
 body{
-    background-color: #F0ECE6;
+    background-color: var(--white);
 }
 body::-webkit-scrollbar{
     width: 0;
@@ -26,7 +26,7 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     padding: 50px 25px 50px 25px;
     margin-bottom: 20px;
-    background-color: #3B3141;
+    background-color: var(--black);
 }
 #searchBar{
     height: 40px;
@@ -36,7 +36,7 @@ body::-webkit-scrollbar{
     margin-bottom: 20px;
 }
 .utilityTitle{
-    color: #F0ECE6;
+    color: var(--white);
     margin-bottom: 10px;
 }
 .minMax input{
@@ -48,22 +48,22 @@ body::-webkit-scrollbar{
 .minMax label{
     font-size: 20px;
     font-weight: bold;
-    color: #F0ECE6;
+    color: var(--white);
 }
 .filters{
     margin-bottom: 20px;
 }
 .filters input{
     border-radius: 35px;
-    color: #3B3141;
+    color: var(--black);
     border: 1px solid transparent;
-    background-color: #F0ECE6;
+    background-color: var(--white);
     transition: 0.3s;
 }
 .filters input:hover{
-    color: #72EF36;
-    border: 1px solid #72EF36;
-    background-color: #3B3141;
+    color: var(--green);
+    border: 1px solid var(--green);
+    background-color: var(--black);
     cursor: pointer;
     transition: 0.3s;
 }
@@ -71,7 +71,7 @@ body::-webkit-scrollbar{
     cursor: pointer;
 }
 .ascDes label{
-    color: #F0ECE6;
+    color: var(--white);
     cursor: pointer;
 }
 .Buttons{
@@ -90,17 +90,17 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     transition: 0.3s;
     margin-bottom: 10px;
-    border-color: 1px sold #72EF36;
+    border-color: 1px sold var(--green);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #3B3141;
-    background-color: #72EF36;
+    color: var(--black);
+    background-color: var(--green);
     cursor: pointer;
 }
 .productBtn:hover{
     transition: 0.3s;
-    box-shadow: 10px 5px 5px #3B3141;
+    box-shadow: 10px 5px 5px var(--black);
     margin-left: 10px;
 }
 .productCol{
@@ -108,7 +108,7 @@ body::-webkit-scrollbar{
     width: 67%;
     border-radius: 35px;
     padding-bottom: 20px;
-    background-color: #3B3141;
+    background-color: var(--black);
     display: block;
     text-align: center;
 }
@@ -116,7 +116,7 @@ body::-webkit-scrollbar{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    color: #3B3141;
+    color: var(--black);
     justify-content: space-evenly;
 }
 .product{
@@ -125,7 +125,7 @@ body::-webkit-scrollbar{
     border-radius: 25px;
     margin: 20px 5px 0 5px;
     transition: 0.5s ease;
-    background-color: #332A39;
+    background-color: var(--black);
     position: relative;
     cursor: pointer;
 }
@@ -134,7 +134,7 @@ body::-webkit-scrollbar{
     width: 180px;
     margin-bottom: 10px;
     border-radius: 15px;
-    border: 1px solid #F0ECE6;
+    border: 1px solid var(--white);
 }
 .description{
     width: 100%;
@@ -144,7 +144,7 @@ body::-webkit-scrollbar{
     align-items: flex-start;
 }
 .description label{
-    color: #F0ECE6;
+    color: var(--white);
 }
 #productName{
     font-size: 15px;
@@ -155,8 +155,8 @@ body::-webkit-scrollbar{
     margin-bottom: 5px;
 }
 #productSeller{
-    color: gray;
+    color: var(--gray);
 }
 .product i{
-    color: #F0ECE6;
+    color: var(--white);
 }

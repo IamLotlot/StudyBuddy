@@ -4,7 +4,7 @@
     scroll-behavior: smooth;
 }
 body{
-    background-color: #F0ECE6;
+    background-color: var(--white);
 }
 body::-webkit-scrollbar{
     width: 0;
@@ -22,13 +22,13 @@ body::-webkit-scrollbar{
     background-repeat: no-repeat;
 }
 label{
-	color: #F0ECE6;
+	color: var(--white);
 }
 input{
 	margin-bottom: 20px;
 }
 .perTitle{
-	color: #3B3141;
+	color: var(--black);
 	font-size: 60px;
 	margin: 80px 0 40px 0;
 }
@@ -36,7 +36,7 @@ input{
 	width: 55%;
 	border-radius: 35px;
 	padding: 50px 0 50px 0;
-	background-color: #3B3141;
+	background-color: var(--black);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -57,13 +57,13 @@ input{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #F0ECE6;
-	border: 1px solid #F0ECE6;
+	color: var(--white);
+	border: 1px solid var(--white);
 	transition: 0.3s;
 }
 #inputImg:hover{
-	color: #72EF36;
-	border: 1px solid #72EF36;
+	color: var(--green);
+	border: 1px solid var(--green);
 	transition: 0.3s;
 }
 .perCol2{
@@ -93,7 +93,7 @@ input{
     background-repeat: no-repeat;
 }
 .accTitle{
-	color: #3B3141;
+	color: var(--black);
 	font-size: 60px;
 	margin: 50px 0 40px 0;
 }
@@ -101,7 +101,7 @@ input{
 	width: 55%;
 	border-radius: 35px;
 	padding: 50px 0 50px 0;
-	background-color: #3B3141;
+	background-color: var(--black);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -132,7 +132,7 @@ input{
     background-repeat: no-repeat;
 }
 .verTitle{
-	color: #3B3141;
+	color: var(--black);
 	font-size: 60px;
 	margin: 50px 0 40px 0;
 }
@@ -140,7 +140,7 @@ input{
 	width: 55%;
 	border-radius: 35px;
 	padding: 50px 0 50px 0;
-	background-color: #3B3141;
+	background-color: var(--black);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -167,13 +167,13 @@ input{
 	padding: 20px 60px 20px 60px;
 	margin: 50px 0 100px 0;
 	transition: 0.3s;
-    border: 1px solid #3B3141;
-	color: #3B3141;
-	background-color: #72EF36;
+    border: 1px solid var(--black);
+	color: var(--black);
+	background-color: var(--green);
 	cursor: pointer;
 }
 #registerBtn:hover{
     transition: 0.3s;
-    box-shadow: 10px 5px 5px #3B3141;
+    box-shadow: 10px 5px 5px var(--black);
     margin-left: 10px;
 }
