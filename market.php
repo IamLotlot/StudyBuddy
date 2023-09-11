@@ -23,7 +23,7 @@
 	    		<input type="text" id="searchBar" name="searchBar" placeholder="Search...">
 	    		<label class="utilityTitle">Price Range:</label>
 	    		<div class="minMax">
-	    			<input type="text" name="min" >
+	    			<input type="text" name="min">
 	    			<label>-</label>
 	    			<input type="text" name="max">
 	    		</div>

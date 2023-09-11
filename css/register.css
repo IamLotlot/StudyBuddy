@@ -22,10 +22,13 @@ body::-webkit-scrollbar{
     background-repeat: no-repeat;
 }
 label{
+	margin-bottom: 0.5rem;
 	color: var(--white);
 }
-input{
+input, #sex{
 	margin-bottom: 20px;
+	border-radius: 0.5rem;
+	padding:  0.2rem 1rem 0.2rem 1rem;
 }
 .perTitle{
 	color: var(--black);
@@ -47,12 +50,12 @@ input{
 	flex-direction: column;
 	margin-right: 50px;
 }
-#inputImg{
+#inputImg, #chosenPicture{
 	height: 150px;
 	width: 150px;
 	border-radius: 50%;
 	font-size: 50px;
-	margin-bottom: 40px;
+	margin: 2rem 0 3rem 1rem;
 	cursor: pointer;
 	display: flex;
 	align-items: center;
@@ -77,8 +80,12 @@ input{
 	display: flex;
 	flex-direction: column;
 }
-#age, #sex{
-	width: 30%;
+#age{
+	width: 25%;
+	padding:  0.2rem 0.1rem 0.2rem 0.5rem;
+}
+#sex{
+	width: 60%;
 }
 /*Account Section*/
 .account{

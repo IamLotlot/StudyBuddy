@@ -22,7 +22,7 @@
         	<div class="loginCol1">
 	            <label>Username</label><input type="text" class="input-field" name="username" id="username" required>
 	            <label>Password</label><input type="password" class="input-field" name="password" id="password" required>
-				<div><input type="checkbox" id="remember-me"><span id="remember-me-label">Remember Me</span></div>
+				<div><input type="checkbox" id="remember-me" checked><span id="remember-me-label">Remember Me</span></div>
 				<span id="message"></span>
 	            <a href="#ss-container">Don't have an account?</a>
         	</div>

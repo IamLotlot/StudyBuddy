@@ -90,12 +90,29 @@
     // Check the result
     if (result == true) {
       localStorage.removeItem('userOnline');
+      sessionStorage.removeItem("userOnline");
       location.reload();
       register.style.display = "inline-block";
       login.style.display = "inline-block";
       logout.style.display = "none";
+      destroySession();
     } else {}
   }
+  
+    // Function to destroy the session when logged in
+    function destroySession() {
+      $.ajax({
+          type: "POST",
+          url: "logout.php",
+          dataType: "json",
+          success: function(response) {
+            window.location.href = 'home.php';
+          },
+          error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+          }
+      });
+    }
 
 ////Scroll to top button
   let mybutton = document.getElementById("scrollTop");

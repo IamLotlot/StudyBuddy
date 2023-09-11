@@ -8,8 +8,8 @@ $studentid = $_POST['studentid'];
 
 //Images
 
-$profile = $_FILES['inputImg'];
-$profile_name = $_FILES['inputImg']['name'];
+$profile = $_FILES['profile'];
+$profile_name = $_FILES['profile']['name'];
 $profile_ext = pathinfo($profile_name, PATHINFO_EXTENSION);
 $profile_new_name = $username . "_Profile-Picture." . $profile_ext;
 
@@ -25,10 +25,9 @@ $studBack_ext = pathinfo($studBack_name, PATHINFO_EXTENSION);
 $studBack_new_name = $username . "_Student-ID-BACK." . $studBack_ext;
 
 //Image format or extension
-/*
 $profile_ex = pathinfo($profile_name, PATHINFO_EXTENSION);
 $profile_ex_lc = strtolower($profile_ex);
-*/
+
 $studFront_ex = pathinfo($studFront_name, PATHINFO_EXTENSION);
 $studFront_ex_lc = strtolower($studFront_ex);
 
@@ -78,14 +77,13 @@ if (mysqli_num_rows($result1) > 0) {
     
             if (in_array($studBack_ex_lc, $allowed_exs)) {
     
-                move_uploaded_file($profile["tmp_name"], "documents/Profile/".$profile_new_name);
-                move_uploaded_file($studFront["tmp_name"], "documents/StudentID/".$studFront_new_name);
-                move_uploaded_file($studBack["tmp_name"], "documents/StudentID/".$studBack_new_name);
+                move_uploaded_file($profile["tmp_name"], "documents/profile/".$profile_new_name);
+                move_uploaded_file($studFront["tmp_name"], "documents/studentid/".$studFront_new_name);
+                move_uploaded_file($studBack["tmp_name"], "documents/studentid/".$studBack_new_name);
             
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                //$passwordEn = password_hash($password, PASSWORD_DEFAULT);
-                $role = $_POST['role'];
+                $passwordEn = password_hash($password, PASSWORD_DEFAULT);
                 $email = $_POST['email'];
                 $fullname = $_POST['fullname'];
                 $address = $_POST['address'];
@@ -97,8 +95,8 @@ if (mysqli_num_rows($result1) > 0) {
         
                 $conn = mysqli_connect('localhost', 'root', '', 'studybuddy');
     
-                $sql = "INSERT INTO `account`(`username`, `password`, `role`, `state`, `email`, `fullname`, `address`, `yearSection`, `age`, `studentid`, `sex`, `contact`, `profile`, `studFront`, `studBack`) 
-                        VALUES ('$username','$password','user', 'not-verified', '$email','$fullname','$address','$yearSection','$age', '$studentid','$sex','$contact','$profile_new_name','$studFront_new_name','$studBack_new_name')";
+                $sql = "INSERT INTO `account`(`username`, `password`, `role`, `state`, `email`, `fullname`, `address`, `yearSection`, `age`, `studentid`, `sex`, `contact`, `profile`, `studFront`, `studBack`, `studdycoin`) 
+                        VALUES ('$username','$passwordEn','user', 'not-verified', '$email','$fullname','$address','$yearSection','$age', '$studentid','$sex','$contact','$profile_new_name','$studFront_new_name','$studBack_new_name','0')";
     
                 $result = mysqli_query($conn, $sql);
     

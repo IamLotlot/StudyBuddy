@@ -40,13 +40,13 @@ nav{
 	margin-right: 2rem;
 	float: right;
 }
-.ulRight div{
+/* .ulRight div{
 	transition: 0.3s;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-}
+} */
 #online-container:hover #userIcon,
 #online-container:hover #onlineUser{
 	transition: 0.3s;
@@ -82,17 +82,19 @@ nav{
 }
 #dropdown{
 	height: auto;
-	width: auto;
-	right: 2rem;
+	width: 10rem;
+	right: 3rem;
 	z-index: 999;
 	background-color: var(--white);
 	border: 0.1rem solid var(--black);
 	display: flex;
 	flex-direction: column;
+	align-self: center;
+	justify-content: center;
 	position: absolute;
 }
 #dropdown li{
-	width: 100%;
+	width: 80%;
 	line-height: 3rem;
 	margin: none;
 	display: flex;

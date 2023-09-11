@@ -23,9 +23,10 @@
 			    <label class="perTitle">Personal Details</label>
 			    <div class="perCon">
 			    	<div class="perCol1">
-			    		<input type="file" id="profile" style="display:none;">
+						<img id="chosenPicture" name="chosenPicture" style="display: none;" onclick="">
+			    		<input type="file" id="profile" name="profile" style="display: none;" onchange="displayImage(this)">
 			    		<label for="profile" id="inputImg">+</label>
-			    		<label>Contact Number:</label><input type="contact" id="contact" name="contact">
+			    		<label>Contact Number:</label><input type="contact" id="contact" name="contact" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11">
 			    	</div>
 			    	<div class="perCol2">
 			    		<label>Fullname:</label><input type="text" id="fullname" name="fullname">
@@ -35,13 +36,17 @@
 			    				<label>Year & Section:</label><input type="text" id="yearSection" name="yearSection">
 			    			</div>
 			    			<div class="perBox">
-			    				<label>Student ID:</label><input type="text" id="studentid" name="studentid">	
+			    				<label>Student ID:</label><input type="text" id="studentid" name="studentid" oninput="this.value = this.value.replace(/[^0-9-]/g, '')">	
 			    			</div>
 			    			<div class="perBox">
-			    				<label>Age:</label><input type="text" id="age" name="age">	
+			    				<label>Age:</label><input type="number" id="age" name="age" oninput="this.value = this.value.replace(/[^0-9]/g, '')">	
 			    			</div>
 			    			<div class="perBox">
-			    				<label>Sex:</label><input type="text" id="sex" name="sex">
+							<label for="sex">Select Gender:</label>
+							<select id="sex" name="sex">
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
 			    			</div>
 			    		</div>
 			    	</div>
@@ -74,8 +79,9 @@
 			    <input type="submit" id="registerBtn" value="Register"></input>
 			</section>
         </form>
-	<script src="js/main.js">
+    <script src="js/register.js"></script>
+    <script src="js/main.js">
         AOS.init();
-    </script>
+	</script>
 </body>
 </html>

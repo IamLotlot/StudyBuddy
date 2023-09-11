@@ -28,30 +28,26 @@
 
 		            if ($result) {
 		                while ($row = mysqli_fetch_assoc($result)) {
-		                    $username = $row['username'];
-		                    $password = $row['password'];
-		                    $state = $row['state'];
-		                    $email = $row['email'];
-		                    $fullname = $row['fullname'];
-		                    $address = $row['address'];
-		                    $yearSection = $row['yearSection'];
-		                    $age = $row['age'];
-		                    $studentid = $row['studentid'];
-		                    $sex = $row['sex'];
-		                    $contact = $row['contact'];
+		                    $productid = $row['productid'];
+		                    $rate = $row['rate'];
+		                    $name = $row['name'];
+		                    $price = $row['price'];
+		                    $seller = $row['seller'];
+		                    $date = $row['date'];
+		                    $category = $row['category'];
+		                    $image = $row['image'];
+		                    $file = $row['file'];
 
 				    		echo '
-							<label class="productid" id="productLabel" onclick="getProducts(this)">'.$username.'</label>
-							<input type="text" id="'.$username.'-password" value="'.$password.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-state" value="'.$state.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-email" value="'.$email.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-fullname" value="'.$fullname.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-address" value="'.$address.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-yearSection" value="'.$yearSection.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-age" value="'.$age.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-studentid" value="'.$studentid.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-sex" value="'.$sex.'" style="display:none" disabled>
-							<input type="text" id="'.$username.'-contact" value="'.$contact.'" style="display:none" disabled>
+							<label class="productid" id="productLabel" onclick="getProducts(this)">'.$productid.'</label>
+							<input type="text" id="'.$productid.'-password" value="'.$rate.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-state" value="'.$name.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-email" value="'.$price.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-fullname" value="'.$seller.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-address" value="'.$date.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-yearSection" value="'.$category.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-age" value="'.$image.'" style="display:none" disabled>
+							<input type="text" id="'.$productid.'-studentid" value="'.$file.'" style="display:none" disabled>
 							';
 		            	}
 			        }

@@ -16,6 +16,37 @@
 <?php
 	include 'nav.php';
 ?>
+	<section>
+		<div class="header">
+			<label id="header-username">Username</label>
+			<label id="header-event">Event</label>
+			<label id="header-date">Date</label>
+			<label id="header-time">Time</label>
+		</div>
+		<?php
+
+		$sql = "SELECT * FROM `log`";
+
+		$result = mysqli_query($conn, $sql);
+
+		if ($result) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$username = $row['username'];
+				$event = $row['event'];
+				$date = $row['date'];
+				$time = $row['time'];
+					
+				echo '
+				<div class="rows">
+					<label id="username">'.$username.'</label>
+					<label id="event">'.$event.'</label>
+					<label id="date">'.$date.'</label>
+					<label id="time">'.$time.'</label>
+				</div>';
+			}
+		}
+		?>
+	</section>
 	<script src="js/main.js"></script>
 </body>
 </html>

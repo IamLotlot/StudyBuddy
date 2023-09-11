@@ -105,11 +105,11 @@ body::-webkit-scrollbar{
 }
 .productCol{
     height: auto;
-    width: 67%;
+    width: 63%;
     border-radius: 35px;
     padding-bottom: 20px;
     background-color: var(--black);
-    display: block;
+    display: inline-flex;
     text-align: center;
 }
 .productCon{
@@ -155,7 +155,7 @@ body::-webkit-scrollbar{
     margin-bottom: 5px;
 }
 #productSeller{
-    color: var(--gray);
+    color: var(--lightgray);
 }
 .product i{
     color: var(--white);

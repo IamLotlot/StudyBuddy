@@ -27,6 +27,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             
             $role = $row2["role"];
 
+            // Get the current time in the Philippines
+            date_default_timezone_set('Asia/Manila');
+            $currentDateTime = date('Y-m-d H:i:s');
+            $date = date('Y-m-d', strtotime($currentDateTime));
+            $time = date('H:i:s', strtotime($currentDateTime));
+
+            $sql3 = "INSERT INTO `log`(`username`, `event`, `date`, `time`) 
+                    VALUES ('$username','logged in', '$date', '$time')";
+            $result3 = mysqli_query($conn, $sql3);
+
             if ($role === "admin") {
 
                 $_SESSION['userOnline'] = $username;
