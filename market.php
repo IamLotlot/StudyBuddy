@@ -47,13 +47,14 @@
     	<div class="productCol">
     		<div class="productCon">
                 <?php
+				
+				$searchBar;
 
-				$searchBar = $_POST['searchBar'];
+				if (isset($_POST['searchBar'])) {
+					$searchBar = $_POST['searchBar'];
+				}
 
 				if (!empty($searchBar)) {
-
-					$min = $_POST['min'];
-					$max = $_POST['max'];
 	
 					$sql = "SELECT * FROM `market` WHERE `name` LIKE '$searchBar' OR `seller` LIKE '$searchBar'";
 	

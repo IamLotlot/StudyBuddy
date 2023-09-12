@@ -105,19 +105,17 @@ body::-webkit-scrollbar{
 }
 .productCol{
     height: auto;
-    width: 63%;
+    width: 65%;
     border-radius: 35px;
     padding-bottom: 20px;
     background-color: var(--black);
-    display: inline-flex;
     text-align: center;
 }
 .productCon{
-    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    color: var(--black);
     justify-content: space-evenly;
+    color: var(--black);
 }
 .product{
     width: 200px;
