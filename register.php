@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/face_verification.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -73,12 +74,16 @@
 			    		<label>Student ID (BACK):</label><input type="file" id="studBack" name="studBack" accept=".jpg, .jpeg, .png">
 			    	</div>
 			    	<div class="verCol2">
-			    		<label>Face Verification:</label><input type="text">
+			    		<label>Face Verification:</label><input type="button" id="verification-button" name="verification-button" value="Scan">
 			    	</div>
+					<?php
+						include 'face_verification.php';
+					?>
 			    </div>
 			    <input type="submit" id="registerBtn" value="Register"></input>
 			</section>
         </form>
+    <script src="js/face_verification.js"></script>
     <script src="js/register.js"></script>
     <script src="js/main.js">
         AOS.init();

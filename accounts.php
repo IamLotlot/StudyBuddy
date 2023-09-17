@@ -68,7 +68,7 @@
 					</div>
 					<div class="detailsCon">
 						<label>Username</label><input type="text" class="inputField" id="username" name="username" required>
-						<label>State</label><input type="text" class="inputField" id="state" name="state" required>
+						<label>State</label><input type="text" class="inputField" id="state" name="state" value="not-verified" required>
 						<label>Role</label><input type="text" class="inputField" id="role" name="role" value="user" disabled required>
 						<label>Year & Section</label><input type="text" class="inputField" id="yearSection" name="yearSection" required>
 						<label>Student ID</label><input type="text" class="inputField" id="studentid" name="studentid" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>

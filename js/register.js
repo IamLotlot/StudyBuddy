@@ -41,3 +41,14 @@ function validateNumber(inputField) {
         inputField.value = '';
     }
 }
+
+//// Face verification button function
+$(document).ready(function() {
+  $("#verification-button").click(function() {
+      $("#face-con").show();
+  });
+
+  // $("#face-con").click(function() {
+  //     $(this).hide();
+  // });
+});

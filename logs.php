@@ -17,11 +17,11 @@
 	include 'nav.php';
 ?>
 	<section>
-		<div class="header">
-			<label id="header-username">Username</label>
-			<label id="header-event">Event</label>
-			<label id="header-date">Date</label>
-			<label id="header-time">Time</label>
+		<div id="header">
+			<label class="title" id="header-username">Username</label>
+			<label class="title" id="header-event">Event</label>
+			<label class="title" id="header-date">Date</label>
+			<label class="title" id="header-time">Time</label>
 		</div>
 		<?php
 

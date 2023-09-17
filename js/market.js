@@ -40,3 +40,5 @@
         customizePro.style.display = "none";
       }
     }
+
+//// When clicking a product it will redirect to the product page

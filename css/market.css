@@ -127,6 +127,10 @@ body::-webkit-scrollbar{
     position: relative;
     cursor: pointer;
 }
+.product:hover{
+    transition: 0.5s ease;
+    background-color: var(--midgray);
+}
 .product img{
     height: 250px;
     width: 180px;
