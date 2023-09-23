@@ -73,7 +73,7 @@
 							$file = $row['file'];
 	
 							echo '
-							<div class="product">
+							<div class="product" onclick="viewProduct('.$productid.')">
 							  <img src="documents/product/'.$image.'" class="productImage">
 							  <div class="description">
 								  <div>
@@ -111,7 +111,7 @@
 							$file = $row['file'];
 	
 							echo '
-							<div class="product">
+							<div class="product" onclick="viewProduct('.$productid.')">
 							  <img src="documents/product/'.$image.'" class="productImage">
 							  <div class="description">
 								  <div>

@@ -1,6 +1,3 @@
-<?php
-	session_start();
-?>
 <div id="notepad">
     <div id="tab">
         <i id="close-icon" class="fa-solid fa-xmark"></i>

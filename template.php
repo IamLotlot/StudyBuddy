@@ -8,13 +8,15 @@
 	<link rel="icon" type="image/x-icon" href="css/img/StudyBuddy.ico">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/notepad.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body onload="onStart()">
+<body onload="Online()">
 <?php
 	include 'nav.php';
 ?>
 	<script src="js/main.js"></script>
+    <script src="js/notepad.js"></script>
 </body>
 </html>

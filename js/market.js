@@ -42,3 +42,19 @@
     }
 
 //// When clicking a product it will redirect to the product page
+function viewProduct(id) {
+  var dataToSend = id;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "product_process.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          // Redirect to the PHP file
+          window.location.href = "product_view.php";
+      }
+  };
+
+  xhr.send("data=" + encodeURIComponent(dataToSend));
+}

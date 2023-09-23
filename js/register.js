@@ -44,11 +44,29 @@ function validateNumber(inputField) {
 
 //// Face verification button function
 $(document).ready(function() {
+  const $container = $("#face-con");
   $("#verification-button").click(function() {
-      $("#face-con").show();
+      scrollToBottom();
+      setTimeout(showContainer, 1000);
+      $('body').addClass('disable-scroll');
+      setTimeout(hideScroll, 1000);
   });
 
   // $("#face-con").click(function() {
   //     $(this).hide();
   // });
 });
+
+function showContainer(){
+  $("#face-con").show();
+}
+
+function hideScroll(){
+  $('#scrollTop').hide();
+}
+
+function scrollToBottom() {
+  $('html, body').animate({
+      scrollTop: $(document).height()
+  }, 0); // You can adjust the duration (in milliseconds) as needed
+}

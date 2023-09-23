@@ -13,3 +13,11 @@
     --lightgray: #A6A6A6;
     --green: #72EF36;
 }
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar{
+    width: 0;
+}

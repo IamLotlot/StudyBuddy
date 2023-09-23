@@ -9,6 +9,9 @@ body{
 body::-webkit-scrollbar{
     width: 0;
 }
+body.disable-scroll {
+	overflow: hidden;
+}
 /*Personal Section*/
 .personal{
 	width: 100%;

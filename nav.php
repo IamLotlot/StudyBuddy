@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include "db_conn.php";
 ?>
 <nav>
@@ -25,7 +27,22 @@ include "db_conn.php";
         </div>
         <div id="dropdown">
             <ul>
-                <li><span>0 SC</span></li>
+                <li><span>
+                <?php
+
+                $username = $_SESSION['userOnline'];
+
+                $sql = "SELECT * FROM `account` WHERE username = '$username'";
+                $result = mysqli_query($conn, $sql);
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_array($result);
+
+                    echo $row["studdycoin"];;
+                }
+                ?>    
+                SC</span></li>
+                <li id="subNav" title="Go to subscription page"><a href="subscription.php" class="dropdown-label">Subscription</a></li>
                 <li id="profileNav" title="Go to your profile"><a href="profile.php" class="dropdown-label">Profile</a></li>
                 <li id="settingNav" title="Go to settings"><a href="setting.php" class="dropdown-label">Setting</a></li>
                 <li id="logoutNav" title="Logout your account"><a href="home.php" class="dropdown-label">Logout</a></li>

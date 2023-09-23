@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="myData" placeholder="Enter your data">
+        <button type="button" onclick="sendData()">Submit</button>
+    </form>
+
+    <script>
+        function sendData() {
+            var dataToSend = document.getElementById("myData").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "process.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Redirect to the PHP file
+                    window.location.href = "result.php";
+                }
+            };
+
+            xhr.send("data=" + encodeURIComponent(dataToSend));
+        }
+    </script>
+</body>
+</html>
