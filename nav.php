@@ -26,8 +26,7 @@ include "db_conn.php";
             <a id="onlineUser" name="onlineUser" class="navLabel"></a>
         </div>
         <div id="dropdown">
-            <ul>
-                <li><span>
+                <li id="subNav" title="Buy more study coin here"><a href="study_store.php" class="dropdown-label-ex"a>
                 <?php
 
                 $username = $_SESSION['userOnline'];
@@ -38,15 +37,14 @@ include "db_conn.php";
                 if ($result && mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_array($result);
 
-                    echo $row["studdycoin"];;
+                    echo $row["studycoin"];;
                 }
                 ?>    
-                SC</span></li>
+                SC</a></li>
                 <li id="subNav" title="Go to subscription page"><a href="subscription.php" class="dropdown-label">Subscription</a></li>
                 <li id="profileNav" title="Go to your profile"><a href="profile.php" class="dropdown-label">Profile</a></li>
                 <li id="settingNav" title="Go to settings"><a href="setting.php" class="dropdown-label">Setting</a></li>
                 <li id="logoutNav" title="Logout your account"><a href="home.php" class="dropdown-label">Logout</a></li>
-            </ul>
         </div>
     </ul>
     <button onclick="topFunction()" id="scrollTop" title="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>

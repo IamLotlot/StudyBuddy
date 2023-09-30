@@ -34,7 +34,7 @@
         </div>
         <label id="tagLine">Connecting Students for Collaborative Learning and Unlock Academic Success Together</label>
         <div class="buttonContainer">
-            <a href="#" id="getStarted">Get Started</a>
+            <a href="subscription.php" id="getStarted">Subscribe</a>
             <a href="#" id="searchBuddy">Leaderboards</a>
         </div>
     </section>

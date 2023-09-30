@@ -24,8 +24,6 @@ include "db_conn.php";
     	<div id="product">
 <?php
 
-	session_start();
-
 	if(isset($_SESSION['myData'])){
 		$id = $_SESSION['myData'];
 		

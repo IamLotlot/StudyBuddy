@@ -46,7 +46,7 @@ function viewProduct(id) {
   var dataToSend = id;
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "product_process.php", true);
+  xhr.open("POST", "data_process.php", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   
   xhr.onreadystatechange = function() {

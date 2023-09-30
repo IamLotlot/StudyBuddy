@@ -20,11 +20,13 @@
 
     $("#dropdown").hide();
 
+    setOnline(username);
+
     // If someone is logged it will remove register and login label
     var register = document.getElementById("registerNav");
     var userIcon = document.getElementById("userIcon");
     var login = document.getElementById("loginNav");
-    var logout = document.getElementById("logoutNav");
+    // var logout = document.getElementById("logoutNav");
     var buddy = document.getElementById("buddyNav");
     var market = document.getElementById("marketNav");
     var creators = document.getElementById("creatorsNav");
@@ -46,7 +48,7 @@
         register.style.display = "none";
         login.style.display = "none";
         userIcon.style.display = "inline-block";
-        logout.style.display = "inline-block";
+        // logout.style.display = "inline-block";
 
       } else {
         buddy.style.display = "inline-block";
@@ -60,7 +62,7 @@
         register.style.display = "none";
         login.style.display = "none";
         userIcon.style.display = "inline-block";
-        logout.style.display = "inline-block";
+        // logout.style.display = "inline-block";
       }
     } else {
       accounts.style.display = "none";
@@ -69,10 +71,28 @@
       register.style.display = "inline-block";
       login.style.display = "inline-block";
       userIcon.style.display = "none";
-      logout.style.display = "none";
+      // logout.style.display = "none";
       logs.style.display = "none";
     }
   }
+
+////Set the userOnline session when opening the browser again
+function setOnline(username){
+  var dataToSend = username;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "online.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          // window.location.href = "online.php";
+          console.log(dataToSend);
+      }
+  };
+
+  xhr.send("data=" + encodeURIComponent(dataToSend));
+}
 
 ////Logout function
   var logout = document.getElementById("logoutNav");
