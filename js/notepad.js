@@ -73,3 +73,27 @@ $(document).ready(function() {
     }
   });
 });
+
+//// Share notes function
+function shareNote(id){
+  var username = prompt("Send the note to whom?");
+  $.post("send_note.php", { id: id, username: username })
+    .done(function (data){
+      if (data == "Success"){
+
+        alert("Successfully send the note ("+id+") to ("+username+")");
+
+      } else if (data == "Failed"){
+
+        alert("Failed to send the note");
+
+      } else if (data == "Unknown"){
+
+        alert("Failed to send the note");
+
+      } else {
+
+        console.log(data);
+      }
+  });
+}

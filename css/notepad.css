@@ -32,14 +32,25 @@
     flex-direction: column;
     align-items: center;
 }
-.title{
+.title-con{
     width: 90%;
-    font-size: 1.5rem;
     margin: 0.3rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: var(--black);
     color: var(--green);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.title{
+    width: 90%;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.fa-share-from-square{
+    font-size: 1.5rem;
     cursor: pointer;
 }
 .content{

@@ -1,31 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>AJAX Example</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upside-Down House Symbol</title>
+    <style>
+        .house {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-top: 200px solid #007bff; /* Adjust the color and height for the top part (roof) */
+        }
+    </style>
 </head>
 <body>
-    <form id="myForm">
-        <input type="text" id="myData" placeholder="Enter your data">
-        <button type="button" onclick="sendData()">Submit</button>
-    </form>
-
-    <script>
-        function sendData() {
-            var dataToSend = document.getElementById("myData").value;
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "process.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Redirect to the PHP file
-                    window.location.href = "result.php";
-                }
-            };
-
-            xhr.send("data=" + encodeURIComponent(dataToSend));
-        }
-    </script>
+    <div class="house"></div>
 </body>
 </html>

@@ -16,3 +16,8 @@ paypal.Buttons({
     alert(data.subscriptionID); // You can add optional success message for the subscriber here
     }
 }).render('#paypal-button-container-P-1NX82174NM094511MMUJOJGY'); // Renders the PayPal button
+
+//// Show function when buy is clicked
+$("#buy-btn").click(function() {
+    $("#payment").show();
+});

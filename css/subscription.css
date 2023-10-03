@@ -11,13 +11,83 @@ section{
 }
 .membership-plan{
     height: 70%;
-    width: 40%;
-    border: 1px solid black;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
 }
+#payment{
+    width: 100%;
+    background-color: var(--black);
+    display: none;
+}
 #paypal-button-container-P-1NX82174NM094511MMUJOJGY{
-    width: 80%;
+    padding: 0 2rem 0 2rem;
+}
+.benefits{
+    width: 100%;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: center;
+}
+.benefits div{
+    margin-left: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+}
+.benefits i{
+    margin-right: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--green2);
+}
+.membership-plan h1{
+    width: 100%;
+    font-size: 2rem;
+    padding: 1.5rem 0 1.5rem 0;
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--green2);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; */
+}
+.membership-plan h2{
+    width: 100%;
+    font-size: 3rem;
+    padding: 1.5rem 0 1.5rem 0;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.membership-plan h3{
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#last{
+    margin-bottom: 2rem;
+}
+.membership-plan h4{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+    border-radius: 0 0 1rem 1rem;
+    background-color: var(--green2);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
