@@ -33,7 +33,7 @@
     }
     ?>
         <form action="POST">
-            <input id="add-title" class="title" type="text" placeholder="Title...">
+            <div id="title-con"><input id="add-title" class="title" type="text" placeholder="Title..."><i class="fa-regular fa-floppy-disk"></i></div>
             <textarea id="add-content" class="content" placeholder="Content..."></textarea>
         </form>
     </div>

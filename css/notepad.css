@@ -71,10 +71,21 @@ form{
     align-items: center;
     justify-content: center;
 }
+form div{
+    display: none;
+}
 #add-title{
+    width: 80%;
+    margin: 0.5rem 2rem 0.5rem 0;
     display: none;
     border: none;
     cursor: text;
+    background-color: var(--white);
+}
+.fa-floppy-disk{
+    font-size: 2rem;
+    color: var(--black);
+    cursor: pointer;
 }
 #add-content{
 

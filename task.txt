@@ -1,0 +1,33 @@
+TO DO:
+
+Report system
+Rating system
+Chat system
+Chat mini tool
+Subscription
+Note sharing
+Point system (contribrutory)
+Responsive
+Delete confirmation
+Copyright alert
+Only ban accounts not delete
+Deduct the purchase from the buyer and add to the seller
+Debug the date and time when inserting to the owner and market_logs database
+Custom notification/ UI alert
+Store for Study Coin
+Profile customize setting
+
+DONE:
+
+Verification through ID
+Remember me function
+AJAX migration
+Jquery migration
+Hash password
+Guest and restricted view
+Activity log
+Face capture
+View Products
+Buy a product
+Setting userOnline session everytime the browser opens
+Add notes

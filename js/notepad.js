@@ -60,14 +60,17 @@ function showContent(id) {
 //// Add notes function
 $(document).ready(function() {
   $('#add-icon').click(function() {
+    var con = $("#title-con");
     var title = $("#add-title");
     var content = $("#add-content");
     
-    if (title.is(":hidden") && content.is(":hidden")){
+    if (title.is(":hidden") && content.is(":hidden") && con.is(":hidden")){
+      $("#title-con").show();
       $("#add-title").show();
       $("#add-content").show();
 
     } else {
+      $("#title-con").hide();
       $("#add-title").hide();
       $("#add-content").hide();
     }
@@ -77,7 +80,9 @@ $(document).ready(function() {
 //// Share notes function
 function shareNote(id){
   var username = prompt("Send the note to whom?");
-  $.post("send_note.php", { id: id, username: username })
+  
+  if (username){
+    $.post("send_note.php", { id: id, username: username })
     .done(function (data){
       if (data == "Success"){
 
@@ -96,4 +101,46 @@ function shareNote(id){
         console.log(data);
       }
   });
+  }
 }
+
+//// Add note save function
+$(document).ready(function() {
+  $('.fa-floppy-disk').click(function() {
+    var title = $("#add-title").val();
+    var content = $("#add-content").val();
+    var username = localStorage.getItem("online");
+    
+    if (title || content){
+      $.post("note_add.php", { title: title, content: content, username:username })
+        .done(function (data){
+
+            if (data == "Success"){
+              alert("New note created entiteld '"+title+"'");
+              window.location.reload();
+              // $(document).ready(function() {
+              //   function reloadDivContent() {
+              //       var currentURL = window.location.href;
+              //       $("#notepad").load(currentURL + "#notepad");
+              //   }
+              // });
+            } else if (data == "Failed") {
+              alert("Failed to create a new note");
+            } else if (data == "Title") {
+              alert("Title is empty kindly fill it up");
+            } else if (data == "Content") {
+              alert("Content is empty kindly fill it up");
+            } else if (data == "Username") {
+              alert("Kindly try to re-login");
+            } else if (data == "Data") {
+              alert("Variable error. Kindly restart");
+            } else {
+              console.log(data);
+            }
+        });
+    } else {
+      alert("Title or content is empty kindly fill them up");
+    }
+  });
+});
+

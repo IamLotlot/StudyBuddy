@@ -23,8 +23,10 @@ function login() {
                     // Set the user online to localstorage or sessionstorage
                     if (remember) {
                         localStorage.setItem('userOnline', username)
+                        localStorage.setItem('online', username)
                     } else {
                         sessionStorage.setItem('userOnline', username);
+                        localStorage.setItem('online', username)
                     }
                     
                     window.location.href = "home.php";
@@ -35,8 +37,10 @@ function login() {
 
                     if (remember) {
                         localStorage.setItem('userOnline', username)
+                        localStorage.setItem('online', username)
                     } else {
                         sessionStorage.setItem('userOnline', username);
+                        localStorage.setItem('online', username)
                     }
                     window.location.href = "home.php";
 
