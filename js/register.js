@@ -52,9 +52,9 @@ $(document).ready(function() {
       setTimeout(hideScroll, 1000);
   });
 
-  // $("#face-con").click(function() {
-  //     $(this).hide();
-  // });
+  $("#face-con").click(function() {
+      $(this).hide();
+  });
 });
 
 function showContainer(){
