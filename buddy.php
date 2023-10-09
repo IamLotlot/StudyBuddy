@@ -8,6 +8,7 @@
 	<link rel="icon" type="image/x-icon" href="css/img/StudyBuddy.ico">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/buddy.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
   	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -53,10 +54,9 @@
 			</div>
 		</div>
 	</section>
-
-
-	<script src="js/buddy.js"></script>
 	<script src="js/main.js"></script>
+    <script src="js/notepad.js"></script>
+	<script src="js/buddy.js"></script>
 	<script>
 		module = {};
 	</script>
