@@ -144,3 +144,31 @@ $(document).ready(function() {
   });
 });
 
+//// Delete notes function
+function deleteNote(id){
+  if (window.confirm("Are you sure you want to remove this note?")){
+    $.post("delete_note.php", { id: id })
+    .done(function (data){
+      if (data == "Success"){
+
+        alert("Successfully removed the note ("+id+")");
+
+      } else if (data == "Failed"){
+
+        alert("Failed to delete the note.");
+
+      } else if (data == "User"){
+
+        alert("Note id is invalid.");
+
+      } else if (data == "Unknown"){
+
+        alert("Unknown note id.");
+
+      } else {
+
+        console.log(data);
+      }
+  });
+  }
+}

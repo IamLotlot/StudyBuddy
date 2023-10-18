@@ -26,7 +26,7 @@
             $time = $row['time'];
 
             echo '
-            <div class="title-con"><h1 id="'.$id.'" class="title">'.$title.'</h1><i class="fa-solid fa-share-from-square" onclick="shareNote('.$id.')"></i></div>
+            <div class="title-con"><h1 id="'.$id.'" class="title">'.$title.'</h1><i class="fa-solid fa-trash-can" onclick="deleteNote('.$id.')"></i><i class="fa-solid fa-share-from-square" onclick="shareNote('.$id.')"></i></div>
             <textarea id="content'.$id.'" class="content">'.$content.'</textarea>
             ';
         }

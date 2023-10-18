@@ -18,6 +18,7 @@
 <body onload="Online(); getSeller()">
 <?php
 	include 'nav.php';
+    include 'notepad.php';
 ?>
     <form action="marketCusEx.php" method="post" enctype="multipart/form-data">
 		<section>

@@ -69,9 +69,13 @@ h3{
     height: auto;
     margin-right: 10px;
 }
-#buy-btn{
+#rate-btn{
+    display: none;
+}
+#buy-btn, #rate-btn{
     font-size: 1rem;
     border-radius: 1rem;
+    margin-left: 0.5rem;
     padding: 0.8rem;
     border: none;
     cursor: pointer;

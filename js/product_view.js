@@ -6,8 +6,11 @@ $(document).ready(function() {
     if (buttonText === "Owned") {
         // Disable the button if text is "Owned"
         $("#buy-btn").prop("disabled", true);
+        // Show the rating button if the product has been bought
+        $("#rate-btn").css("display", "flex");
     }
 });
+
 
 //// Ajax for buying a product
 function ConfirmPurchase() {

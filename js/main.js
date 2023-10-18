@@ -1,3 +1,23 @@
+//// Check for internet connection
+  // function checkInternetConnection() {
+  //   var statusElement = document.getElementById('status');
+  //   fetch('/check-connection') // Replace with your server-side script or endpoint
+  //       .then(function(response) {
+  //           if (response.status === 200) {
+  //               statusElement.textContent = 'Internet connection is active.';
+  //           } else {
+  //               statusElement.textContent = 'No internet connection detected. Redirecting to "No Connection" page...';
+  //               window.location.href = 'no_connection.html';
+  //           }
+  //       })
+  //       .catch(function(error) {
+  //           statusElement.textContent = 'No internet connection detected. Redirecting to "No Connection" page...';
+  //           window.location.href = 'no_connection.html';
+  //       });
+  // }
+
+  // checkInternetConnection();
+
 //// Enable function when the page loads
   function Online() {
 

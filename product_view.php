@@ -13,12 +13,15 @@ include "db_conn.php";
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/product_view.css">
+    <link rel="stylesheet" href="css/product_rate.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online()">
 <?php
 	include 'nav.php';
+	include "notepad.php";
+	include "product_rate.php";
 ?>
 	<section>
     	<div id="product">
@@ -87,6 +90,7 @@ include "db_conn.php";
 					</div>
 				</div>
 				<div id="options">
+					<button id="rate-btn">Rate</button>
 					<button id="buy-btn" value="'.$price.'">'.$button.'</button>
 				</div>
 			</div>
@@ -104,5 +108,6 @@ include "db_conn.php";
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>
 	<script src="js/product_view.js"></script>
+	<script src="js/product_rate.js"></script>
 </body>
 </html>
