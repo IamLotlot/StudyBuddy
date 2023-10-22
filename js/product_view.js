@@ -11,7 +11,6 @@ $(document).ready(function() {
     }
 });
 
-
 //// Ajax for buying a product
 function ConfirmPurchase() {
     var confirmation = confirm("Are you sure you want to buy this product?");
@@ -49,3 +48,15 @@ $(document).ready(function() {
     $("#buy-btn").click(ConfirmPurchase);
     
 });
+
+//// Rate button function in rate button
+$(document).ready(function() {
+    $("#rate-btn").click(function() {
+        $("#rate-wrapper").show();
+    });
+  });
+  
+//// Delete the rating localstorage every entry in product_view.php
+function clearLocalRating(){
+    localStorage.removeItem('temp_rating');
+}

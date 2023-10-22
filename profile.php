@@ -16,6 +16,14 @@
 <?php
 	include 'nav.php';
 ?>
+	<section>
+		<div id="img-con">
+			<img src="">
+		</div>
+		<div id="des-con">
+			
+		</div>
+	</section>
 	<script src="js/main.js"></script>
 </body>
 </html>

@@ -1,52 +1,31 @@
-//// Check for internet connection
-  // function checkInternetConnection() {
-  //   var statusElement = document.getElementById('status');
-  //   fetch('/check-connection') // Replace with your server-side script or endpoint
-  //       .then(function(response) {
-  //           if (response.status === 200) {
-  //               statusElement.textContent = 'Internet connection is active.';
-  //           } else {
-  //               statusElement.textContent = 'No internet connection detected. Redirecting to "No Connection" page...';
-  //               window.location.href = 'no_connection.html';
-  //           }
-  //       })
-  //       .catch(function(error) {
-  //           statusElement.textContent = 'No internet connection detected. Redirecting to "No Connection" page...';
-  //           window.location.href = 'no_connection.html';
-  //       });
-  // }
-
-  // checkInternetConnection();
+//// Global variables
+var global_online_username = "";
 
 //// Enable function when the page loads
   function Online() {
-
     // Sets the account online if only for just a session or to remember them
-    var username = "";
     var sessionUsername = sessionStorage.getItem('userOnline');
     var localUsername = localStorage.getItem('userOnline');
 
     if (localUsername !== null && localUsername !== undefined && localUsername !== '') {
 
-      username = localUsername;
+      global_online_username = localUsername;
 
     } else if (sessionUsername !== null && sessionUsername !== undefined && sessionUsername !== '') {
 
-      username = sessionUsername;
+      global_online_username = sessionUsername;
 
     } else {}
 
-    document.getElementById("onlineUser").innerHTML = username;
+    document.getElementById("onlineUser").innerHTML = global_online_username;
 
     $("#dropdown").hide();
-
-    setOnline(username);
+    setOnline(global_online_username);
 
     // If someone is logged it will remove register and login label
     var register = document.getElementById("registerNav");
     var userIcon = document.getElementById("userIcon");
     var login = document.getElementById("loginNav");
-    // var logout = document.getElementById("logoutNav");
     var buddy = document.getElementById("buddyNav");
     var market = document.getElementById("marketNav");
     var creators = document.getElementById("creatorsNav");
@@ -54,9 +33,9 @@
     var products = document.getElementById("productsNav");
     var logs = document.getElementById("logsNav");
     
-    if (username) {
+    if (global_online_username) {
 
-      if (username == "admin") {
+      if (global_online_username == "admin") {
         buddy.style.display = "none";
         market.style.display = "none";
         creators.style.display = "none";
@@ -68,7 +47,6 @@
         register.style.display = "none";
         login.style.display = "none";
         userIcon.style.display = "inline-block";
-        // logout.style.display = "inline-block";
 
       } else {
         buddy.style.display = "inline-block";
@@ -82,7 +60,6 @@
         register.style.display = "none";
         login.style.display = "none";
         userIcon.style.display = "inline-block";
-        // logout.style.display = "inline-block";
       }
     } else {
       accounts.style.display = "none";
@@ -91,7 +68,6 @@
       register.style.display = "inline-block";
       login.style.display = "inline-block";
       userIcon.style.display = "none";
-      // logout.style.display = "none";
       logs.style.display = "none";
     }
   }
@@ -201,5 +177,12 @@ $(document).ready(function() {
     } else {
       $("#notepad").hide();
     }
+  });
+});
+
+//// Function for mode tool icon
+$(document).ready(function() {
+  $("#modeCon").click(function() {
+    
   });
 });

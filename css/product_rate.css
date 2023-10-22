@@ -29,7 +29,7 @@
 }
 #star-con i{
     font-size: 2.5rem;
-    color: var(--green);
+    color: black;
     cursor: pointer;
 }
 #rate-con textarea{

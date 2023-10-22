@@ -17,7 +17,7 @@ include "db_conn.php";
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body onload="Online()">
+<body onload="Online(); clearLocalRating()">
 <?php
 	include 'nav.php';
 	include "notepad.php";

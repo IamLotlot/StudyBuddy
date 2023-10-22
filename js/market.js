@@ -43,18 +43,22 @@
 
 //// When clicking a product it will redirect to the product page
 function viewProduct(id) {
-  var dataToSend = id;
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "data_process.php", true);
-  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  if (global_online_username === "") {
+    alert("Restricted Access: Kindly login to access it!");
+  } else {
+    var dataToSend = id;
   
-  xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-          // Redirect to the PHP file
-          window.location.href = "product_view.php";
-      }
-  };
-
-  xhr.send("data=" + encodeURIComponent(dataToSend));
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "data_process.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Redirect to the PHP file
+            window.location.href = "product_view.php";
+        }
+    };
+  
+    xhr.send("data=" + encodeURIComponent(dataToSend));
+  }
 }
