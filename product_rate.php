@@ -9,8 +9,8 @@
         </div>
         <textarea id="comment" placeholder="Your comment (Optional)..."></textarea>
         <div id="btn-con">
-            <button id="back-btn">Back</button>
-            <button id="send-btn">Send</button>
+            <button id="back-rate-btn">Back</button>
+            <button id="send-rate-btn">Send</button>
         </div>
     </div>
 </div>

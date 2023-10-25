@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/logs.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online()">
 <?php
@@ -47,6 +46,8 @@
 		}
 		?>
 	</section>
+	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>
+    <script src="js/notepad.js"></script>
 </body>
 </html>

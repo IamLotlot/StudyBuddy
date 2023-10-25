@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Study Buddy | Market Page</title>
+	<title>StudyBuddy | Market Page</title>
     <link rel="shortcut icon" type="icon" href="img">
 	<link rel="icon" type="image/x-icon" href="css/img/StudyBuddy.ico">
     <link rel="stylesheet" href="css/main.css">
@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/marketCus.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online(); getSeller()">
 <?php
@@ -113,6 +112,7 @@
 			</div>
 		</section>
 	</form>
+	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>
 	<script src="js/marketCus.js"></script>

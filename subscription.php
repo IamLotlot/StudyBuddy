@@ -14,7 +14,6 @@ require_once 'config.php';
     <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/subscription.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online()">
 <?php
@@ -52,6 +51,7 @@ require_once 'config.php';
             <h4 id="buy-btn">BUY</h4>
         </div>
     </section>
+	<script src="js/jQuery-3.6.4.js"></script>
     <script src="js/subscription.js"></script>
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>

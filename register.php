@@ -8,12 +8,11 @@
 	<link rel="icon" type="image/x-icon" href="css/img/StudyBuddy.ico">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/register.css">
-    <link rel="stylesheet" href="css/face_verification.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online()">
 <?php
@@ -83,6 +82,7 @@
 			    <input type="submit" id="registerBtn" value="Register"></input>
 			</section>
         </form>
+	<script src="js/jQuery-3.6.4.js"></script>
     <script src="js/face_verification.js"></script>
     <script src="js/register.js"></script>
     <script src="js/main.js">

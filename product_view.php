@@ -13,15 +13,14 @@ include "db_conn.php";
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/product_view.css">
-    <link rel="stylesheet" href="css/product_rate.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body onload="Online(); clearLocalRating()">
 <?php
 	include 'nav.php';
 	include "notepad.php";
 	include "product_rate.php";
+	include "product_report.php";
 ?>
 	<section>
     	<div id="product">
@@ -69,6 +68,11 @@ include "db_conn.php";
 			echo '
 			<div id="first-col">
 				<img src="documents/product/'.$image.'" alt="product_image" id="img">
+				<div id="action-con">
+					<i class="fa-solid fa-triangle-exclamation" id="report-btn"></i>
+					<i class="fa-solid fa-bookmark" id="favorite-solid-btn"></i>
+					<i class="fa-regular fa-bookmark" id="favorite-btn"></i>
+				</div>
 			</div>
 			<div id="second-col">
 				<div id="descriptions">
@@ -105,9 +109,9 @@ include "db_conn.php";
 ?>
     	</div>
 	</section>
+	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>
 	<script src="js/product_view.js"></script>
-	<script src="js/product_rate.js"></script>
 </body>
 </html>
