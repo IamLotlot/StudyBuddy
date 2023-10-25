@@ -11,6 +11,46 @@ $(document).ready(function() {
     }
 });
 
+//// Function of the favorite icon
+$(document).ready(function() {
+    $("#favorite-btn").click(function() {
+        var product = $("#name").html();
+        var seller = $("#seller").html();
+        var option = $("#favorite-btn").data("con");
+        
+        if (option === true) {
+            var condition = "true";
+
+        } else if (option === false) {
+            var condition = "false";
+        }
+        
+        
+        $.post("product_favoriteEx.php", { product: product, seller: seller, user: global_online_username, condition: condition })
+        .done(function (data){
+
+            if (data == "Existing"){
+                alert("Existing");
+
+            } else if (data == "T_Success") {
+                window.location.reload();
+
+            } else if (data == "T_Failed") {
+                alert("Failed");
+
+            } else if (data == "F_Success") {
+                window.location.reload();
+
+            } else if (data == "F_Failed") {
+                alert("Failed");
+
+            } else {
+                console.log(data);
+            }
+        });
+    });
+  });
+
 //// Ajax for buying a product
 function ConfirmPurchase() {
     var confirmation = confirm("Are you sure you want to buy this product?");

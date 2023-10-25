@@ -1,21 +1,21 @@
 TO DO:
 
-Report system
-Rating system
+--- Brain ouching
 Chat system
 Chat mini tool
 Subscription
-Note sharing
 Point system (contribrutory)
 Responsive
+Custom notification/ UI alert
+Store for Study Coin
+Profile customize setting
+
+--- Easy
 Delete confirmation
 Copyright alert
 Only ban accounts not delete
 Deduct the purchase from the buyer and add to the seller
 Debug the date and time when inserting to the owner and market_logs database
-Custom notification/ UI alert
-Store for Study Coin
-Profile customize setting
 
 DONE:
 
@@ -31,3 +31,7 @@ View Products
 Buy a product
 Setting userOnline session everytime the browser opens
 Add notes
+Note sharing
+Report system
+Rating function
+Favorite function

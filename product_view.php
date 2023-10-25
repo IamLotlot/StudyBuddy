@@ -26,85 +26,109 @@ include "db_conn.php";
     	<div id="product">
 <?php
 
-	if(isset($_SESSION['myData'])){
-		$id = $_SESSION['myData'];
-		
-		$sql = "SELECT * FROM `market` WHERE productid = '$id'";
-		$result = mysqli_query($conn, $sql);
+	$userOnline;
 
-		if ($result && mysqli_num_rows($result) > 0) {
-			$row = mysqli_fetch_array($result);
+	if (isset($_SESSION['userOnline'])) {
+
+		$userOnline = $_SESSION['userOnline'];
+
+		if(isset($_SESSION['myData'])){
+			$id = $_SESSION['myData'];
 			
-			$name = $row["name"];
-			$description = $row["description"];
-			$rate = $row["rate"];
-			$price = $row["price"];
-			$seller = $row["seller"];
-			$date = $row["date"];
-			$category = $row["category"];
-			$image = $row["image"];
-
-			$button = "";
-
-			$sql2 = "SELECT * FROM `owner` WHERE `book` = '.$name.'";
-			$result2 = mysqli_query($conn, $sql2);
-
-			if ($result2) {
-				$rowCount = mysqli_num_rows($result2);
+			$sql = "SELECT * FROM `market` WHERE `productid` = '$id'";
+			$result = mysqli_query($conn, $sql);
+	
+			if ($result && mysqli_num_rows($result) > 0) {
+				$row = mysqli_fetch_array($result);
 				
-				if ($rowCount > 0) {
-
-					$button = "Owned";
-
-				} else {
-
-					$button = "Buy ($price SC)";
-				}
-			} else {
-				
-				echo "Query error: " . mysqli_error($conn);
-			}
-
-			echo '
-			<div id="first-col">
-				<img src="documents/product/'.$image.'" alt="product_image" id="img">
-				<div id="action-con">
-					<i class="fa-solid fa-triangle-exclamation" id="report-btn"></i>
-					<i class="fa-solid fa-bookmark" id="favorite-solid-btn"></i>
-					<i class="fa-regular fa-bookmark" id="favorite-btn"></i>
-				</div>
-			</div>
-			<div id="second-col">
-				<div id="descriptions">
-					<h1 id="name">'.$name.'</h1>
-					<h2 id="seller">by '.$seller.'</h2>
-					<div id="rate" value="'.$rate.'">
-						<i class="fa-solid fa-star" id="star1"></i>
-						<i class="fa-solid fa-star" id="star2"></i>
-						<i class="fa-solid fa-star" id="star3"></i>
-						<i class="fa-solid fa-star" id="star4"></i>
-						<i class="fa-solid fa-star" id="star5"></i>
-					</div>
-					<h3>'.$description.'</h3>
+				$name = $row["name"];
+				$description = $row["description"];
+				$rate = $row["rate"];
+				$price = $row["price"];
+				$seller = $row["seller"];
+				$date = $row["date"];
+				$category = $row["category"];
+				$image = $row["image"];
+	
+				$button = "";
+	
+				$sql2 = "SELECT * FROM `owner` WHERE `book` = '.$name.'";
+				$result2 = mysqli_query($conn, $sql2);
+	
+				if ($result2) {
+					$rowCount = mysqli_num_rows($result2);
 					
-					<div id="image-container">
-						<img src="css/img/book2.jpg" alt="Image 1">
-						<img src="css/img/book2.jpg" alt="Image 2">
-						<img src="css/img/book2.jpg" alt="Image 3">
+					if ($rowCount > 0) {
+	
+						$button = "Owned";
+	
+					} else {
+	
+						$button = "Buy ($price SC)";
+					}
+				} else {
+					
+					echo "Query error: " . mysqli_error($conn);
+				}
+	
+				echo '
+				<div id="first-col">
+					<img src="documents/product/'.$image.'" alt="product_image" id="img">
+					<div id="action-con">
+						<i class="fa-solid fa-triangle-exclamation" id="report-btn"></i>';
+
+					$sql = "SELECT * FROM `product_favorite` WHERE `product` = '$name' AND `seller` = '$seller' AND `user` = '$userOnline'";
+					$result = mysqli_query($conn, $sql);
+
+					if ($result) {
+						$rowCount = mysqli_num_rows($result);
+						
+						if ($rowCount > 0) {
+							echo '<i class="fa-solid fa-bookmark" id="favorite-btn" data-con="true"></i>';
+		
+						} else {
+							echo '<i class="fa-regular fa-bookmark" id="favorite-btn" data-con="false"></i>';
+						}
+					} else {
+						echo "Query error: " . mysqli_error($conn);
+					}
+
+				echo'
 					</div>
 				</div>
-				<div id="options">
-					<button id="rate-btn">Rate</button>
-					<button id="buy-btn" value="'.$price.'">'.$button.'</button>
+				<div id="second-col">
+					<div id="descriptions">
+						<h1 id="name">'.$name.'</h1>
+						<h2 id="seller">'.$seller.'</h2>
+						<div id="rate" value="'.$rate.'">
+							<i class="fa-solid fa-star" id="star1"></i>
+							<i class="fa-solid fa-star" id="star2"></i>
+							<i class="fa-solid fa-star" id="star3"></i>
+							<i class="fa-solid fa-star" id="star4"></i>
+							<i class="fa-solid fa-star" id="star5"></i>
+						</div>
+						<h3>'.$description.'</h3>
+						
+						<div id="image-container">
+							<img src="css/img/book2.jpg" alt="Image 1">
+							<img src="css/img/book2.jpg" alt="Image 2">
+							<img src="css/img/book2.jpg" alt="Image 3">
+						</div>
+					</div>
+					<div id="options">
+						<button id="rate-btn">Rate</button>
+						<button id="buy-btn" value="'.$price.'">'.$button.'</button>
+					</div>
 				</div>
-			</div>
-			';
+				';
+			}
+	
+		} else {
+	
+			echo "Data not found in session.";
 		}
-
-	} else {
-
-		echo "Data not found in session.";
 	}
+
 
 ?>
     	</div>
