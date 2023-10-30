@@ -24,7 +24,7 @@ Remember me function
 AJAX migration
 Jquery migration
 Hash password
-Guest and restricted view
+Restricted view
 Activity log
 Face capture
 View Products

@@ -124,8 +124,6 @@
 								<label id="productPrice">'.$price.'</label>
 								<label id="productSeller">'.$seller.'</label>
 							  </div>
-							  <a><i class="fa-regular fa-bookmark wishlist"></i></a>
-							  <a><i class="fa-solid fa-basket-shopping purchase"></i></a>
 							</div>';
 						}
 					}
