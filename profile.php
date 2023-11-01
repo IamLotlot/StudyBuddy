@@ -45,7 +45,7 @@
 
 					echo '
 					<div id="img-con">
-						<img src="documents/profile/'.$profile.'">
+						<img src="documents/profile/'.$profile.'" id="profile">
 						<h1 id="badges-label">Badges:</h1>
 					</div>
 					<div id="des-con">
@@ -65,14 +65,14 @@
 						<div class="des-sub-row">
 							<h2 class="des-label">Age</h2>
 							<h2 class="des-label">Student ID</h2>
-							<input type="text" class="des-input" id="age" placeholder="age" value="'.$age.'" disabled>
-							<input type="text" class="des-input" id="student-id" placeholder="studentid" value="'.$studentid.'" disabled>
+							<input type="text" class="des-input" id="age" placeholder="age" value="'.$age.'" oninput="this.value = this.value.replace(/[^0-9]/g, ``)" disabled>
+							<input type="text" class="des-input" id="student-id" placeholder="studentid" value="'.$studentid.'" oninput="this.value = this.value.replace(/[^0-9]/g, ``)" disabled>
 						</div>
 						<div class="des-sub-row">
 							<h2 class="des-label">Sex</h2>
 							<h2 class="des-label">Contact</h2>
 							<input type="text" class="des-input" id="sex" placeholder="sex" value="'.$sex.'" disabled>
-							<input type="text" class="des-input" id="contact" placeholder="contact" value="'.$contact.'" disabled>
+							<input type="text" class="des-input" id="contact" placeholder="contact" value="'.$contact.'" oninput="this.value = this.value.replace(/[^0-9]/g, ``)" disabled>
 						</div>
 					</div>
 					<div id="des-row2">

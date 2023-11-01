@@ -34,11 +34,11 @@ if (isset($_POST['price']) && isset($_POST['book']) && isset($_POST['seller'])) 
                 if ($result2 && mysqli_num_rows($result2) > 0) {
                     $row = mysqli_fetch_array($result2);
                     
-                    $sc = $row["studdycoin"];
+                    $sc = $row["studycoin"];
     
                     if ($price < $sc) {
                         
-                        $sql3 = "INSERT INTO `owner` (`name`, `book`, `seller`, `date`, `time`) VALUES ('.$username.','.$book.','.$seller.','.$date.','.$time.')";
+                        $sql3 = "INSERT INTO `owner` (`name`, `book`, `seller`, `date`, `time`) VALUES ('$username','$book','$seller','$date','$time')";
                         $result3 = mysqli_query($conn, $sql3);
     
                         if ($result3) {
@@ -48,17 +48,17 @@ if (isset($_POST['price']) && isset($_POST['book']) && isset($_POST['seller'])) 
         
                             $newSc = $priceInt - $scInt;
         
-                            $sql4 = "UPDATE `account` SET `studdycoin`='.$newSc.' WHERE `username` = '.$username.'";
+                            $sql4 = "UPDATE `account` SET `studycoin`='$newSc' WHERE `username` = '$username'";
                             $result4 = mysqli_query($conn, $sql4);
         
                             if ($result4) {
         
-                                $sql5 = "UPDATE `account` SET `studdycoin`='.$newSc.' WHERE `username` = '.$username.'";
+                                $sql5 = "UPDATE `account` SET `studycoin`='$newSc' WHERE `username` = '$username'";
                                 $result5 = mysqli_query($conn, $sql5);
             
                                 if ($result5) {
             
-                                    $sql6 = "INSERT INTO `market_log`(`event`, `buyer`, `book`, `seller`, `price`, `sc`, `date`, `time`) VALUES ('bought','.$username.','.$book.','.$seller.','.$price.','.$sc.','.$date.','.$time.')";
+                                    $sql6 = "INSERT INTO `market_log`(`event`, `buyer`, `book`, `seller`, `price`, `sc`, `date`, `time`) VALUES ('bought','$username','$book','$seller','$price','$sc','$date','$time')";
                                     $result6 = mysqli_query($conn, $sql6);
                 
                                     if ($result6) {
