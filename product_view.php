@@ -52,7 +52,7 @@ include "db_conn.php";
 	
 				$button = "";
 	
-				$sql2 = "SELECT * FROM `owner` WHERE `book` = '.$name.'";
+				$sql2 = "SELECT * FROM `owner` WHERE `book` = '$name'";
 				$result2 = mysqli_query($conn, $sql2);
 	
 				if ($result2) {

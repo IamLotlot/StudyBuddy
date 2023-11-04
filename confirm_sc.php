@@ -46,7 +46,7 @@ if (isset($_POST['price']) && isset($_POST['book']) && isset($_POST['seller'])) 
                             $priceInt = (int)$price;
                             $scInt = (int)$sc;
         
-                            $newSc = $priceInt - $scInt;
+                            $newSc = $scInt - $priceInt;
         
                             $sql4 = "UPDATE `account` SET `studycoin`='$newSc' WHERE `username` = '$username'";
                             $result4 = mysqli_query($conn, $sql4);
