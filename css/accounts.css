@@ -6,9 +6,6 @@
 body{
     background-color: var(--white);
 }
-body::-webkit-scrollbar{
-    width: 0;
-}
 #usernameTitle{
     color: var(--white);
 }
@@ -21,6 +18,7 @@ body::-webkit-scrollbar{
     color: var(--green);
 }
 .accountsCon{
+    height: 50vh;
     width: 100%;
     margin-top: 100px;
     display: flex;
@@ -28,6 +26,7 @@ body::-webkit-scrollbar{
     justify-content: space-evenly;
 }
 .usernameCol{
+    height: 70vh;
     width: 10%;
     border-radius: 35px;
     padding: 20px 20px 20px 10px;
@@ -36,6 +35,7 @@ body::-webkit-scrollbar{
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    overflow: auto;
 }
 #usernameTitle{
     font-size: 20px;

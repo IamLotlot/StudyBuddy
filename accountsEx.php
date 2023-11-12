@@ -111,12 +111,11 @@ if (isset($_POST['removeBtn'])){
 
     if ($result) {
 
-        $sql2 = "DELETE FROM `account` WHERE `username`='$username'";
-        
+        $sql2 = "UPDATE `account` SET `state`='diactivated' WHERE `username` = '$username'";
         $result2 = mysqli_query($conn, $sql2);
             
         echo '<script type="text/javascript">'; 
-        echo 'alert("'.$username.' account was removed!");';
+        echo 'alert("'.$username.' account was diactivated!");';
         echo 'window.location.href = "accounts.php";';
         echo '</script>';
     } else {

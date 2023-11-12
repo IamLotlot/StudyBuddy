@@ -86,10 +86,10 @@ video{
     place-content: center;
     transition: 0.3s;
 }
-#getStarted{
+#search-buddy{
     margin-right: 50px;
 }
-#searchBuddy:hover, #getStarted:hover{
+#leaderboards:hover, #search-buddy:hover{
     color: var(--black);
     transition: 0.3s;
     box-shadow: 10px 5px 5px var(--black);

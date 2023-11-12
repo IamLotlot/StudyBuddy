@@ -33,8 +33,8 @@
         </div>
         <label id="tagLine">Connecting Students for Collaborative Learning and Unlock Academic Success Together</label>
         <div class="buttonContainer">
-            <a href="subscription.php" id="getStarted">Subscribe</a>
-            <a href="#" id="searchBuddy">Leaderboards</a>
+            <a href="search_buddy.php" id="search-buddy">Search Buddy</a>
+            <a href="leaderboard.php" id="leaderboards">Leaderboards</a>
         </div>
     </section>
     <div class="separator"></div>

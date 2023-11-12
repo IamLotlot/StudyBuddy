@@ -1,0 +1,101 @@
+body{
+    background-color: var(--white);
+}
+section{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#input-con{
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--black);
+}
+#first-section{
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+}
+.labels{
+    color: var(--white);
+}
+.inputs{
+    padding-left: 0.5rem;
+    border-radius: 0.5rem;
+}
+#course, #category, #sex{
+    border-radius: 0.5rem;
+    color: var(--black);
+}
+#second-section{
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#second-section textarea{
+    min-height: 6rem;
+    width: 95%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    resize: none;
+}
+#search-btn ,#cancel-btn{
+    width: 50%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+#result-con{
+    width: 40%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+#matched-con{
+}
+#des-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#img-con{
+    width: 30%;
+}
+#profile-img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+#description-con{
+    width: 70%;
+    gap: 0.5rem;
+    grid-template-columns: 0.5fr 0.1fr 2fr;
+    display: grid;
+}
+#description-con h1, #description-con h2, #description-con h3{
+    font-size: 1rem;
+}
+#searched-des{
+    height: 5rem;
+    width: 95%;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid black;
+}
+#searching{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -104,6 +104,7 @@ function setOnline(username){
 
     // Check the result
     if (result == true) {
+      global_online_username = "";
       localStorage.removeItem('userOnline');
       sessionStorage.removeItem("userOnline");
       location.reload();
@@ -184,5 +185,18 @@ $(document).ready(function() {
 $(document).ready(function() {
   $("#modeCon").click(function() {
     
+  });
+});
+
+// Cancel the redirect event to check for restricted permission
+$(document).ready(function(){
+  $("#search-buddy").on("click", function(event){
+    
+    if(global_online_username !== ""){
+    } else {
+      event.preventDefault();
+      alert("Please login to access Search Buddy and other wonderful features!");
+      window.location.href = 'login.php';
+    }
   });
 });

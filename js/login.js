@@ -68,3 +68,11 @@ $("#password").on("keydown", function(event) {
     }
 });
 $("#loginBtn").on("click", login);
+
+//// Forget password function
+$(document).ready(function(){
+    $("#forgot-pass").on("click", function(event){
+      
+      alert("Sorry, this is still in progress!");
+    });
+  });

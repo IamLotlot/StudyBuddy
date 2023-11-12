@@ -5,17 +5,16 @@ Chat system
 Chat mini tool
 Subscription
 Point system (contribrutory)
-Responsive
 Custom notification/ UI alert
 Store for Study Coin
 Profile customize setting
+Responsive
+Search buddy function
 
 --- Easy
-Delete confirmation
 Copyright alert
-Only ban accounts not delete
-Deduct the purchase from the buyer and add to the seller
-Debug the date and time when inserting to the owner and market_logs database
+Remove overlap scrollbar on accounts user list
+Change all $username identifier into $userid (Bug for changing username)
 
 DONE:
 
@@ -35,3 +34,7 @@ Note sharing
 Report system
 Rating function
 Favorite function
+Deduct the purchase from the buyer and add to the seller
+Delete confirmation (Where?)
+Only ban accounts not delete (Deactivate)
+Debug the date and time when inserting to the owner and market_logs database

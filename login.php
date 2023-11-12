@@ -23,7 +23,7 @@
 	            <label>Password</label><input type="password" class="input-field" name="password" id="password" required>
 				<div><input type="checkbox" id="remember-me" checked><span id="remember-me-label">Remember Me</span></div>
 				<span id="message"></span>
-	            <a href="#ss-container">Don't have an account?</a>
+	            <a href="#ss-container" id="forgot-pass">Don't have an account?</a>
         	</div>
 	        <div class="loginCol2">
 				<i class="fa-solid fa-right-to-bracket" id="loginBtn" for="loginBtn"></i>

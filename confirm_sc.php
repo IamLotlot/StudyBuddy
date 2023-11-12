@@ -46,14 +46,15 @@ if (isset($_POST['price']) && isset($_POST['book']) && isset($_POST['seller'])) 
                             $priceInt = (int)$price;
                             $scInt = (int)$sc;
         
-                            $newSc = $scInt - $priceInt;
+                            $addSc = $scInt + $priceInt;
+                            $minusSc = $scInt - $priceInt;
         
-                            $sql4 = "UPDATE `account` SET `studycoin`='$newSc' WHERE `username` = '$username'";
+                            $sql4 = "UPDATE `account` SET `studycoin`='$minusSc' WHERE `username` = '$username'";
                             $result4 = mysqli_query($conn, $sql4);
         
                             if ($result4) {
         
-                                $sql5 = "UPDATE `account` SET `studycoin`='$newSc' WHERE `username` = '$username'";
+                                $sql5 = "UPDATE `account` SET `studycoin`='$addSc' WHERE `username` = '$seller'";
                                 $result5 = mysqli_query($conn, $sql5);
             
                                 if ($result5) {

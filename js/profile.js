@@ -11,15 +11,11 @@ var global_sex;
 var global_contact;
 var global_profile;
 
-//// Edit button function
+//// Profile function
 $(document).ready(function() {
     $('#profile').click(function() {
 
-        $("#edit-btn").hide();
-        $("#update-btn").hide();
-        $("#cancel-btn").show();
-        $(".des-input").prop("disabled", false);
-        $("#email").prop("disabled", true);
+        
     });
 });
 
