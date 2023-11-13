@@ -45,7 +45,7 @@ section{
     border-radius: 0.5rem;
     resize: none;
 }
-#search-btn ,#cancel-btn{
+#search-btn ,#cancel-btn, #chat-btn{
     width: 50%;
     padding: 1rem;
     border-radius: 1rem;

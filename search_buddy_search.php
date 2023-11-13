@@ -41,7 +41,7 @@ if (isset($_POST['user']) && isset($_POST['course']) && isset($_POST['category']
                     $result3 = mysqli_query($conn, $sql3);
 
                     if ($result3){
-                        echo "Success";
+                        echo "Queue_Success";
                     } else {
                         echo "Failed";
                     }
@@ -92,6 +92,8 @@ if (isset($_POST['user']) && isset($_POST['course']) && isset($_POST['category']
         } else if ($course !== "none" && $sex !== "none" && $age != 0){
             $sql1= "SELECT * FROM `search_queue` WHERE `fullname` != '$fullname' AND `category` = '$category' AND `course` = '$course' AND `sex` = '$sex' AND `age` = '$age' ORDER BY `date` DESC LIMIT 1";
             // echo "NO MISSING (Category & Course & Sex & Age)";
+        } else {
+            echo "Bug_Variables";
         }
 
         $result1 = mysqli_query($conn, $sql1);
@@ -99,9 +101,9 @@ if (isset($_POST['user']) && isset($_POST['course']) && isset($_POST['category']
         if (mysqli_num_rows($result1) > 0) {
             while ($row = mysqli_fetch_assoc($result1)) {
 
-                $queueId = $row['queueId'];
+                $matched_queueId = $row['queueId'];
 
-                $sql2 = "SELECT * FROM `search_queue` WHERE `queueId` = '$queueId'";
+                $sql2 = "SELECT * FROM `search_queue` WHERE `queueId` = '$matched_queueId'";
                 $result2 = mysqli_query($conn, $sql2);
 
                 if (mysqli_num_rows($result2) > 0) {
@@ -110,13 +112,12 @@ if (isset($_POST['user']) && isset($_POST['course']) && isset($_POST['category']
                         // Match ID generator
                         function generateMatchId() {
                             // Generate a random number between 100000 and 999999 (inclusive)
-                            $matchId = rand(100000, 999999);
-                            return $matchId;
+                            $matched_Id = rand(100000, 999999);
+                            return $matched_Id;
                         }
 
-                        $matchId = generateMatchId();
+                        $matched_Id = generateMatchId();
                         $matched_fullname = $row['fullname'];
-                        $matched_queueId = $row['queueId'];
                         $matched_course = $row['course'];
                         $matched_category = $row['category'];
                         $matched_sex = $row['sex'];
@@ -125,8 +126,8 @@ if (isset($_POST['user']) && isset($_POST['course']) && isset($_POST['category']
                         $matched_date = $row['date'];
                         $matched_time = $row['time'];
         
-                        $sql3 = "INSERT INTO `search_queue_con`(`matchId`, `queueId`, `fullname`, `course`, `category`, `sex`, `age`, `description`, `date`, `time`) 
-                                VALUES ('$matchId', '$matched_queueId','$matched_fullname','$matched_course','$matched_category','$matched_sex','$matched_age','$matched_description','$matched_date','$matched_time')";
+                        $sql3 = "INSERT INTO `search_queue_con`(`matchId`, `fullname`, `course`, `category`, `sex`, `age`, `description`, `date`, `time`) 
+                                VALUES ('$matched_Id','$matched_fullname','$matched_course','$matched_category','$matched_sex','$matched_age','$matched_description','$matched_date','$matched_time')";
                         $result3 = mysqli_query($conn, $sql3);
 
                         if ($result3) {
@@ -141,26 +142,38 @@ if (isset($_POST['user']) && isset($_POST['course']) && isset($_POST['category']
                                 $date = date('Y-m-d', strtotime($currentDateTime));
                                 $time = date('H:i:s', strtotime($currentDateTime));
 
-                                $sql5 = "INSERT INTO `search_queue_con`(`matchId`, `queueId`, `fullname`, `course`, `category`, `sex`, `age`, `description`, `date`, `time`) 
-                                        VALUES ('$matchId', '$queueId','$fullname','$course','$category','$sex','$age','$description','$date','$time')";
+                                $sql5 = "INSERT INTO `search_queue_con`(`matchId`, `fullname`, `course`, `category`, `sex`, `age`, `description`, `date`, `time`) 
+                                        VALUES ('$matched_Id','$fullname','$course','$category','$sex','$age','$description','$date','$time')";
                                 $result5 = mysqli_query($conn, $sql5);
 
                                 if ($result5) {
 
-                                    $sql6 = "DELETE FROM `search_queue` WHERE `queueId` = '$matched_queueId'";
-                                    $result6 = mysqli_query($conn, $sql6);
+                                    echo "Search_Success";
 
-                                    if ($result6) {
-                                        echo "Success";
-                                    }
+                                    // $sql6 = "DELETE FROM `search_queue` WHERE `queueId` = '$matched_queueId'";
+                                    // $result6 = mysqli_query($conn, $sql6);
+
+                                    // if ($result6) {
+
+                                    //     $sql7 = "DELETE FROM `search_queue_con` WHERE `matchId` = '$matched_Id'";
+                                    //     $result7 = mysqli_query($conn, $sql7);
+
+                                    //     echo "Search_Success";
+                                    // }
                                 }
+                            } else {
+                                echo "Username";
                             }
                         } else {
                             echo "Failed";
                         }
                     }
+                } else {
+                    echo "No_QueueID";
                 }
             }
+        } else {
+            echo "No_Match";
         }
     }
 } else {

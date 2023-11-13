@@ -99,8 +99,10 @@
 
                     if ($queue === "true") {
                         echo '<button id="cancel-btn">Cancel</button>';
+                        echo '<button id="chat-btn" style="display: none;">Chat</button>';
                     } else {
                         echo '<button id="search-btn">Search</button>';
+                        echo '<button id="chat-btn" style="display: none;">Chat</button>';
                     }
                 }
                 useGlobalVar();

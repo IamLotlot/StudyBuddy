@@ -1,3 +1,13 @@
+//// Reload the search buddy page on entry
+// $(document).ready(function() {
+//     var reload = 0;
+
+//     if (reload === 0) {
+//         window.location.reload();
+//     } else {
+//         reload = 1;
+//     }
+// });
 //// If cancel button is showing it will activate this function
 $(document).ready(function() {
     if ($('#cancel-btn').is(':visible')) {
@@ -17,10 +27,19 @@ $(document).ready(function() {
 
         SearchBuddySearchPHP(global_online_username, course, category, sex, age, description, action);
 
-    } else {
+    } else if ($('#search-btn').is(':visible')) {
+
         search();
 
-        $("#result-con").show();
+        $("#result-con").hide();
+        $("#searched-des").show();
+        $("#loading-con").hide();
+
+    } else if ($('#chat-btn').is(':visible')) {
+
+        cancel();
+
+        $("#matched-con").show();
         $("#searched-des").show();
         $("#loading-con").hide();
     }
@@ -48,22 +67,56 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
         if (data == "Unknown"){
             alert("Inputs are missing!");
 
+        } else if (data == "No_Match") {
+            // Will loop the searching process till a match has been found
+            SearchBuddySearchPHP( user, course, category, sex, age, description, action);
+
+            // console.log(data);
+
+        } else if (data == "No_QueueID") {
+            alert("No_QueueID");
+
         } else if (data == "Username") {
             alert("No account is found named: "+user);
 
         } else if (data == "Existing") {
             alert("A queue is already in progress under your account!");
 
-        } else if (data == "Success") {
-            $("#loading-con").hide()
-            $("#matched-con").show()
-            $("#result-con").show()
-            
+        } else if (data == "Queue_Success") {
+
+            $("#cancel-btn").show();
+            $("#loading-con").show();
+
+            $("#matched-con").hide();
+            $("#chat-btn").hide();
+            $("#search-btn").hide();
+
+            // console.log(data);
+
+        } else if (data == "Search_Success") {
+
+            $("#chat-btn").show();
+            $("#matched-con").show();
+
+            $("#search-btn").hide();
+            $("#cancel-btn").hide();
+            $("#loading-con").hide();
+
+            // var reload = 0;
+        
+            // if (reload === 0) {
+            //     window.location.reload();
+            // } else {
+            //     reload = 1;
+            // }
+        
             // Stops the searching animation
-            setTimeout(function() {
-                clearInterval(intervalId);
-                $('#searching').text("Search complete!");
-            }, 10000);
+            // setTimeout(function() {
+            //     clearInterval(intervalId);
+            //     $('#searching').text("Search complete!");
+            // }, 10000);
+
+            // console.log(data);
 
         } else if (data == "Failed") {
             alert("Failed");
@@ -149,4 +202,41 @@ $(document).ready(function() {
     }
 
     var intervalId = setInterval(animateDots, 500);
+  });
+  
+//// Function for chat button
+$(document).ready(function() {
+    $("#chat-btn").click(function() {
+        var action = "chat";
+            
+        $.post("search_buddy_chat.php", { user: global_online_username, action: action })
+        .done(function (data){
+
+            if (data == "Unknown"){
+                alert("Inputs are missing!");
+
+            } else if (data == "Username") {
+                alert("No account is found named: "+global_online_username);
+
+            } else if (data == "Queue") {
+                alert("You have no queue!");
+
+            } else if (data == "MatchID") {
+                alert("Match ID is wrong!");
+
+            } else if (data == "Success") {
+                alert("You have a new buddy!");
+                window.location.href = "buddy.php";
+
+            } else if (data == "Failed") {
+                alert("Failed!");
+
+            } else if (data == "Upload") {
+                alert("Uploading Failed!");
+
+            } else {
+                console.log(data);
+            }
+        });
+    });
   });
