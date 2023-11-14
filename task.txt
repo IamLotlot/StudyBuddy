@@ -7,14 +7,21 @@ Subscription
 Point system (contribrutory)
 Custom notification/ UI alert
 Store for Study Coin
-Profile customize setting
 Responsive
-Search buddy function
 
 --- Easy
 Copyright alert
 Remove overlap scrollbar on accounts user list
 Change all $username identifier into $userid (Bug for changing username)
+
+NEW:
+
+Age range depends on the users year, checkbox instead of combo box
+Create a UI notification
+Re-try or reject after matching before chatting
+Profile avatars
+Chat security avoid links, spam and etc.
+Word detection and filtering
 
 DONE:
 
@@ -38,3 +45,5 @@ Deduct the purchase from the buyer and add to the seller
 Delete confirmation (Where?)
 Only ban accounts not delete (Deactivate)
 Debug the date and time when inserting to the owner and market_logs database
+Profile customize setting
+Search buddy function
