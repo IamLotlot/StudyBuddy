@@ -41,12 +41,19 @@ if (isset($_POST['user']) && isset($_POST['action'])) {
 
                                 if ($result5) {
                                     // Add the online user and their buddy into relationship
-                                    $sql6 = "INSERT INTO `relationship`(`id`, `user1`, `user2`, `relation`) 
+                                    $sql6 = "INSERT INTO `relationship`(`id`, `user`, `buddy`, `relation`) 
                                             VALUES ('$matchId','$fullname','$matched_fullname','buddy')";
                                     $result6 = mysqli_query($conn, $sql6);
 
                                     if ($result6) {
+                                        // Vise versa
+                                        $sql7 = "INSERT INTO `relationship`(`id`, `user`, `buddy`, `relation`) 
+                                                VALUES ('$matchId','$matched_fullname','$fullname','buddy')";
+                                        $result7 = mysqli_query($conn, $sql7);
+
+                                        if ($result7) {
                                             echo "Success";
+                                        }
                                     } else {
                                         echo "Upload";
                                     }

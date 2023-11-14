@@ -34,12 +34,11 @@ section{
     height: 90%;
     width: 70%;
     padding: 1rem;
-    border: 1px solid black;
 }
 #img{
     height: 80%;
     width: 100%;
-    border: 1px solid black;
+    border-radius: 0.5rem;
 }
 #descriptions{
     height: 90%;

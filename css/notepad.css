@@ -19,7 +19,7 @@
     justify-content: flex-end;
     cursor: move;
 }
-.fa-xmark{
+#tab .fa-xmark{
     font-size: 1.5rem;
     margin: 0.5rem;
     color: var(--green);
@@ -49,10 +49,10 @@
     font-size: 1.5rem;
     cursor: pointer;
 }
-.fa-trash-can{
+.title-con .fa-trash-can{
     margin-right: 1rem;
 }
-.fa-trash-can, .fa-share-from-square{
+.title-con .fa-trash-can, .fa-share-from-square{
     font-size: 1rem;
     cursor: pointer;
 }
@@ -85,7 +85,7 @@
     cursor: text;
     background-color: var(--white);
 }
-.fa-floppy-disk{
+.title-con .fa-floppy-disk{
     font-size: 2rem;
     color: var(--black);
     cursor: pointer;
@@ -110,6 +110,55 @@
     color: var(--green);
     cursor: pointer;
 }
-#share-icon, #save-icon{
+#footer #share-icon, #save-icon{
     display: none;
+}
+
+/* Buddy list */
+#share-to-buddy{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#buddy-wrapper{
+    height: 40vh;
+    width: 25%;
+    border-radius: 1rem;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#buddy-label{
+    height: 25%;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#buddy-con{
+    max-height: 75%;
+    height: 75%;
+    width: 90%;
+    gap: 1rem; 
+    padding: 0.5rem 0 0.5rem 0;
+    grid-template-columns: 1fr 1fr;
+    overflow-x: auto;
+    display: grid;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+.buddies{
+    font-size: 1.5rem;
+    color: var(--black);
+    cursor: pointer;
 }

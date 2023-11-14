@@ -118,6 +118,13 @@
                     <div id="description-con">
                         <?php
 
+                        $match_fullname = "";
+                        $match_course = "";
+                        $match_category = "";
+                        $match_sex = "";
+                        $match_age = "";
+                        $match_description = "";
+
                         $sql3 = "SELECT * FROM `search_queue_con` WHERE `fullname` = '$fullname'";
                         $result3 = mysqli_query($conn, $sql3);
 

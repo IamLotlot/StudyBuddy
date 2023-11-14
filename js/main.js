@@ -62,6 +62,10 @@ var global_online_username = "";
         userIcon.style.display = "inline-block";
       }
     } else {
+      buddy.style.display = "inline-block";
+      market.style.display = "inline-block";
+      creators.style.display = "inline-block";
+      
       accounts.style.display = "none";
       products.style.display = "none";
 
@@ -200,3 +204,24 @@ $(document).ready(function(){
     }
   });
 });
+
+//// Function for custom notification that can be used on other JS files
+$(document).ready(function () {
+
+  var notification = $("#notification-wrapper");
+  var popInButton = $("#popIn");
+  
+  popInButton.click(function () {
+    // Show the popup
+    notification.removeClass("hidden");
+  });
+
+  // Automatically hide the popup after 5 seconds
+  setTimeout(function () {
+    notification.addClass("hidden");
+  }, 5000);
+});
+
+function notification(message) {
+  $("#notification-wrapper").show();
+}

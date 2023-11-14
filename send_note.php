@@ -39,5 +39,4 @@ if (isset($_POST['id']) && isset($_POST['username'])) {
 } else {
     echo "Unknown";
 }
-
 ?>

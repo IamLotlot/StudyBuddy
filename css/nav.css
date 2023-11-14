@@ -179,3 +179,69 @@ nav{
 	background-color: var(--black);
 	cursor: pointer;
 }
+
+/* Notification */
+#notification-wrapper{
+	height: 30vh;
+	width: 25rem;
+	bottom: -90vh;
+	left: 1rem;
+	/* border: 1px solid red; */
+	position: absolute;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+#notification-con{
+	min-height: 3rem;
+	width: 100%;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	z-index: 100;
+	transform: translate(-50%, -50%);
+	animation: fadeIn 0.5s ease-out;
+	background-color: var(--black);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: start;
+}
+@keyframes fadeIn {
+  from {
+	opacity: 0;
+  }
+  to {
+	opacity: 1;
+  }
+}
+#popup {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	padding: 20px;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	animation: fadeIn 0.5s ease-out;
+}
+#notification-con .fa-bell{
+	margin-right: 0.5rem;
+}
+#notification-con .fa-xmark{
+	margin-left: 0.5rem;
+	z-index: 101;
+}
+#notification-con .fa-bell, .fa-xmark{
+	width: 5%;
+	font-size: 1.2rem;
+	color: var(--white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#notification-message{
+	width: 85%;
+	font-size: 1rem;
+	color: var(--white);
+}

@@ -1,3 +1,6 @@
+//// Global variables
+var search_status = "Ongoing";
+
 //// Reload the search buddy page on entry
 // $(document).ready(function() {
 //     var reload = 0;
@@ -10,22 +13,26 @@
 // });
 //// If cancel button is showing it will activate this function
 $(document).ready(function() {
-    if ($('#cancel-btn').is(':visible')) {
+    var course = $("#course").val();
+    var category = $("#category").val();
+    var sex = $("#sex").val();
+    var age = $("#age").val();
+    var description = $("#description").val();
+    var action = "search";
+
+    if (search_status === "Ongoing") {
+        SearchBuddySearchPHP(global_online_username, course, category, sex, age, description, action);
+    } else {
+
+    }
         
-        var course = $("#course").val();
-        var category = $("#category").val();
-        var sex = $("#sex").val();
-        var age = $("#age").val();
-        var description = $("#description").val();
-        var action = "search";
+    if ($('#cancel-btn').is(':visible')) {
 
         cancel();
 
         $("#matched-con").hide();
         $("#searched-des").hide();
         $("#loading-con").show();
-
-        SearchBuddySearchPHP(global_online_username, course, category, sex, age, description, action);
 
     } else if ($('#search-btn').is(':visible')) {
 
@@ -66,12 +73,12 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
 
         if (data == "Unknown"){
             alert("Inputs are missing!");
+            console.log(data);
 
         } else if (data == "No_Match") {
             // Will loop the searching process till a match has been found
             SearchBuddySearchPHP( user, course, category, sex, age, description, action);
-
-            // console.log(data);
+            search_status = "Ongoing";
 
         } else if (data == "No_QueueID") {
             alert("No_QueueID");
@@ -84,6 +91,10 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
 
         } else if (data == "Queue_Success") {
 
+            search_status = "Done";
+
+            window.location.reload();
+
             $("#cancel-btn").show();
             $("#loading-con").show();
 
@@ -91,9 +102,11 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
             $("#chat-btn").hide();
             $("#search-btn").hide();
 
-            // console.log(data);
-
         } else if (data == "Search_Success") {
+            
+            search_status = "Done";
+
+            // window.location.reload();
 
             $("#chat-btn").show();
             $("#matched-con").show();
@@ -101,22 +114,12 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
             $("#search-btn").hide();
             $("#cancel-btn").hide();
             $("#loading-con").hide();
-
-            // var reload = 0;
-        
-            // if (reload === 0) {
-            //     window.location.reload();
-            // } else {
-            //     reload = 1;
-            // }
         
             // Stops the searching animation
             // setTimeout(function() {
             //     clearInterval(intervalId);
             //     $('#searching').text("Search complete!");
             // }, 10000);
-
-            // console.log(data);
 
         } else if (data == "Failed") {
             alert("Failed");

@@ -10,22 +10,22 @@ include "db_conn.php";
         </div>
     </div>
     <ul class="ulLeft">
-        <li id="buddyNav" title="Go to buddy page" class="navList"><a href="buddy.php" class="navLabel">Buddy</a></li>
-        <li id="marketNav" title="Go to market page" class="navList"><a href="market.php" class="navLabel">Market</a></li>
-        <li id="creatorsNav" title="Go to creators page" class="navList"><a href="#" class="navLabel">Creators</a></li>
+        <li id="buddyNav" title="Go to buddy page" class="navList" style="display: none;"><a href="buddy.php" class="navLabel">Buddy</a></li>
+        <li id="marketNav" title="Go to market page" class="navList" style="display: none;"><a href="market.php" class="navLabel">Market</a></li>
+        <li id="creatorsNav" title="Go to creators page" class="navList" style="display: none;"><a href="#" class="navLabel">Creators</a></li>
         <!-- Hidden Nav for admin access -->
-        <li id="accountsNav" title="Go to account list page" class="navList"><a href="accounts.php" class="navLabel">Accounts</a></li>
-        <li id="productsNav" title="Go to product list page" class="navList"><a href="products.php" class="navLabel">Products</a></li>
-        <li id="logsNav" title="Go to logs page" class="navList"><a href="logs.php" class="navLabel">Logs</a></li>
+        <li id="accountsNav" title="Go to account list page" class="navList" style="display: none;"><a href="accounts.php" class="navLabel">Accounts</a></li>
+        <li id="productsNav" title="Go to product list page" class="navList" style="display: none;"><a href="products.php" class="navLabel">Products</a></li>
+        <li id="logsNav" title="Go to logs page" class="navList" style="display: none;"><a href="logs.php" class="navLabel">Logs</a></li>
     </ul>
     <ul class="ulRight">
-        <li id="registerNav" title="Go to register page" class="navList"><a href="register.php" class="navLabel">Register</a></li>
-        <li id="loginNav" title="Go to login page" class="navList"><a href="login.php" class="navLabel">Login</a></li>
+        <li id="registerNav" title="Go to register page" class="navList" style="display: none;"><a href="register.php" class="navLabel">Register</a></li>
+        <li id="loginNav" title="Go to login page" class="navList" style="display: none;"><a href="login.php" class="navLabel">Login</a></li>
         <div id="online-container">
             <i class="fa-solid fa-user" id="userIcon"></i>
             <a id="onlineUser" name="onlineUser" class="navLabel"></a>
         </div>
-        <div id="dropdown">
+        <div id="dropdown" style="display: none;">
                 <li id="subNav" title="Buy more study coin here"><a href="study_store.php" class="dropdown-label-ex"a>
                 <?php
 
@@ -57,6 +57,13 @@ include "db_conn.php";
         </div>
         <div class="toolWrapper" id="modeCon">
             <i class="fa-solid fa-circle-half-stroke" title="Mode Tool"></i>
+        </div>
+    </div>
+    <div id="notification-wrapper" style="display: none;">
+        <div id="notification-con" class="hidden">
+            <i class="fa-solid fa-bell"></i>
+            <h1 id="notification-message">Notification Title</h1>
+            <i class="fa-solid fa-xmark" id="close-notification"></i>
         </div>
     </div>
 </nav>

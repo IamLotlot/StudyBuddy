@@ -79,29 +79,9 @@ $(document).ready(function() {
 
 //// Share notes function
 function shareNote(id){
-  var username = prompt("Send the note to whom?");
-  
-  if (username){
-    $.post("send_note.php", { id: id, username: username })
-    .done(function (data){
-      if (data == "Success"){
-
-        alert("Successfully send the note ("+id+") to ("+username+")");
-
-      } else if (data == "Failed"){
-
-        alert("Failed to send the note");
-
-      } else if (data == "Unknown"){
-
-        alert("Failed to send the note");
-
-      } else {
-
-        console.log(data);
-      }
-  });
-  }
+  $("#notepad").hide();
+  $("#share-to-buddy").show();
+  localStorage.setItem('note_id', id);
 }
 
 //// Add note save function
@@ -172,3 +152,40 @@ function deleteNote(id){
   });
   }
 }
+
+//// Function for sharing a note to a selected buddy
+function selectBuddy(username){
+  var id = localStorage.getItem('note_id');
+  var username = username;
+  if (username){
+    $.post("send_note.php", { id: id, username: username })
+    .done(function (data){
+      if (data == "Success"){
+
+        alert("Successfully send the note ("+id+") to ("+username+")");
+        $("#share-to-buddy").hide();
+        $("#notepad").show();
+
+      } else if (data == "Failed"){
+
+        alert("Failed to send the note");
+
+      } else if (data == "Unknown"){
+
+        alert("Failed to send the note");
+
+      } else {
+
+        console.log(data);
+      }
+  });
+  }
+}
+
+//// Hide the buddy list UI after sharing a noe
+$(document).ready(function() {
+  $('#share-to-buddy').click(function() {
+    // $("#share-to-buddy").hide();
+    $("#share-to-buddy").toggle();
+  });
+});
