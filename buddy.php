@@ -15,19 +15,145 @@
 <body onload="Online()">
 <?php
 	include 'nav.php';
+
+	// $sql1 = "SELECT COUNT(*) AS row_count FROM `messages`;";
+	// $result1 = mysqli_query($conn, $sql1);
+
+	// if ($result1) {
+
+	// 	$row = mysqli_fetch_assoc($result1);
+	// 	$row_count1 = $row['row_count'];
+
+	// 	while ($i = 0) {
+			
+	// 		$sql2 = "SELECT COUNT(*) AS row_count FROM `messages`;";
+	// 		$result2 = mysqli_query($conn, $sql2);
+			
+	// 		if ($result2) {
+
+	// 			$row = mysqli_fetch_assoc($result2);
+	// 			$row_count2 = $row['row_count'];
+				
+	// 			$i++;
+			
+	// 			if ($row_count1 < $row_count2) {
+	// 				break;
+	// 			}
+	// 		}
+	// 	}
+
+	// } else {
+	// 	echo "Error executing query: " . mysqli_error($conn);
+	// }
 ?>
 	<section>
 		<div class="groupCol">
+			<?php
 
+			if (isset($_SESSION['userOnline'])) {
+
+				$userOnline = $_SESSION['userOnline'];
+
+				$sql1 = "SELECT * FROM `account` WHERE `username` = '$userOnline'";
+				$result1 = mysqli_query($conn, $sql1);
+
+				if (mysqli_num_rows($result1) > 0) {
+					while ($row = mysqli_fetch_assoc($result1)) {
+						
+						$userid = $row['userid'];
+
+						$sql2 = "SELECT * FROM `message_members` WHERE `userid` = '$userid'";
+						$result2 = mysqli_query($conn, $sql2);
+
+						if (mysqli_num_rows($result2) > 0) {
+							while ($row = mysqli_fetch_assoc($result2)) {
+								
+								$groupid = $row['groupid'];
+
+								$sql3 = "SELECT * FROM `message_members` WHERE `groupid` = '$groupid' AND `userid` != '$userid'";
+								$result3 = mysqli_query($conn, $sql3);
+		
+								if (mysqli_num_rows($result3) > 0) {
+									while ($row = mysqli_fetch_assoc($result3)) {
+										
+										$matched_userid = $row['userid'];
+
+										$sql4 = "SELECT * FROM `account` WHERE `userid` = '$matched_userid'";
+										$result4 = mysqli_query($conn, $sql4);
+				
+										if (mysqli_num_rows($result4) > 0) {
+											while ($row = mysqli_fetch_assoc($result4)) {
+												
+												$username = $row['username'];
+												$fullname = $row['fullname'];
+												$profile = $row['profile'];
+
+												$sql5 = "SELECT * FROM `messages` WHERE `receiverid` = '$matched_userid' AND `groupid` = '$groupid' ORDER BY `timestamp` DESC LIMIT 1";
+												$result5 = mysqli_query($conn, $sql5);
+						
+												if (mysqli_num_rows($result5) > 0) {
+													while ($row = mysqli_fetch_assoc($result5)) {
+														
+														$message = $row['message'];
+
+														echo '
+														<div class="users-con" onclick="clickUser(\''.$userid.'\', \''.$matched_userid.'\', \''.$groupid.'\')">
+															<img src="documents/profile/'.$profile.'" alt="user-profile" class="users-img">
+															<div>
+																<h2 class="users-name">'.$username.'</h2>
+																<h3 class="users-recent-msg">'.$message.'</h3>
+															</div>
+														</div>';
+													}
+												} else {
+													echo '
+													<div class="users-con" onclick="clickUser()">
+														<img src="documents/profile/'.$profile.'" alt="user-profile" class="users-img">
+														<div>
+															<h2 class="users-name">'.$username.'</h2>
+															<h3 class="users-recent-msg"> </h3>
+														</div>
+													</div>';
+												}
+											}
+										} else {
+											echo "No buddy account listed in account";
+										}
+									}
+								} else {
+									// No groupid listed in message_members
+								}
+							}
+						} else {
+							// No account listed in message_members
+						}
+					}
+				} else {
+					// No account listed in account
+				}
+			} else {
+
+			}
+			?>
 		</div>
 		<div class="messageCol">
 			<h1>Group Name</h1>
-			<div id="messages"></div>
-
+			<div id="messages">
+				<div class="message-wrapper" id="sender-msg-con">
+					<img src="documents/profile/user2_Profile-Picture.jpg" alt="" id="sender-profile">
+					<div id="message-con">
+						<h2 id="sender-name">Username</h2>
+						<h3 id="sender-message" title="time">Message</h3>
+					</div>
+				</div>
+				<div id="my-msg-con">
+					<h3 id="my-message" title="time">Message</h3>
+				</div>
+			</div>
 			<div id="sendMsg">
 				<input type="text" id="msgTxt" placeholder="Send message...">
-				<input type="submit" id="msgBtn" value="Send" onclick="module.sendMsg()" style="display:none">
-				<i class="fa-solid fa-share-from-square" id="msgIcon" for="msgBtn" onclick="clickSend_B()"></i>
+				<input type="submit" id="msgBtn" value="Send" style="display:none">
+				<i class="fa-solid fa-share-from-square" id="msgIcon" for="msgBtn"></i>
 			</div>
 		</div>
 		<div class="profileCol">
@@ -57,62 +183,5 @@
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>
 	<script src="js/buddy.js"></script>
-	<script>
-		module = {};
-	</script>
-	<script type="module">
-
-	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-	import { getDatabase, ref, set, remove, onChildAdded, onChildRemoved } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
-	
-	const firebaseConfig = {
-		apiKey: "AIzaSyANyCnSqg_b22wKuv-8DfoztKr2yrfAq34",
-		authDomain: "studybuddy-acc91.firebaseapp.com",
-		databaseURL: "https://studybuddy-acc91-default-rtdb.asia-southeast1.firebasedatabase.app",
-		projectId: "studybuddy-acc91",
-		storageBucket: "studybuddy-acc91.appspot.com",
-		messagingSenderId: "933625820871",
-		appId: "1:933625820871:web:6cd398be13a9f93d64b0e2",
-		measurementId: "G-4J3BT5636J"
-	};
-
-	// Initialize Firebase
-	const app = initializeApp(firebaseConfig);
-	const db = getDatabase(app);
-
-	var msgTxt = document.getElementById("msgTxt");
-	var sender;
-
-	if(localStorage.getItem("userOnline")){
-		sender = localStorage.getItem("userOnline");
-	} else {
-	}
-
-	module.sendMsg = function sendMsg(){
-		var msg = msgTxt.value;
-		var timestamp = new Date().getTime();
-		set(ref(db,"messages/"+timestamp),{
-			msg: msg,
-			sender: sender
-		})
-	}
-
-	onChildAdded(ref(db,"messages"), (data)=>{
-		if(data.val().sender == sender){
-			messages.innerHTML += "<div style=justify-content:end id=outer class="+data.key+"><div id=inner class=me>"+data.val().msg+"<button id='dltMsg' onclick='module.dltMsg("+data.key+")' style=display:none></button><i class='fa-solid fa-trash-can' onclick='clickRemove_B()' style=display:none></i></div></div>"
-		} else {
-			messages.innerHTML += "<div id=outer class="+data.key+"><div id=inner class=notMe>"+data.val().sender+" : "+data.val().msg+"</div></div>"
-		}
-	})
-
-	module.dltMsg = function dltMsg(key){
-		remove(ref(db,"messages/"+key));
-	}
-
-	onChildRemoved(ref(db,"messages"), (data)=>{
-		var msgBox = document.getElementById("."+data.key);
-		messages.removeChild(msgBox);
-	})
-</script>
 </body>
 </html>

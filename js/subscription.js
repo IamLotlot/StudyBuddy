@@ -14,6 +14,7 @@ paypal.Buttons({
     },
     onApprove: function(data, actions) {
     alert(data.subscriptionID); // You can add optional success message for the subscriber here
+    alert("testing");
     }
 }).render('#paypal-button-container-P-1NX82174NM094511MMUJOJGY'); // Renders the PayPal button
 

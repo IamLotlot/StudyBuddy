@@ -40,22 +40,58 @@ if (isset($_POST['user']) && isset($_POST['action'])) {
                                 $result5 = mysqli_query($conn, $sql5);
 
                                 if ($result5) {
-                                    // Add the online user and their buddy into relationship
-                                    $sql6 = "INSERT INTO `relationship`(`id`, `user`, `buddy`, `relation`) 
-                                            VALUES ('$matchId','$fullname','$matched_fullname','buddy')";
-                                    $result6 = mysqli_query($conn, $sql6);
+                                    // Get the user id of the online user
+                                    $sql5 = "SELECT * FROM `account` WHERE `fullname` = '$fullname'";
+                                    $result5 = mysqli_query($conn, $sql5);
 
-                                    if ($result6) {
-                                        // Vise versa
-                                        $sql7 = "INSERT INTO `relationship`(`id`, `user`, `buddy`, `relation`) 
-                                                VALUES ('$matchId','$matched_fullname','$fullname','buddy')";
-                                        $result7 = mysqli_query($conn, $sql7);
+                                    if ((mysqli_num_rows($result5) > 0)){
+                                        while ($row = mysqli_fetch_assoc($result5)) {
 
-                                        if ($result7) {
-                                            echo "Success";
+                                            $userid = $row['userid'];
+                                            // Get the user id of the other user
+                                            $sql6 = "SELECT * FROM `account` WHERE `fullname` = '$matched_fullname'";
+                                            $result6 = mysqli_query($conn, $sql6);
+
+                                            if ((mysqli_num_rows($result6) > 0)){
+                                                while ($row = mysqli_fetch_assoc($result6)) {
+
+                                                    $matched_userid = $row['userid'];
+
+                                                    // Add the group into message_groups
+                                                    $sql7 = "INSERT INTO `message_groups`(`groupid`, `groupname`) 
+                                                    VALUES ('$matchId','Buddy')";
+                                                    $result7 = mysqli_query($conn, $sql7);
+
+                                                    if ($result7) {
+                                                        // Insert the online user into the group
+                                                        $sql8 = "INSERT INTO `message_members`(`groupid`, `userid`) 
+                                                                VALUES ('$matchId','$userid')";
+                                                        $result8 = mysqli_query($conn, $sql8);
+
+                                                        if ($result8) {
+                                                            // Insert the buddy into the group as well
+                                                            $sql9 = "INSERT INTO `message_members`(`groupid`, `userid`) 
+                                                                    VALUES ('$matchId','$matched_userid')";
+                                                            $result9 = mysqli_query($conn, $sql9);
+
+                                                            if ($result9) {
+                                                                echo "Success";
+                                                            } else {
+                                                                echo "Upload";
+                                                            }
+                                                        } else {
+                                                            echo "Upload";
+                                                        }
+                                                    } else {
+                                                        echo "Upload";
+                                                    }
+                                                }
+                                            } else {
+                                                echo "Username";
+                                            }
                                         }
                                     } else {
-                                        echo "Upload";
+                                        echo "Username";
                                     }
                                 } else {
                                     echo "Failed";
@@ -77,6 +113,5 @@ if (isset($_POST['user']) && isset($_POST['action'])) {
     }
 } else {
     echo "Unknown";
-}
-
+}     
 ?>
