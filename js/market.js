@@ -44,7 +44,10 @@
 //// When clicking a product it will redirect to the product page
 function viewProduct(id) {
   if (global_online_username === "") {
-    alert("Restricted Access: Kindly login to access it!");
+
+    message = "You need to be logged in";
+    notification(message);
+    
   } else {
     var dataToSend = id;
   

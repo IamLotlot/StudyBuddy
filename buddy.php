@@ -61,7 +61,7 @@
 		module = {};
 	</script>
 	<script type="module">
-	
+
 	import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 	import { getDatabase, ref, set, remove, onChildAdded, onChildRemoved } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 	
@@ -86,8 +86,6 @@
 	if(localStorage.getItem("userOnline")){
 		sender = localStorage.getItem("userOnline");
 	} else {
-		alert("You need to be logged in to access Buddy Chat");
-		location.href = "login.php";
 	}
 
 	module.sendMsg = function sendMsg(){

@@ -102,13 +102,25 @@ $(document).ready(function() {
               .done(function (data){
       
                   if (data == "Unknown") {
-                    alert("Kindly try to re-login...");
+
+                    message = "Kindly try to re-log in";
+                    notification(message);
+
                   } else if (data == "Nothing") {
-                    alert("No user was found in the database!");
+
+                    message = "No user was found in the database";
+                    notification(message);
+
                   } else if (data == "Failed") {
-                    alert("Invalid inputs!");
+
+                    message = "Invalid inputs";
+                    notification(message);
+                    
                   } else if (data == "Success") {
-                    alert(username+"'s account has been updated!");
+
+                    message = username+"'s account has been updated";
+                    notification(message);
+                    
                     $("#edit-btn").show();
                     $("#cancel-btn").hide();
                     $("#update-btn").hide();
@@ -118,7 +130,9 @@ $(document).ready(function() {
                   }
               });
           } else {
-            alert("Title or content is empty kindly fill them up");
+
+            message = "Title or content is empty kindly fill them up";
+            notification(message);
           }
 
     });

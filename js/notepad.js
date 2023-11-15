@@ -60,19 +60,26 @@ function showContent(id) {
 //// Add notes function
 $(document).ready(function() {
   $('#add-icon').click(function() {
-    var con = $("#title-con");
-    var title = $("#add-title");
-    var content = $("#add-content");
-    
-    if (title.is(":hidden") && content.is(":hidden") && con.is(":hidden")){
-      $("#title-con").show();
-      $("#add-title").show();
-      $("#add-content").show();
 
+    if (global_online_username < 0){
+      var con = $("#title-con");
+      var title = $("#add-title");
+      var content = $("#add-content");
+      
+      if (title.is(":hidden") && content.is(":hidden") && con.is(":hidden")){
+        $("#title-con").show();
+        $("#add-title").show();
+        $("#add-content").show();
+  
+      } else {
+        $("#title-con").hide();
+        $("#add-title").hide();
+        $("#add-content").hide();
+      }
     } else {
-      $("#title-con").hide();
-      $("#add-title").hide();
-      $("#add-content").hide();
+
+      message = "You need to be logged in";
+      notification(message);
     }
   });
 });
@@ -96,8 +103,13 @@ $(document).ready(function() {
         .done(function (data){
 
             if (data == "Success"){
-              alert("New note created entiteld '"+title+"'");
-              window.location.reload();
+
+              message = "New note created";
+              notification(message);
+
+              setTimeout(function () {
+                window.location.reload();
+              }, 4000);
               // $(document).ready(function() {
               //   function reloadDivContent() {
               //       var currentURL = window.location.href;
@@ -105,21 +117,39 @@ $(document).ready(function() {
               //   }
               // });
             } else if (data == "Failed") {
-              alert("Failed to create a new note");
+
+              message = "Failed to create a note";
+              notification(message);
+              
             } else if (data == "Title") {
-              alert("Title is empty kindly fill it up");
+              
+              message = "Title is empty";
+              notification(message);
+              
             } else if (data == "Content") {
-              alert("Content is empty kindly fill it up");
+              
+              message = "Content is empty";
+              notification(message);
+              
             } else if (data == "Username") {
-              alert("Kindly try to re-login");
+              
+              message = "You need to be logged in";
+              notification(message);
+              
             } else if (data == "Data") {
-              alert("Variable error. Kindly restart");
+              
+              message = "Kindly re-log in";
+              notification(message);
+              
             } else {
               console.log(data);
             }
         });
     } else {
-      alert("Title or content is empty kindly fill them up");
+              
+      message = "Title or content is empty";
+      notification(message);
+      
     }
   });
 });
@@ -131,20 +161,24 @@ function deleteNote(id){
     .done(function (data){
       if (data == "Success"){
 
-        alert("Successfully removed the note ("+id+")");
+        message = "Removed a note";
+        notification(message);
 
       } else if (data == "Failed"){
-
-        alert("Failed to delete the note.");
-
+              
+        message = "Failed to delete a note";
+        notification(message);
+        
       } else if (data == "User"){
-
-        alert("Note id is invalid.");
-
+              
+        message = "Note ID is invalid";
+        notification(message);
+        
       } else if (data == "Unknown"){
-
-        alert("Unknown note id.");
-
+              
+        message = "Unknown note ID";
+        notification(message);
+        
       } else {
 
         console.log(data);
@@ -162,18 +196,22 @@ function selectBuddy(username){
     .done(function (data){
       if (data == "Success"){
 
-        alert("Successfully send the note ("+id+") to ("+username+")");
+        message = "Sent a note to "+username;
+        notification(message);
+        
         $("#share-to-buddy").hide();
         $("#notepad").show();
 
       } else if (data == "Failed"){
-
-        alert("Failed to send the note");
-
+              
+        message = "Failed to send the note";
+        notification(message);
+        
       } else if (data == "Unknown"){
-
-        alert("Failed to send the note");
-
+              
+        message = "Failed to send the note";
+        notification(message);
+        
       } else {
 
         console.log(data);

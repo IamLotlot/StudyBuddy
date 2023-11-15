@@ -37,7 +37,7 @@ include "db_conn.php";
                 if ($result && mysqli_num_rows($result) > 0) {
                     $row = mysqli_fetch_array($result);
 
-                    echo $row["studycoin"];;
+                    echo $row["studycoin"];
                 }
                 ?>    
                 SC</a></li>
@@ -59,11 +59,11 @@ include "db_conn.php";
             <i class="fa-solid fa-circle-half-stroke" title="Mode Tool"></i>
         </div>
     </div>
-    <div id="notification-wrapper" style="display: none;">
-        <div id="notification-con" class="hidden">
+    <div id="notification-wrapper" style="display:none;">
+        <div id="notification-con" style="display: none;">
             <i class="fa-solid fa-bell"></i>
             <h1 id="notification-message">Notification Title</h1>
-            <i class="fa-solid fa-xmark" id="close-notification"></i>
+            <!-- <i class="fa-solid fa-xmark" id="close-notification"></i> -->
         </div>
     </div>
 </nav>

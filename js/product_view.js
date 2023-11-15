@@ -30,20 +30,26 @@ $(document).ready(function() {
         .done(function (data){
 
             if (data == "Existing"){
-                alert("Existing");
+                // DEBUG: Write a proper message
+                message = "Existing";
+                notification(message);
 
             } else if (data == "T_Success") {
                 window.location.reload();
 
             } else if (data == "T_Failed") {
-                alert("Failed");
-
+              
+                message = "Cannot remove to favorite this product. Try again later";
+                notification(message);
+                
             } else if (data == "F_Success") {
                 window.location.reload();
 
             } else if (data == "F_Failed") {
-                alert("Failed");
-
+              
+                message = "Cannot add to favorite this product. Try again later";
+                notification(message);
+                
             } else {
                 console.log(data);
             }
@@ -65,16 +71,22 @@ function ConfirmPurchase() {
 
             if (data == "Sufficient"){
 
-                alert("You just bought '"+name+"' by '"+seller+"' with a cost of '"+price+"'");
-                location.reload(true);
+                message = "You just bought '"+name+"' by '"+seller+"' with a cost of '"+price+"'";
+                notification(message);
+                
+                reloadPage(function () {
+                    location.reload(true);
+                }, 6000);
 
             } else if (data == "Insufficient") {
 
-                alert("Insufficient SC");
+                message = "Insufficient SC";
+                notification(message);
 
             } else if (data == "Owned") {
 
-                alert("You already owned this product");
+                message = "Already owned this product";
+                notification(message);
 
             }  else {
 
@@ -178,24 +190,37 @@ $(document).ready(function() {
             $.post("product_rateEx.php", { product: product, user: global_online_username, seller: seller, comment: comment, rate: rate })
               .done(function (data){
                   if (data == "Unknown"){
-                    alert("Ewan ko ano problema");
+                    // DEBUG: Write a proper message
+                    message = "Unknown";
+                    notification(message);
 
                   } else if (data == "Existing") {
-                    alert("You already rate this product!");
 
+                    message = "You already rated this product";
+                    notification(message);
+    
                   } else if (data == "Failed") {
-                    alert("Couldn't insert the data into the database!");
+
+                    message = "Couldn't insert the data into the database";
+                    notification(message);
 
                   } else if (data == "Success") {
-                    alert("You have rate a product.");
-                    window.location.reload();
+
+                    message = "Thank you for rating a product";
+                    notification(message);
+                    
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 6000);
 
                   } else {
                     console.log(data);
                   }
               });
         } else {
-            alert("You didn't choose a rate for the product yet!");
+
+            message = "You didn't choose a rate for the product yet";
+            notification(message);
         }
     });
   });
@@ -283,21 +308,32 @@ $(document).ready(function() {
             $.post("product_reportEx.php", { product: product, user: global_online_username, seller: seller, issue: issue, statement: statement })
             .done(function (data){
                 if (data == "Unknown"){
-                    alert("Ewan ko ano problema");
+                    // DEBUG: Write a proper message
+                    message = "Unknown";
+                    notification(message);
 
                 } else if (data == "Failed") {
-                    alert("Couldn't insert the data into the database!");
+
+                    message = "Couldn't insert the data into the database";
+                    notification(message);
 
                 } else if (data == "Success") {
-                    alert("You have report a product.");
-                    window.location.reload();
+
+                    message = "Thank you for reporting. Admins will look into this";
+                    notification(message);
+
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 6000);
 
                 } else {
                     console.log(data);
                 }
             });
         } else {
-            alert("You didn't choose a concern yet!");
+
+            message = "You didn't choose a concern yet";
+            notification(message);
         }
     });
 });

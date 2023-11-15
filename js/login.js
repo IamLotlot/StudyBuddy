@@ -18,7 +18,8 @@ function login() {
             .done(function (data){
                 if (data == "Admin"){
                     
-                    alert("Admin Detected. Greetings "+username+"!");
+                    message = "Greetings "+username+", admin detected";
+                    notification(message);
 
                     // Set the user online to localstorage or sessionstorage
                     if (remember) {
@@ -33,7 +34,8 @@ function login() {
 
                 } else if (data == "User") {
 
-                    alert("User Detected. Greetings "+username+"!");
+                    message = "Greetings "+username+", user detected";
+                    notification(message);
 
                     if (remember) {
                         localStorage.setItem('userOnline', username)
@@ -50,7 +52,8 @@ function login() {
 
                 } else if (data == "Die") {
 
-                    alert("Localhost Connection Failed");
+                    message = "Localhost connection failed";
+                    notification(message);
                     window.location.href = "login.php";
                 }
             });
@@ -73,6 +76,7 @@ $("#loginBtn").on("click", login);
 $(document).ready(function(){
     $("#forgot-pass").on("click", function(event){
       
-      alert("Sorry, this is still in progress!");
+        message = "Still in progress";
+        notification(message);
     });
   });

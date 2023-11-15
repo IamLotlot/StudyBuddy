@@ -72,7 +72,10 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
     .done(function (data){
 
         if (data == "Unknown"){
-            alert("Inputs are missing!");
+
+            message = "Inputs are missing";
+            notification(message);
+            
             console.log(data);
 
         } else if (data == "No_Match") {
@@ -81,13 +84,19 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
             search_status = "Ongoing";
 
         } else if (data == "No_QueueID") {
-            alert("No_QueueID");
+            // DEBUG: Write a proper message
+            message = "No_QueueID";
+            notification(message);
 
         } else if (data == "Username") {
-            alert("No account is found named: "+user);
+
+            message = "No account is found named: "+user;
+            notification(message);
 
         } else if (data == "Existing") {
-            alert("A queue is already in progress under your account!");
+
+            message = "A queue is already in progress under your account";
+            notification(message);
 
         } else if (data == "Queue_Success") {
 
@@ -122,7 +131,9 @@ function SearchBuddySearchPHP( user, course, category, sex, age, description, ac
             // }, 10000);
 
         } else if (data == "Failed") {
-            alert("Failed");
+            // DEBUG: Write a proper message
+            message = "Failed";
+            notification(message);
 
         } else {
             console.log("Error: "+data);
@@ -158,13 +169,19 @@ $(document).ready(function() {
             .done(function (data){
     
                 if (data == "Unknown"){
-                    alert("Inputs are missing!");
+            
+                    message = "Inputs are missing";
+                    notification(message);
     
                 } else if (data == "Username") {
-                    alert("No account is found named: "+user);
+            
+                    message = "No account is found named: "+user;
+                    notification(message);
     
                 } else if (data == "Queue") {
-                    alert("You don't have any in queue! Try to re-login.");
+            
+                    message = "You don't have any in queue! Try to re-login";
+                    notification(message);
     
                 } else if (data == "Success") {
                     window.location.reload();
@@ -173,7 +190,9 @@ $(document).ready(function() {
                     enableInputs();
     
                 } else if (data == "Failed") {
-                    alert("Failed");
+                    // DEBUG: Write a proper message
+                    message = "Failed";
+                    notification(message);
     
                 } else {
                     console.log(data);
@@ -216,26 +235,43 @@ $(document).ready(function() {
         .done(function (data){
 
             if (data == "Unknown"){
-                alert("Inputs are missing!");
+
+                message = "Inputs are missing";
+                notification(message);
 
             } else if (data == "Username") {
-                alert("No account is found named: "+global_online_username);
+
+                message = "No account is found named: "+global_online_username;
+                notification(message);
 
             } else if (data == "Queue") {
-                alert("You have no queue!");
+
+                message = "You have no queue";
+                notification(message);
 
             } else if (data == "MatchID") {
-                alert("Match ID is wrong!");
+
+                message = "Match ID is wrong";
+                notification(message);
 
             } else if (data == "Success") {
-                alert("You have a new buddy!");
-                window.location.href = "buddy.php";
+
+                message = "You have a new buddy";
+                notification(message);
+                
+                setTimeout(function () {
+                    window.location.href = "buddy.php";
+                }, 6000);
 
             } else if (data == "Failed") {
-                alert("Failed!");
+                // DEBUG: Write a proper message
+                message = "Failed";
+                notification(message);
 
             } else if (data == "Upload") {
-                alert("Uploading Failed!");
+
+                message = "Uploading failed";
+                notification(message);
 
             } else {
                 console.log(data);

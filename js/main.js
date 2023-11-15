@@ -76,7 +76,7 @@ var global_online_username = "";
     }
   }
 
-////Set the userOnline session when opening the browser again
+//// Set the userOnline session when opening the browser again
 function setOnline(username){
   var dataToSend = username;
 
@@ -93,7 +93,7 @@ function setOnline(username){
   xhr.send("data=" + encodeURIComponent(dataToSend));
 }
 
-////Logout function
+//// Logout function
   var logout = document.getElementById("logoutNav");
   var register = document.getElementById("registerNav");
   var login = document.getElementById("loginNav");
@@ -199,29 +199,45 @@ $(document).ready(function(){
     if(global_online_username !== ""){
     } else {
       event.preventDefault();
-      alert("Please login to access Search Buddy and other wonderful features!");
-      window.location.href = 'login.php';
+      message = "You need to be logged in";
+      notification(message);
     }
   });
 });
 
 //// Function for custom notification that can be used on other JS files
-$(document).ready(function () {
+function notification(message) {
 
-  var notification = $("#notification-wrapper");
-  var popInButton = $("#popIn");
+  var notification = $("#notification-con");
   
-  popInButton.click(function () {
-    // Show the popup
-    notification.removeClass("hidden");
-  });
+  if (message.length > 0) {
+    $("#notification-message").text(message);
+    $("notification-wrapper").show();
+    notification.show();
+  }
 
   // Automatically hide the popup after 5 seconds
   setTimeout(function () {
-    notification.addClass("hidden");
-  }, 5000);
-});
-
-function notification(message) {
-  $("#notification-wrapper").show();
+    notification.hide();
+  }, 3000);
 }
+
+//// Function for closing the notification
+// $(document).ready(function() {
+//   $("#close-notication").click(function() {
+//     $("#notification-con").hide();
+//   });
+// });
+
+//// Cancel the event of buddy navigation and check for online user
+$(document).ready(function() {
+  $("#buddyNav").click(function() {
+    
+    if(global_online_username !== ""){
+    } else {
+      event.preventDefault();
+      message = "You need to be logged in";
+      notification(message);
+    }
+  });
+});

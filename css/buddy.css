@@ -17,13 +17,13 @@ section{
     justify-content: space-evenly;
 }
 .groupCol{
-    height: 28rem;
+    height: 80vh;
     width: 20%;
     border-radius: 1rem;
     background-color: var(--black);
 }
 .messageCol{
-    height: 28rem;
+    height: 80vh;
     width: 40%;
     border-radius: 1rem;
     background-color: var(--black);
@@ -102,7 +102,7 @@ section{
     justify-content: center;
 }
 .profileCol{
-    height: 28rem;
+    height: 80vh;
     width: 20%;
     border-radius: 1rem;
     overflow: auto;

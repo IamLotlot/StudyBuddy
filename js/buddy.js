@@ -60,7 +60,8 @@ $(document).ready(function() {
 //     var message = $("#msgTxt").val();
 //     if (message.trim() !== "") {
 //       if (isValidURL(message)) {
-//         alert("Links are not allowed in the chat box.");
+          // message = "Links are not allowed";
+          // notification(message);
 //       } else {
 //         sanitizeAndDisplay(message);
 //         $("#msgTxt").val("");
