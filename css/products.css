@@ -9,3 +9,217 @@ body{
 body::-webkit-scrollbar{
     width: 0;
 }
+#product-wrapper{
+    width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#product-list{
+    height: 70vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+#product-des{
+    height: 70vh;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+#product-list-filter{
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#search-input{
+    height: 2rem;
+    width: 90%;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.search-btn-grp{
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+#product-btn-con{
+    gap: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+}
+#products-con{
+    width: 90%;
+    overflow: auto;
+}
+.products{
+    width: 90%;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: 0.5s ease;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+.products:hover{
+    background-color: var(--lightgray);
+    transition: 0.5s ease;
+}
+#img-con{
+    height: 100%;
+    width: 30%;
+    margin-right: 1rem;
+}
+#profile-img{
+    height: 90%;
+    width: 100%;
+    border-radius: 1rem;
+    background-color: var(--black);
+}
+#view-btn{
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--black);
+    cursor: pointer;
+}
+#des-con{
+    height: 100%;
+    width: 60%;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--black);
+}
+#des-row1{
+    height: 60%;
+    gap: 0 1rem;
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+}
+#des-row2{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#des-label{
+    width: 100%;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#des-text-area{
+    height: 60%;
+    width: 90%;
+    padding: 0.5rem 1.5rem 0.5rem 1rem;
+    border-radius: 1rem;
+    resize: none;
+}
+.des-labels{
+    font-size: 1rem;
+    padding-left: 1rem;
+    color: var(--white);
+}
+.des-input{
+    height: 1.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    border-radius: 1rem;
+}
+#des-btn-grp{
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.des-btn{
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    cursor: pointer;
+}
+.report-btn-grp{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.report-btn-grp i{
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#accept-report{
+    margin-bottom: 1rem;
+    background-color: green;
+}
+#reject-report{
+    background-color: crimson;
+}
+.report-wrappers{
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: end;
+}
+.report-cons{
+    width: 30%;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid var(--black);
+}
+.report-img-cons{
+    height: 4rem;
+    width: 15%;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+.report-profile-imgs{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.report-des-cons{
+    height: 100%;
+    width: 100%;
+}
+.report-title{
+    font-size: 1.5rem;
+}
+.report-username{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.report-comment{
+    font-size: 1rem;
+}

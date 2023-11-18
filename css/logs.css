@@ -9,7 +9,7 @@ body{
 body::-webkit-scrollbar{
     width: 0;
 }
-section{
+/* section{
     height: 100vh;
     width: 100%;
     padding-top: 7rem;
@@ -47,4 +47,119 @@ section{
 }
 #header-time, #time{
     width: 15%;
+} */
+#logs-wrapper{
+    height: 90vh;
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#logs-label{
+    height: 80%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+#logs-con{
+    height: 80%;
+    width: 75%;
+    border-radius: 1rem;
+    padding: 1rem 2rem 1rem 1rem;
+    background-color: var(--black);
+}
+#plogs-header-con {
+    width: 100%;
+    grid-template-columns: 0.5fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+#tlogs-header-con {
+    width: 100%;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+#slogs-header-con {
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.plogs-header-label, .tlogs-header-label, .slogs-header-label {
+    font-size: 1rem;
+    padding: 1.3rem 0 1.3rem 0;
+    border: 2px solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.log-label{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem 0 1rem 0;
+    margin-bottom: 1rem;
+    border-radius: 1rem 0 0 1rem;
+    transition: 0.3s ease;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#id-plogs-header, #id-tlogs-header, #id-slogs-header {
+    border-radius: 1rem 0 0 0;
+}
+#time-plogs-header, #time-tlogs-header, #time-slogs-header {
+    border-radius: 0 1rem 0 0;
+}
+#product-logs{
+    margin-top: 4rem;
+}
+.log-label:hover{
+    transition: 0.3s ease;
+    color: var(--white);
+    background-color: var(--black);
+}
+#logs-list{
+    height: 85%;
+    width: 102%;
+    overflow: auto;
+}
+.plogs-list{
+    width: 100%;
+    grid-template-columns: 0.5fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+}
+.tlogs-list{
+    width: 100%;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+}
+.slogs-list{
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+}
+.plogs-list-label, .tlogs-list-label, .slogs-list-label{
+    font-size: 1rem;
+    padding: 0.5rem 0 0.5rem 0.2rem;
+    color: var(--white);
+    border-bottom: 2px solid var(--white);
 }

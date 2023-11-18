@@ -199,20 +199,20 @@ $(document).ready(function(){
     if(global_online_username !== ""){
     } else {
       event.preventDefault();
-      message = "You need to be logged in";
-      notification(message);
+      notif_message = "You need to be logged in";
+      notification(notif_message);
     }
   });
 });
 
 //// Function for custom notification that can be used on other JS files
-function notification(message) {
+function notification(notif_message) {
 
   var notification = $("#notification-con");
   
-  if (message.length > 0) {
-    $("#notification-message").text(message);
-    $("notification-wrapper").show();
+  if (notif_message.length > 0) {
+    $("#notification-message").text(notif_message);
+    $("#notification-wrapper").show();
     notification.show();
   }
 
@@ -233,11 +233,10 @@ function notification(message) {
 $(document).ready(function() {
   $("#buddyNav").click(function() {
     
-    if(global_online_username !== ""){
-    } else {
+    if(global_online_username.length === 0){
       event.preventDefault();
-      message = "You need to be logged in";
-      notification(message);
+      notif_message = "You need to be logged in";
+      notification(notif_message);
     }
   });
 });

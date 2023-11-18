@@ -46,6 +46,7 @@ section{
 .users-recent-msg{
     font-size: 0.9rem;
     color: var(--white);
+    font-weight: lighter;
 }
 .messageCol{
     height: 80vh;
@@ -63,10 +64,12 @@ section{
     color: var(--green);
 }
 #messages{
-    overflow: auto;
     height: 100%;
     width: 80%;
     padding: 30px 30px 30px 30px;
+    overflow: auto;
+    border-top: 1px solid var(--white);
+    border-bottom: 1px solid var(--white);
 }
 #messages::-webkit-scrollbar{
     width: 1rem;
@@ -84,10 +87,11 @@ section{
 }
 .message-wrapper{
     width: 100%;
+    margin-top: 0.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 #message-con{
     width: 90%;
@@ -96,7 +100,7 @@ section{
     align-items: flex-start;
     justify-content: center;
 }
-#sender-profile{
+#sender-profile, #space{
     height: 2rem;
     width: 2rem;
     margin-right: 0.5rem;
@@ -108,7 +112,6 @@ section{
 }
 #sender-message{
     font-size: 1rem;
-    margin-top: 0.5rem;
     padding: 0.5rem 1rem 0.5rem 1rem;
     border-radius: 1rem;
     color: var(--white);

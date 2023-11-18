@@ -16,82 +16,94 @@
 <?php
 	include 'nav.php';
 ?>
-	<form action="productsEx.php" method="post" enctype="multipart/form-data">
-		<section class="productsCon">
-			<div class="productsCol">
-				<label id="usernameTitle">Products:</label>
-					<?php
+	<section id="product-wrapper">
+		<div id="product-list">
+			<div id="product-list-filter">
+				<input type="text" id="search-input" placeholder="Search...">
+				<div id="product-btn-con">
+					<button class="search-btn-grp" id="verified-search-btn">Verified</button>
+					<button class="search-btn-grp" id="notverified-search-btn">Not-Verified</button>
+					<button class="search-btn-grp" id="reported-search-btn">Reported</button>
+				</div>
+			</div>
+			<div id="products-con">
+				<?php
+
+				$sql1 = "SELECT * FROM `market`";
+				$result1 = mysqli_query($conn, $sql1);
+
+				if (mysqli_num_rows($result1) > 0) {
+					while ($row1 = mysqli_fetch_assoc($result1)) {
+
+					$productid = $row1['productid'];
+					$rate = $row1['rate'];
+					$state = $row1['state'];
+					$name = $row1['name'];
+					$description = $row1['description'];
+					$price = $row1['price'];
+					$seller = $row1['seller'];
+					$date = $row1['date'];
+					$category = $row1['category'];
+					$image = $row1['image'];
+					$file = $row1['file'];
+
+					echo '<h1 class="products" id="'.$productid.'" onclick="showProduct(\''.$productid.'\', \''.$rate.'\', \''.$state.'\', \''.$name.'\', \''.$description.'\', \''.$price.'\', \''.$seller.'\', \''.$date.'\', \''.$category.'\', \''.$image.'\', \''.$file.'\')">'.$name.'</h1>';
+
+					}
+				} else {
+					echo 'No products';
+				}
+				?>
+			</div>
+		</div>
+		<div id="product-des">
+			<div id="img-con">
+				<img alt="" id="profile-img">
+				<button id="view-btn">View</button>
+			</div>
+			<div id="des-con">
+				<div id="des-row1">
+					<h1 class="des-labels">Product ID</h1>
+					<h1 class="des-labels">Rate</h1>
+					<input type="text" class="des-input" id="product-id" readonly>
+					<input type="text" class="des-input" id="rate" readonly>
 					
-		            $sql = "SELECT * FROM `market`";
-
-		            $result = mysqli_query($conn, $sql);
-
-		            if ($result) {
-		                while ($row = mysqli_fetch_assoc($result)) {
-		                    $productid = $row['productid'];
-		                    $rate = $row['rate'];
-		                    $name = $row['name'];
-		                    $price = $row['price'];
-		                    $seller = $row['seller'];
-		                    $date = $row['date'];
-		                    $category = $row['category'];
-		                    $image = $row['image'];
-		                    $file = $row['file'];
-
-				    		echo '
-							<label class="productid" id="productLabel" onclick="getProducts(this)">'.$productid.'</label>
-							<input type="text" id="'.$productid.'-password" value="'.$rate.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-state" value="'.$name.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-email" value="'.$price.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-fullname" value="'.$seller.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-address" value="'.$date.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-yearSection" value="'.$category.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-age" value="'.$image.'" style="display:none" disabled>
-							<input type="text" id="'.$productid.'-studentid" value="'.$file.'" style="display:none" disabled>
-							';
-		            	}
-			        }
-			        ?>
-			</div>
-			<div class="detailsCol">
-				<div class="firstCon">
-					<div class="imageCon">
-						<label for="profileInput" id="profileLabel">+</label>
-			    		<input type="file" id="profileInput" name="profileInput" style="display: none">
-						<img id="profilePreview" style="display: none">
+					<h1 class="des-labels">State</h1>
+					<h1 class="des-labels">Name</h1>
+					<input type="text" class="des-input" id="state" readonly>
+					<input type="text" class="des-input" id="name" readonly>
+					
+					<h1 class="des-labels">Price</h1>
+					<h1 class="des-labels">Seller</h1>
+					<input type="text" class="des-input" id="price" readonly>
+					<input type="text" class="des-input" id="seller" readonly>
+					
+					<h1 class="des-labels">Date</h1>
+					<h1 class="des-labels">Category</h1>
+					<input type="text" class="des-input" id="date" readonly>
+					<input type="text" class="des-input" id="category" readonly>
 					</div>
-					<div class="detailsCon">
-						<label>Username</label><input type="text" class="inputField" id="username" name="username" required>
-						<label>State</label><input type="text" class="inputField" id="state" name="state" required>
-						<label>Role</label><input type="text" class="inputField" id="role" name="role" value="user" disabled required>
-						<label>Year & Section</label><input type="text" class="inputField" id="yearSection" name="yearSection" required>
-						<label>Student ID</label><input type="text" class="inputField" id="studentid" name="studentid" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>
-						<label>Address</label><input type="text" class="inputField" id="address" name="address" required>
-					</div>
-					<div class="detailsCon">
-						<label>Password</label><input type="text" class="inputField" id="password" name="password" required>
-						<label>Email</label><input type="email" class="inputField" id="email" name="email" required>
-						<label>Fullname</label><input type="text" class="inputField" id="fullname" name="fullname" required>
-						<label>Age</label><input type="text" class="inputField" id="age" name="age" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>
-						<label>Sex</label><input type="text" class="inputField" id="sex" name="sex" required>
-						<label>Contact</label><input type="text" id="contact" name="contact" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>
+				<div id="des-row2">
+					<h1 class="des-labels" id="des-label">Description</h1>
+					<textarea name="description" id="des-text-area" readonly></textarea>
+					<div id="des-btn-grp">
+						<button class="des-btn" id="add-btn">Add</button>
+						<button class="des-btn" id="edit-btn">Edit</button>
+						<button class="des-btn" id="update-btn" style="display: none;">Update</button>
+						<button class="des-btn" id="remove-btn">Remove</button>
+						<button class="des-btn" id="verify-btn">Verify</button>
 					</div>
 				</div>
-				<div class="secondCon">
-					<img src="">
-					<img src="">
-				</div>
 			</div>
-			<div class="buttonsCol">
-			    <input type="submit" class="buttons" id="addBtn" name="addBtn" value="Add"></input>
-			    <input type="submit" class="buttons" id="editBtn" name="editBtn" value="Edit"></input>
-			    <input type="submit" class="buttons" id="removeBtn" name="removeBtn" value="Remove"></input>
-			    <input type="submit" class="buttons" id="verifyBtn" name="verifyBtn" value="Verify"></input>
-			</div>
-		</section>
-	</form>
+		</div>
+	</section>
+	<section class="report-wrappers" id="report-wrapper" style="display: none;">
+		<div class="report-cons" id="report-con">
+		</div>
+	</section>
 	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>
+    <script src="js/products.js"></script>
 </body>
 </html>

@@ -8,17 +8,19 @@ if (isset($_POST['userid']) && isset($_POST['buddyid']) && isset($_POST['groupid
     $buddyid = $_POST["buddyid"];
     $groupid = $_POST["groupid"];
 
-    $sql1 = "SELECT * FROM `messages` WHERE `groupid` = '$groupid' ORDER BY `timestamp` ASC";
+    $i = 0;
+
+    $sql1 = "SELECT * FROM `messages` WHERE `groupid` = '$groupid' ORDER BY `id` ASC";
     $result1 = mysqli_query($conn, $sql1);
 
     if (mysqli_num_rows($result1) > 0) {
         while ($row = mysqli_fetch_assoc($result1)) {
 
-            $id = $_POST["id"];
-            $senderid = $_POST["senderid"];
-            $receiverid = $_POST["receiverid"];
-            $message = $_POST["message"];
-            $timestamp = $_POST["timestamp"];
+            $id = $row["id"];
+            $senderid = $row["senderid"];
+            $receiverid = $row["receiverid"];
+            $message = $row["message"];
+            $timestamp = $row["timestamp"];
             
             $sql2 = "SELECT * FROM `account` WHERE `userid` = '$buddyid'";
             $result2 = mysqli_query($conn, $sql2);
@@ -26,35 +28,41 @@ if (isset($_POST['userid']) && isset($_POST['buddyid']) && isset($_POST['groupid
             if (mysqli_num_rows($result2) > 0) {
                 while ($row = mysqli_fetch_assoc($result2)) {
 
-                    $buddy_username = $_POST["username"];
-                    $buddy_profile = $_POST["profile"];
+                    $buddy_username = $row["username"];
+                    $buddy_profile = $row["profile"];
 
                     if ($senderid == $userid) {
-                        echo `
-                        <div id="messages">
-                            <div id="messages-wrapper">
-                                <h2 id="message" title="<?php $timestamp ?>"><?php $message ?></h2>
-                            </div>
-                        </div>`;
+                        echo '
+                        <div id="my-msg-con">
+                            <h3 id="my-message" title="'. $timestamp .'">'. $message .'</h2>
+                        </div>';
+
+                        $i = 0;
+
                     } else {
-                        echo `
-                        <div id="messages">
-                            <div id="messages-wrapper">
-                                <img src="documents/profile/<?php $buddy_profile ?>" alt="profile-img">
-                                <div id="messages-con">
-                                    <h1 id="user"><?php $buddy_username ?></h1>
-                                    <h2 id="message" title="<?php $timestamp ?>"><?php $message ?></h2>
-                                </div>
-                            </div>
-                        </div>`;
+                        if ($i == 0) {
+                            echo '
+                                <div class="message-wrapper" id="sender-msg-con">
+                                    <img src="documents/profile/'. $buddy_profile .'" alt="profile-img" id="sender-profile">
+                                    <h3 id="sender-message" title="'. $timestamp .'">'. $message .'</h2>
+                                </div>';
+
+                                $i = 1;
+                        } else {
+                            echo '
+                                <div class="message-wrapper" id="sender-msg-con">
+                                    <div id="space"></div>
+                                    <h3 id="sender-message" title="'. $timestamp .'">'. $message .'</h2>
+                                </div>';
+                        }
                     }
                 }
             } else {
-                echo "Failed";
+                // echo "Failed";
             }
         }
     } else {
-        echo "Failed";
+        // echo "Failed";
     }
 } else {
     echo "Unknown";

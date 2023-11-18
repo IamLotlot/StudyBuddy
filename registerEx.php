@@ -83,7 +83,7 @@ if (mysqli_num_rows($result1) > 0) {
             
                 $username = $_POST['username'];
                 $password = $_POST['password'];
-                $passwordEn = password_hash($password, PASSWORD_DEFAULT);
+                // $passwordEn = password_hash($password, PASSWORD_DEFAULT);
                 $email = $_POST['email'];
                 $fullname = $_POST['fullname'];
                 $address = $_POST['address'];
@@ -95,8 +95,8 @@ if (mysqli_num_rows($result1) > 0) {
         
                 $conn = mysqli_connect('localhost', 'root', '', 'studybuddy');
     
-                $sql = "INSERT INTO `account`(`username`, `password`, `role`, `state`, `email`, `fullname`, `address`, `yearSection`, `age`, `studentid`, `sex`, `contact`, `profile`, `studFront`, `studBack`, `studdycoin`) 
-                        VALUES ('$username','$passwordEn','user', 'not-verified', '$email','$fullname','$address','$yearSection','$age', '$studentid','$sex','$contact','$profile_new_name','$studFront_new_name','$studBack_new_name','0')";
+                $sql = "INSERT INTO `account`(`username`, `password`, `role`, `state`, `email`, `fullname`, `address`, `yearSection`, `age`, `studentid`, `sex`, `contact`, `profile`, `studFront`, `studBack`, `studycoin`) 
+                        VALUES ('$username','$password','user', 'not-verified', '$email','$fullname','$address','$yearSection','$age', '$studentid','$sex','$contact','$profile_new_name','$studFront_new_name','$studBack_new_name','0')";
     
                 $result = mysqli_query($conn, $sql);
     

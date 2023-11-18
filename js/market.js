@@ -45,8 +45,8 @@
 function viewProduct(id) {
   if (global_online_username === "") {
 
-    message = "You need to be logged in";
-    notification(message);
+    notif_message = "You need to be logged in";
+    notification(notif_message);
     
   } else {
     var dataToSend = id;

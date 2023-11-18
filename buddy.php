@@ -15,35 +15,39 @@
 <body onload="Online()">
 <?php
 	include 'nav.php';
+	// function updateChat(){
 
-	// $sql1 = "SELECT COUNT(*) AS row_count FROM `messages`;";
-	// $result1 = mysqli_query($conn, $sql1);
+	// 	include 'db_conn.php';
 
-	// if ($result1) {
-
-	// 	$row = mysqli_fetch_assoc($result1);
-	// 	$row_count1 = $row['row_count'];
-
-	// 	while ($i = 0) {
-			
-	// 		$sql2 = "SELECT COUNT(*) AS row_count FROM `messages`;";
-	// 		$result2 = mysqli_query($conn, $sql2);
-			
-	// 		if ($result2) {
-
-	// 			$row = mysqli_fetch_assoc($result2);
-	// 			$row_count2 = $row['row_count'];
+	// 	$sql1 = "SELECT COUNT(*) AS row_count FROM `messages`;";
+	// 	$result1 = mysqli_query($conn, $sql1);
+	
+	// 	if ($result1) {
+	
+	// 		$row = mysqli_fetch_assoc($result1);
+	// 		$row_count1 = $row['row_count'];
+	
+	// 		while ($i = 0) {
 				
-	// 			$i++;
-			
-	// 			if ($row_count1 < $row_count2) {
-	// 				break;
+	// 			$sql2 = "SELECT COUNT(*) AS row_count FROM `messages`;";
+	// 			$result2 = mysqli_query($conn, $sql2);
+				
+	// 			if ($result2) {
+	
+	// 				$row = mysqli_fetch_assoc($result2);
+	// 				$row_count2 = $row['row_count'];
+					
+	// 				$i++;
+				
+	// 				if ($row_count1 < $row_count2) {
+	// 					break;
+	// 				}
 	// 			}
 	// 		}
+	
+	// 	} else {
+	// 		echo "Error executing query: " . mysqli_error($conn);
 	// 	}
-
-	// } else {
-	// 	echo "Error executing query: " . mysqli_error($conn);
 	// }
 ?>
 	<section>
@@ -87,31 +91,29 @@
 												$username = $row['username'];
 												$fullname = $row['fullname'];
 												$profile = $row['profile'];
-
-												$sql5 = "SELECT * FROM `messages` WHERE `receiverid` = '$matched_userid' AND `groupid` = '$groupid' ORDER BY `timestamp` DESC LIMIT 1";
+												
+												$sql5 = "SELECT * FROM `messages` WHERE `groupid` = '$groupid' ORDER BY `id` DESC LIMIT 1";
 												$result5 = mysqli_query($conn, $sql5);
-						
+							
 												if (mysqli_num_rows($result5) > 0) {
 													while ($row = mysqli_fetch_assoc($result5)) {
-														
-														$message = $row['message'];
 
 														echo '
-														<div class="users-con" onclick="clickUser(\''.$userid.'\', \''.$matched_userid.'\', \''.$groupid.'\')">
+														<div class="users-con" onclick="clickUser(\''.$userid.'\', \''.$matched_userid.'\', \''.$username.'\', \''.$groupid.'\')">
 															<img src="documents/profile/'.$profile.'" alt="user-profile" class="users-img">
 															<div>
 																<h2 class="users-name">'.$username.'</h2>
-																<h3 class="users-recent-msg">'.$message.'</h3>
+																<h3 class="users-recent-msg"></h3>
 															</div>
 														</div>';
 													}
 												} else {
 													echo '
-													<div class="users-con" onclick="clickUser()">
+													<div class="users-con" onclick="clickUser(\''.$userid.'\', \''.$matched_userid.'\', \''.$username.'\', \''.$groupid.'\')">
 														<img src="documents/profile/'.$profile.'" alt="user-profile" class="users-img">
 														<div>
 															<h2 class="users-name">'.$username.'</h2>
-															<h3 class="users-recent-msg"> </h3>
+															<h3 class="users-recent-msg"></h3>
 														</div>
 													</div>';
 												}
@@ -137,21 +139,11 @@
 			?>
 		</div>
 		<div class="messageCol">
-			<h1>Group Name</h1>
+			<h1 id="group-name">Group Name</h1>
 			<div id="messages">
-				<div class="message-wrapper" id="sender-msg-con">
-					<img src="documents/profile/user2_Profile-Picture.jpg" alt="" id="sender-profile">
-					<div id="message-con">
-						<h2 id="sender-name">Username</h2>
-						<h3 id="sender-message" title="time">Message</h3>
-					</div>
-				</div>
-				<div id="my-msg-con">
-					<h3 id="my-message" title="time">Message</h3>
-				</div>
 			</div>
 			<div id="sendMsg">
-				<input type="text" id="msgTxt" placeholder="Send message...">
+				<input type="text" id="msgTxt" placeholder="Send message..." disabled>
 				<input type="submit" id="msgBtn" value="Send" style="display:none">
 				<i class="fa-solid fa-share-from-square" id="msgIcon" for="msgBtn"></i>
 			</div>

@@ -84,9 +84,10 @@
         </form>
 	<script src="js/jQuery-3.6.4.js"></script>
     <script src="js/face_verification.js"></script>
-    <script src="js/register.js"></script>
     <script src="js/main.js">
         AOS.init();
 	</script>
+    <script src="js/notepad.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>

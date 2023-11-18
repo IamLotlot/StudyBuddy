@@ -61,7 +61,7 @@ function showContent(id) {
 $(document).ready(function() {
   $('#add-icon').click(function() {
 
-    if (global_online_username < 0){
+    if (global_online_username.length != 0){
       var con = $("#title-con");
       var title = $("#add-title");
       var content = $("#add-content");
@@ -78,8 +78,8 @@ $(document).ready(function() {
       }
     } else {
 
-      message = "You need to be logged in";
-      notification(message);
+      notif_message = "You need to be logged in";
+      notification(notif_message);
     }
   });
 });
@@ -104,8 +104,8 @@ $(document).ready(function() {
 
             if (data == "Success"){
 
-              message = "New note created";
-              notification(message);
+              notif_message = "New note created";
+              notification(notif_message);
 
               setTimeout(function () {
                 window.location.reload();
@@ -118,28 +118,28 @@ $(document).ready(function() {
               // });
             } else if (data == "Failed") {
 
-              message = "Failed to create a note";
-              notification(message);
+              notif_message = "Failed to create a note";
+              notification(notif_message);
               
             } else if (data == "Title") {
               
-              message = "Title is empty";
-              notification(message);
+              notif_message = "Title is empty";
+              notification(notif_message);
               
             } else if (data == "Content") {
               
-              message = "Content is empty";
-              notification(message);
+              notif_message = "Content is empty";
+              notification(notif_message);
               
             } else if (data == "Username") {
               
-              message = "You need to be logged in";
-              notification(message);
+              notif_message = "You need to be logged in";
+              notification(notif_message);
               
             } else if (data == "Data") {
               
-              message = "Kindly re-log in";
-              notification(message);
+              notif_message = "Kindly re-log in";
+              notification(notif_message);
               
             } else {
               console.log(data);
@@ -147,8 +147,8 @@ $(document).ready(function() {
         });
     } else {
               
-      message = "Title or content is empty";
-      notification(message);
+      notif_message = "Title or content is empty";
+      notification(notif_message);
       
     }
   });
@@ -161,23 +161,23 @@ function deleteNote(id){
     .done(function (data){
       if (data == "Success"){
 
-        message = "Removed a note";
-        notification(message);
+        notif_message = "Removed a note";
+        notification(notif_message);
 
       } else if (data == "Failed"){
               
-        message = "Failed to delete a note";
-        notification(message);
+        notif_message = "Failed to delete a note";
+        notification(notif_message);
         
       } else if (data == "User"){
               
-        message = "Note ID is invalid";
-        notification(message);
+        notif_message = "Note ID is invalid";
+        notification(notif_message);
         
       } else if (data == "Unknown"){
               
-        message = "Unknown note ID";
-        notification(message);
+        notif_message = "Unknown note ID";
+        notification(notif_message);
         
       } else {
 
@@ -196,21 +196,21 @@ function selectBuddy(username){
     .done(function (data){
       if (data == "Success"){
 
-        message = "Sent a note to "+username;
-        notification(message);
+        notif_message = "Sent a note to "+username;
+        notification(notif_message);
         
         $("#share-to-buddy").hide();
         $("#notepad").show();
 
       } else if (data == "Failed"){
               
-        message = "Failed to send the note";
-        notification(message);
+        notif_message = "Failed to send the note";
+        notification(notif_message);
         
       } else if (data == "Unknown"){
               
-        message = "Failed to send the note";
-        notification(message);
+        notif_message = "Failed to send the note";
+        notification(notif_message);
         
       } else {
 

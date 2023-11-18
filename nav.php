@@ -60,7 +60,7 @@ include "db_conn.php";
         </div>
     </div>
     <div id="notification-wrapper" style="display:none;">
-        <div id="notification-con" style="display: none;">
+        <div id="notification-con" style="display:none;">
             <i class="fa-solid fa-bell"></i>
             <h1 id="notification-message">Notification Title</h1>
             <!-- <i class="fa-solid fa-xmark" id="close-notification"></i> -->

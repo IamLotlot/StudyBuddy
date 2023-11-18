@@ -31,24 +31,24 @@ $(document).ready(function() {
 
             if (data == "Existing"){
                 // DEBUG: Write a proper message
-                message = "Existing";
-                notification(message);
+                notif_message = "Existing";
+                notification(notif_message);
 
             } else if (data == "T_Success") {
                 window.location.reload();
 
             } else if (data == "T_Failed") {
               
-                message = "Cannot remove to favorite this product. Try again later";
-                notification(message);
+                notif_message = "Cannot remove to favorite this product. Try again later";
+                notification(notif_message);
                 
             } else if (data == "F_Success") {
                 window.location.reload();
 
             } else if (data == "F_Failed") {
               
-                message = "Cannot add to favorite this product. Try again later";
-                notification(message);
+                notif_message = "Cannot add to favorite this product. Try again later";
+                notification(notif_message);
                 
             } else {
                 console.log(data);
@@ -71,8 +71,8 @@ function ConfirmPurchase() {
 
             if (data == "Sufficient"){
 
-                message = "You just bought '"+name+"' by '"+seller+"' with a cost of '"+price+"'";
-                notification(message);
+                notif_message = "You just bought '"+name+"' by '"+seller+"' with a cost of '"+price+"'";
+                notification(notif_message);
                 
                 reloadPage(function () {
                     location.reload(true);
@@ -80,13 +80,13 @@ function ConfirmPurchase() {
 
             } else if (data == "Insufficient") {
 
-                message = "Insufficient SC";
-                notification(message);
+                notif_message = "Insufficient SC";
+                notification(notif_message);
 
             } else if (data == "Owned") {
 
-                message = "Already owned this product";
-                notification(message);
+                notif_message = "Already owned this product";
+                notification(notif_message);
 
             }  else {
 
@@ -191,23 +191,23 @@ $(document).ready(function() {
               .done(function (data){
                   if (data == "Unknown"){
                     // DEBUG: Write a proper message
-                    message = "Unknown";
-                    notification(message);
+                    notif_message = "Unknown";
+                    notification(notif_message);
 
                   } else if (data == "Existing") {
 
-                    message = "You already rated this product";
-                    notification(message);
+                    notif_message = "You already rated this product";
+                    notification(notif_message);
     
                   } else if (data == "Failed") {
 
-                    message = "Couldn't insert the data into the database";
-                    notification(message);
+                    notif_message = "Couldn't insert the data into the database";
+                    notification(notif_message);
 
                   } else if (data == "Success") {
 
-                    message = "Thank you for rating a product";
-                    notification(message);
+                    notif_message = "Thank you for rating a product";
+                    notification(notif_message);
                     
                     setTimeout(function () {
                         window.location.reload();
@@ -219,8 +219,8 @@ $(document).ready(function() {
               });
         } else {
 
-            message = "You didn't choose a rate for the product yet";
-            notification(message);
+            notif_message = "You didn't choose a rate for the product yet";
+            notification(notif_message);
         }
     });
   });
@@ -309,18 +309,18 @@ $(document).ready(function() {
             .done(function (data){
                 if (data == "Unknown"){
                     // DEBUG: Write a proper message
-                    message = "Unknown";
-                    notification(message);
+                    notif_message = "Unknown";
+                    notification(notif_message);
 
                 } else if (data == "Failed") {
 
-                    message = "Couldn't insert the data into the database";
-                    notification(message);
+                    notif_message = "Couldn't insert the data into the database";
+                    notification(notif_message);
 
                 } else if (data == "Success") {
 
-                    message = "Thank you for reporting. Admins will look into this";
-                    notification(message);
+                    notif_message = "Thank you for reporting. Admins will look into this";
+                    notification(notif_message);
 
                     setTimeout(function () {
                         window.location.reload();
@@ -332,8 +332,8 @@ $(document).ready(function() {
             });
         } else {
 
-            message = "You didn't choose a concern yet";
-            notification(message);
+            notif_message = "You didn't choose a concern yet";
+            notification(notif_message);
         }
     });
 });

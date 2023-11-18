@@ -103,23 +103,23 @@ $(document).ready(function() {
       
                   if (data == "Unknown") {
 
-                    message = "Kindly try to re-log in";
-                    notification(message);
+                    notif_message = "Kindly try to re-log in";
+                    notification(notif_message);
 
                   } else if (data == "Nothing") {
 
-                    message = "No user was found in the database";
-                    notification(message);
+                    notif_message = "No user was found in the database";
+                    notification(notif_message);
 
                   } else if (data == "Failed") {
 
-                    message = "Invalid inputs";
-                    notification(message);
+                    notif_message = "Invalid inputs";
+                    notification(notif_message);
                     
                   } else if (data == "Success") {
 
-                    message = username+"'s account has been updated";
-                    notification(message);
+                    notif_message = username+"'s account has been updated";
+                    notification(notif_message);
                     
                     $("#edit-btn").show();
                     $("#cancel-btn").hide();
@@ -131,8 +131,8 @@ $(document).ready(function() {
               });
           } else {
 
-            message = "Title or content is empty kindly fill them up";
-            notification(message);
+            notif_message = "Title or content is empty kindly fill them up";
+            notification(notif_message);
           }
 
     });

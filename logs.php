@@ -15,39 +15,48 @@
 <?php
 	include 'nav.php';
 ?>
-	<section>
-		<div id="header">
-			<label class="title" id="header-username">Username</label>
-			<label class="title" id="header-event">Event</label>
-			<label class="title" id="header-date">Date</label>
-			<label class="title" id="header-time">Time</label>
+	<section id="logs-wrapper">
+		<div id="logs-label">
+			<h1 class="log-label" id="product-logs">Product Logs</h1>
+			<h1 class="log-label" id="transaction-logs">Transaction Logs</h1>
+			<h1 class="log-label" id="session-logs">Session Logs</h1>
 		</div>
-		<?php
-
-		$sql = "SELECT * FROM `log`";
-
-		$result = mysqli_query($conn, $sql);
-
-		if ($result) {
-			while ($row = mysqli_fetch_assoc($result)) {
-				$username = $row['username'];
-				$event = $row['event'];
-				$date = $row['date'];
-				$time = $row['time'];
-					
-				echo '
-				<div class="rows">
-					<label id="username">'.$username.'</label>
-					<label id="event">'.$event.'</label>
-					<label id="date">'.$date.'</label>
-					<label id="time">'.$time.'</label>
-				</div>';
-			}
-		}
-		?>
+		<div id="logs-con">
+			<div id="plogs-header-con" style="display: none;">
+				<h2 class="plogs-header-label" id="id-plogs-header">ID</h2>
+				<h2 class="plogs-header-label" id="">Event</h2>
+				<h2 class="plogs-header-label" id="">Product</h2>
+				<h2 class="plogs-header-label" id="">User</h2>
+				<h2 class="plogs-header-label" id="">Seller</h2>
+				<h2 class="plogs-header-label" id="">Issue</h2>
+				<h2 class="plogs-header-label" id="">Date</h2>
+				<h2 class="plogs-header-label" id="time-plogs-header">Time</h2>
+			</div>
+			<div id="tlogs-header-con" style="display: none;">
+				<h2 class="tlogs-header-label" id="id-tlogs-header">Book</h2>
+				<h2 class="tlogs-header-label" id="">Event</h2>
+				<h2 class="tlogs-header-label" id="">Buyer</h2>
+				<h2 class="tlogs-header-label" id="">Seller</h2>
+				<h2 class="tlogs-header-label" id="">Price</h2>
+				<h2 class="tlogs-header-label" id="">Date</h2>
+				<h2 class="tlogs-header-label" id="time-tlogs-header">Time</h2>
+			</div>
+			<div id="slogs-header-con" style="display: none;">
+				<h2 class="tlogs-header-label" id="id-tlogs-header">Username</h2>
+				<h2 class="tlogs-header-label" id="">Event</h2>
+				<h2 class="tlogs-header-label" id="">Date</h2>
+				<h2 class="tlogs-header-label" id="time-tlogs-header">Time</h2>
+			</div>
+			<div id="logs-list">
+				<div class="plogs-list" id="plogs-list" style="display: none;"></div>
+				<div class="tlogs-list" id="tlogs-list" style="display: none;"></div>
+				<div class="slogs-list" id="slogs-list" style="display: none;"></div>
+			</div>
+		</div>
 	</section>
 	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>
     <script src="js/notepad.js"></script>
+    <script src="js/logs.js"></script>
 </body>
 </html>

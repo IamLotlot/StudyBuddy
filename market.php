@@ -55,7 +55,7 @@
 
 				if (!empty($searchBar)) {
 	
-					$sql = "SELECT * FROM `market` WHERE `name` LIKE '$searchBar' OR `seller` LIKE '$searchBar'";
+					$sql = "SELECT * FROM `market` WHERE `state` = 'verified' OR `state` = 'reported' AND `name` LIKE '$searchBar' OR `seller` LIKE '$searchBar'";
 	
 					$result = mysqli_query($conn, $sql);
 	
@@ -93,7 +93,7 @@
 					}
 				} else if (empty($searchBar)){
 
-					$sql = "SELECT * FROM `market`";
+					$sql = "SELECT * FROM `market` WHERE `state` = 'verified' OR `state` = 'reported'";
 	
 					$result = mysqli_query($conn, $sql);
 	
