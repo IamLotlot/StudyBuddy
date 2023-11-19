@@ -40,12 +40,12 @@ section{
     flex-direction: column;
     justify-content: center;
 }
-label{
+.loginCol1 label{
     color: var(--white);
     margin-bottom: 5px;
     padding-left: 0.6rem;
 }
-input{
+.loginCol1 input{
     height: 30px;
     border-radius: 35px;
     margin-bottom: 20px;
@@ -91,4 +91,69 @@ input{
 #message{
     height: 2rem;
     color: red;
+}
+#email-verify-wrapper{
+    height: 95vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#email-verify-con{
+    height: 40vh;
+    width: 30%;
+    border-radius: 1rem;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#email-verify-label{
+    font-size: 2rem;
+    color: var(--white);
+}
+#email-input, #email-password-input{
+    width: 70%;
+    font-size: 1rem;
+    margin: 2rem 0 0.5rem 0;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+#email-verify-input{
+    width: 50%;
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+#email-output{
+    width: 75%;
+    font-size: 1rem;
+    font-weight: bold;
+    color: crimson;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+#email-resend-otp{
+    margin: 1rem 0 1rem 0;
+    color: var(--green);
+}
+#email-btn-grp{
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+}
+#email-confirm-btn, #email-back-btn, #email-next-btn, #email-update-btn{
+    width: 30%;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    cursor: pointer;
 }

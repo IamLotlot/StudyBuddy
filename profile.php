@@ -17,6 +17,17 @@
 	include 'nav.php';
 ?>
 	<section>
+		<div id="email-verify-wrapper" style="display: none;">
+			<div id="email-verify-con">
+				<h1 id="email-verify-label">Email OTP Verification</h1>
+				<input type="text" id="email-verify-input">
+				<a href="#" id="email-resend-otp">Resend OTP?</a>
+				<div id="email-btn-grp">
+					<button id="email-back-btn">Back</button>
+					<button id="email-confirm-btn">Confirm</button>
+				</div>
+			</div>
+		</div>
 		<?php
 
 			$username;
@@ -26,7 +37,6 @@
 			}
 
 			$sql = "SELECT * FROM `account` WHERE `username` = '$username'";
-
 			$result = mysqli_query($conn, $sql);
 
 			if (mysqli_num_rows($result) > 0) {
@@ -34,6 +44,7 @@
 					$password = $row['password'];
 					$state = $row['state'];
 					$email = $row['email'];
+					$verify_email = $row['verify_email'];
 					$fullname = $row['fullname'];
 					$address = $row['address'];
 					$yearSection = $row['yearSection'];
@@ -52,12 +63,12 @@
 						<div id="des-row1">
 						<h2 class="des-label">Username</h2>
 						<h2 class="des-label">Password</h2>
-						<input type="text" class="des-input" id="username" placeholder="username" value="'.$username.'" disabled>
+						<input type="text" class="des-input" id="username" placeholder="username" value="'.$username.'" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, \'\')" disabled>
 						<input type="text" class="des-input" id="password" placeholder="password" value="'.$password.'" disabled>
 						<h2 class="des-label">Email</h2>
 						<h2 class="des-label">Fullname</h2>
 						<input type="text" class="des-input" id="email" placeholder="email" value="'.$email.'" disabled>
-						<input type="text" class="des-input" id="fullname" placeholder="fullname" value="'.$fullname.'" disabled>
+						<input type="text" class="des-input" id="fullname" placeholder="fullname" value="'.$fullname.'" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, \'\')" disabled>
 						<h2 class="des-label">Address</h2>
 						<h2 class="des-label">Year & Section</h2>
 						<input type="text" class="des-input" id="address" placeholder="address" value="'.$address.'" disabled>
@@ -76,19 +87,23 @@
 						</div>
 					</div>
 					<div id="des-row2">
-						<div id="btn-con">
+						<div id="btn-con">';
+							if ($verify_email == 0) {
+								echo '<button class="btn" id="verify-btn">Verify</button>';
+							}
+						echo '
 							<button class="btn" id="edit-btn">Edit</button>
 							<button class="btn" id="cancel-btn" style="display: none;">Cancel</button>
 							<button class="btn" id="update-btn" style="display: none;">Update</button>
 						</div>
 					</div>
-				</div>
-				';
+				</div>';
 				}
 			}
         ?>
 	</section>
 	<script src="js/jQuery-3.6.4.js"></script>
+	<script src="js/smtp.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/profile.js"></script>
 </body>

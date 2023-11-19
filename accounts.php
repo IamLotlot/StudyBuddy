@@ -19,8 +19,15 @@
 	<form action="accountsEx.php" method="post" enctype="multipart/form-data">
 		<section class="accountsCon">
 			<div class="usernameCol">
-				<label id="usernameTitle">Usernames:</label>
-					<?php
+				<div id="username-con">
+					<input type="text" id="username-search" placeholder="Search username...">
+					<div id="username-btn-grp">
+						<button class="username-btn" id="notverified-btn">Not-Verified</button>
+						<button class="username-btn" id="verified-btn">Verified</button>
+					</div>
+				</div>
+				<div id="username-list">
+				<?php
 					
 		            $sql = "SELECT * FROM `account` WHERE `role` = 'user'";
 
@@ -58,6 +65,7 @@
 		            	}
 			        }
 			        ?>
+				</div>
 			</div>
 			<div class="detailsCol">
 				<div class="firstCon">

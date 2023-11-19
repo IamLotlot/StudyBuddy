@@ -1,3 +1,6 @@
+var otp_attempt;
+var email;
+
 //// AJAX for login
 function login() {
     var username = $("#username").val();
@@ -75,8 +78,156 @@ $("#loginBtn").on("click", login);
 //// Forget password function
 $(document).ready(function(){
     $("#forgot-pass").on("click", function(event){
-      
-        notif_message = "Still in progress";
-        notification(notif_message);
+        $("#email-verify-wrapper").show();
     });
   });
+
+//// Back OTP function
+$(document).ready(function() {
+    $('#email-back-btn').click(function() {
+        $("#email-verify-wrapper").hide();
+    });
+});
+
+//// Next OTP function
+$(document).ready(function() {
+    $('#email-next-btn').click(function() {
+        
+        email = $("#email-input").val();
+        // localStorage.setItem('email', input);
+
+        if (email) {
+
+            $("#email-output").hide();
+            $("#email-input").hide();
+            $("#email-next-btn").hide();
+            $("#email-verify-input").show();
+            $("#email-confirm-btn").show();
+            
+            var otp = 0;
+            otp_attempt = 0;
+
+            function generateOTP() {
+                return Math.floor(100000 + Math.random() * 900000);
+            }
+
+            var otp = generateOTP();
+            localStorage.setItem('otp', otp);
+                
+            Email.send({
+                SecureToken : "2eac672c-ceaf-4038-9697-24c4cbf39010",
+                To : email,
+                From : "studybuddy123100@gmail.com",
+                Subject : "Verify your email",
+                Body : "PIN: "+otp
+            }).then(
+                // alert("OTP has been sent to "+email)
+                notification("OTP sent on "+email)
+            );
+
+        } else {
+            $("#email-output").text("Invalid email");
+            $("#email-output").show();
+        }
+    });
+});
+
+//// Confirm function on OTP
+$(document).ready(function() {
+    $('#email-confirm-btn').click(function() {
+
+        var otp = localStorage.getItem("otp");
+        var otp_input = $("#email-verify-input").val();
+
+        if (otp_attempt > 3) {
+            notification("Too many attempts made, try again later!");
+        } else {
+            if (otp_input == otp) {
+                $("#email-verify-label").text("Change Password");
+
+                $("#email-output").hide();
+                $("#email-input").hide();
+                $("#email-password-input").show();
+                $("#email-next-btn").hide();
+                $("#email-verify-input").hide();
+                $("#email-confirm-btn").hide();
+                $("#email-update-btn").show();
+
+            } else if (!otp_input) {
+                notification("Please enter the OTP!");
+            } else {
+                notification("OTP is wrong!");
+                otp_attempt = otp_attempt + 1;
+            }
+        }
+    });
+});
+
+//// Resend OTP function
+$(document).ready(function() {
+    $('#email-resend-otp').click(function() {
+
+        var otp = 0;
+        otp_attempt = 0;
+
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000);
+        }
+
+        var otp = generateOTP();
+        localStorage.setItem('otp', otp);
+            
+        Email.send({
+            SecureToken : "2eac672c-ceaf-4038-9697-24c4cbf39010",
+            To : email,
+            From : "studybuddy123100@gmail.com",
+            Subject : "Verify your email",
+            Body : "PIN: "+otp
+        }).then(
+            // alert("OTP has been sent to "+email)
+            notification("OTP sent on "+email)
+        );
+    });
+});
+
+//// Update password OTP function
+$(document).ready(function() {
+    $('#email-update-btn').click(function() {
+
+        var password = $("#email-password-input").val();
+        
+        if (password) {
+            
+            $.post("login_password.php", {password: password, email: email })
+              .done(function (data){
+      
+                  if (data == "Unknown") {
+
+                    notif_message = "Kindly try to re-log in";
+                    notification(notif_message);
+
+                  } else if (data == "Username") {
+
+                    notif_message = "No user or email was found in the database";
+                    notification(notif_message);
+
+                  } else if (data == "Failed") {
+
+                    notif_message = "Invalid inputs";
+                    notification(notif_message);
+                    
+                  } else if (data == "Success") {
+
+                    window.localStorage.href = "login.php";
+                    notif_message = email+"'s password has been updated";
+                    notification(notif_message);
+                    
+                  } else {
+                    console.log(data);
+                  }
+              });
+        } else {
+            notification("Invalid password");
+        }
+    });
+});

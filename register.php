@@ -29,8 +29,8 @@
 			    		<label>Contact Number:</label><input type="contact" id="contact" name="contact" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11">
 			    	</div>
 			    	<div class="perCol2">
-			    		<label>Fullname:</label><input type="text" id="fullname" name="fullname">
-			    		<label>Address:</label><input type="address" id="address" name="address">
+			    		<label>Fullname:</label><input type="text" id="fullname" name="fullname" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+			    		<label>Address:</label><input type="address" id="address" name="address" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
 			    		<div class="perSeparator">
 			    			<div class="perBox">
 			    				<label>Year & Section:</label><input type="text" id="yearSection" name="yearSection">
@@ -42,7 +42,7 @@
 			    				<label>Age:</label><input type="number" id="age" name="age" oninput="this.value = this.value.replace(/[^0-9]/g, '')">	
 			    			</div>
 			    			<div class="perBox">
-							<label for="sex">Select Gender:</label>
+							<label for="sex">Sex:</label>
 							<select id="sex" name="sex">
 								<option value="Male">Male</option>
 								<option value="Female">Female</option>
@@ -56,7 +56,7 @@
 			    <label class="accTitle">Account Details</label>
 			    <div class="accCon">
 			    	<div class="accCol1">
-			    		<label>Username:</label><input type="text" class="accInput" id="username" name="username">
+			    		<label>Username:</label><input type="text" class="accInput" id="username" name="username" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
 			    		<label>Email:</label><input type="email" class="accInput" id="email" name="email">
 			    	</div>
 			    	<div class="accCol2">
@@ -73,7 +73,7 @@
 			    		<label>Student ID (BACK):</label><input type="file" id="studBack" name="studBack" accept=".jpg, .jpeg, .png">
 			    	</div>
 			    	<div class="verCol2">
-			    		<label>Face Verification:</label><input type="button" id="verification-button" name="verification-button" value="Scan">
+			    		<label>Face Capture:</label><input type="button" id="verification-button" name="verification-button" value="Scan">
 			    	</div>
 					<?php
 						include 'face_verification.php';

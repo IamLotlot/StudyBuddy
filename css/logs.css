@@ -70,6 +70,7 @@ body::-webkit-scrollbar{
     width: 75%;
     border-radius: 1rem;
     padding: 1rem 2rem 1rem 1rem;
+    box-shadow: 5px 5px 15px black;
     background-color: var(--black);
 }
 #plogs-header-con {

@@ -158,7 +158,7 @@ input, #sex{
     box-shadow: 10px 15px 15px black;
 }
 .verCol1{
-	width: 400px;
+	width: 70%;
 	column-count: 2;
 	margin-bottom: 20px;
 }
@@ -167,6 +167,10 @@ input, #sex{
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+#verification-button{
+	padding: 0.5rem 2rem 0.5rem 2rem;
+	cursor: pointer;
 }
 .verInput{
 	width: 200px;

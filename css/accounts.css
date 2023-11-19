@@ -6,19 +6,8 @@
 body{
     background-color: var(--white);
 }
-#usernameTitle{
-    color: var(--white);
-}
-.usernameCol .username{
-    transition: 0.3s;
-    color: var(--white);
-}
-.usernameCol .username:hover{
-    transition: 0.3s;
-    color: var(--green);
-}
 .accountsCon{
-    height: 50vh;
+    height: 60vh;
     width: 100%;
     margin-top: 100px;
     display: flex;
@@ -26,32 +15,68 @@ body{
     justify-content: space-evenly;
 }
 .usernameCol{
-    height: 70vh;
-    width: 10%;
-    border-radius: 35px;
-    padding: 20px 20px 20px 10px;
-    box-shadow: 10px 15px 15px black;
-    background-color: var(--black);
+    height: 60vh;
+    width: 25%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: start;
     flex-direction: column;
+}
+#username-list{
+    max-height: 35vh;
+    width: 95%;
+    margin-top: 2rem;
+    padding: 0.5rem 0.5rem 1rem 0.5rem;
+    border-radius: 0.5rem;
+    gap: 1rem; 
+    grid-template-columns: 1fr 1fr;
+    border: 2px solid var(--black);
+    display: grid;
+    align-items: flex-start;
     overflow: auto;
 }
-#usernameTitle{
-    font-size: 20px;
-    margin: 10px 0 20px 15px;
+#username-con{
+    width: 90%;
+    border-radius: 1rem;
+    padding:  0.5rem 1rem 0.5rem 1rem;
+    box-shadow: 10px 10px 15px black;
+    background-color: var(--black);
 }
-.username{
-    margin-left: 20px;
+#username-search{
+    width: 90%;
+    margin: 1rem 0 1rem 0;
+    border-radius: 0.5rem;
+    padding: 1rem 0.5rem 1rem 1rem;
+}
+#username-btn-grp{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.username-btn{
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 2.5rem 0.5rem 2.5rem;
+}
+.usernameCol .username{
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    transition: 0.3s;
+    color: var(--black);
+    font-weight: bold;
     cursor: pointer;
 }
-.username:hover{
-    
+.usernameCol .username:hover{
+    transition: 0.3s;
+    background-color: var(--lightgray);
 }
 .detailsCol{
-    width: 53%;
-    border-radius: 35px;
-    padding: 20px 10px 20px 10px;
+    height: 60vh;
+    width: 50%;
+    border-radius: 1rem;
+    padding:  0.5rem 1rem 0.5rem 0;
     box-shadow: 10px 15px 15px black;
     background-color: var(--black);
     display: inline-flex;
@@ -93,6 +118,7 @@ body{
     border-radius: 35px;
 }
 .detailsCon{
+    height: 100%;
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -101,16 +127,15 @@ body{
     width: 180px;
     margin-bottom: 10px;
     border-radius: 25px;
-    padding-left: 10px;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 .detailsCon label{
     color: var(--white);
     margin-bottom: 3px;
 }
 .buttonsCol{
-    width: 13%;
+    width: 5%;
     border-radius: 35px;
-    padding: 30px 0 20px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,6 +143,7 @@ body{
 .buttonsCol i{
     font-size: 2.5rem;
     margin-bottom: 25px;
+    text-shadow: 2px 2px 4px black;
     color: var(--green);
     display: flex;
     align-items: center;

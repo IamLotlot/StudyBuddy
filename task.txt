@@ -23,6 +23,7 @@ Chat security avoid links, spam and etc.
 Word detection and filtering
 
 Users can only rate 1 time or overwrite there rating
+Filter search on accounts.php
 
 DONE:
 
@@ -49,3 +50,5 @@ Debug the date and time when inserting to the owner and market_logs database
 Profile customize setting
 Search buddy function
 Custom notification/ UI alert
+
+E0F4FF

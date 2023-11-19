@@ -36,7 +36,7 @@ if (isset($_POST['user']) && isset($_POST['action'])) {
 
                             if ($result4) {
                                 // Remove the online users queue and its buddy in search_queue_con
-                                $sql5 = "DELETE FROM `search_queue_con` WHERE `matchId` = '$matchId'";
+                                $sql5 = "DELETE FROM `search_queue_con` WHERE 1";
                                 $result5 = mysqli_query($conn, $sql5);
 
                                 if ($result5) {
@@ -75,7 +75,14 @@ if (isset($_POST['user']) && isset($_POST['action'])) {
                                                             $result9 = mysqli_query($conn, $sql9);
 
                                                             if ($result9) {
-                                                                echo "Success";
+                                                                // Insert both user to the relationship table
+                                                                $sql10 = "INSERT INTO `relationship`(`id`, `user`, `buddy`, `relation`) 
+                                                                        VALUES ('$matchId','$userid','$matched_userid','buddy')";
+                                                                $result10 = mysqli_query($conn, $sql10);
+
+                                                                if ($result10){
+                                                                    echo "Success";
+                                                                }
                                                             } else {
                                                                 echo "Upload";
                                                             }

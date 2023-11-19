@@ -22,9 +22,9 @@
 	    		<input type="text" id="searchBar" name="searchBar" placeholder="Search...">
 	    		<label class="utilityTitle">Price Range:</label>
 	    		<div class="minMax">
-	    			<input type="text" name="min">
+	    			<input type="text" name="min" oninput="this.value = this.value.replace(/[^0-9-]/g, '')">
 	    			<label>-</label>
-	    			<input type="text" name="max">
+	    			<input type="text" name="max" oninput="this.value = this.value.replace(/[^0-9-]/g, '')">
 	    		</div>
 	    		<label class="utilityTitle">Sort By:</label>
 	    		<div class="filters">

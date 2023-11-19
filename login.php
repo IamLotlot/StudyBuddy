@@ -16,6 +16,22 @@
     include 'nav.php';
 ?>
     <section>
+		<div id="email-verify-wrapper" style="display: none;">
+			<div id="email-verify-con">
+				<h1 id="email-verify-label">Email OTP Verification</h1>
+				<input type="email" id="email-input" placeholder="example@gmail.com">
+				<input type="text" id="email-verify-input" style="display: none;">
+				<input type="text" id="email-password-input" placeholder="password" style="display: none;">
+				<p id="email-output" style="display: none;"></p>
+				<a href="#" id="email-resend-otp" style="display: none;">Resend OTP?</a>
+				<div id="email-btn-grp">
+					<button id="email-back-btn">Back</button>
+					<button id="email-next-btn">Next</button>
+					<button id="email-confirm-btn" style="display: none;">Confirm</button>
+					<button id="email-update-btn" style="display: none;">Update</button>
+				</div>
+			</div>
+		</div>
     	<div class="separator"></div>
         <div class="loginContainer">
         	<div class="loginCol1">
@@ -31,6 +47,7 @@
         </div>
     </section>
 	<script src="js/jQuery-3.6.4.js"></script>
+	<script src="js/smtp.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/login.js"></script>
 </body>

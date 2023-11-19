@@ -17,12 +17,11 @@ section{
     align-items: center;
     justify-content: start;
 }
-#payment{
+.payment-con{
     width: 100%;
     background-color: var(--black);
-    display: none;
 }
-#paypal-button-container-P-1NX82174NM094511MMUJOJGY{
+#paypal-button-container{
     padding: 0 2rem 0 2rem;
 }
 .benefits{

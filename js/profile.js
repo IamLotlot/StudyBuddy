@@ -10,6 +10,7 @@ var global_studentId;
 var global_sex;
 var global_contact;
 var global_profile;
+var otp_attempt;
 
 //// Profile function
 $(document).ready(function() {
@@ -135,5 +136,128 @@ $(document).ready(function() {
             notification(notif_message);
           }
 
+    });
+});
+
+//// Verify function
+$(document).ready(function() {
+    $('#verify-btn').click(function() {
+
+        var email = $("#email").val();
+        var result = confirm("Are you sure you want to verify your email ("+email+")");
+        var otp = 0;
+        otp_attempt = 0;
+
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000);
+        }
+
+        var otp = generateOTP();
+        localStorage.setItem('otp', otp);
+
+        if (result) {
+            
+            $("#email-verify-wrapper").show();
+            Email.send({
+                SecureToken : "2eac672c-ceaf-4038-9697-24c4cbf39010",
+                To : email,
+                From : "studybuddy123100@gmail.com",
+                Subject : "Verify your email",
+                Body : "PIN: "+otp
+            }).then(
+                // alert("OTP has been sent to "+email)
+                notification("OTP sent on "+email)
+            );
+        }
+    });
+});
+
+//// Back OTP function
+$(document).ready(function() {
+    $('#email-back-btn').click(function() {
+        $("#email-verify-wrapper").hide();
+    });
+});
+
+//// Confirm function on OTP
+$(document).ready(function() {
+    $('#email-confirm-btn').click(function() {
+
+        var otp = localStorage.getItem("otp");
+        var otp_input = $("#email-verify-input").val();
+
+        if (otp_attempt > 3) {
+            notification("Too many attempts made, try again later!");
+        } else {
+            if (otp_input == otp) {
+                
+                var action = "verify";
+
+                $.post("profile_verify.php", { user: global_online_username, action: action })
+                    .done(function (data){
+
+                        if (data == "Unknown"){
+
+                            notif_message = "Inputs are missing";
+                            notification(notif_message);
+
+                        } else if (data == "Username") {
+
+                            notif_message = "No account is found named: "+global_online_username;
+                            notification(notif_message);
+
+                        } else if (data == "Failed") {
+
+                            notif_message = "Try to re-login!";
+                            notification(notif_message);
+
+                        } else if (data == "Success") {
+
+                            notif_message = "Your email has been verified";
+                            notification(notif_message);
+                            $("#email-verify-wrapper").hide();
+                            $("#verify-btn").hide();
+
+                        } else {
+                            console.log(data);
+                        }
+                    });
+
+            } else if (!otp_input) {
+                notification("Please enter the OTP!");
+            } else {
+                notification("OTP is wrong!");
+                otp_attempt = otp_attempt + 1;
+            }
+        }
+    });
+});
+
+//// Resend OTP function
+$(document).ready(function() {
+    $('#email-resend-otp').click(function() {
+
+        var email = $("#email").val();
+        var otp = 0;
+        otp_attempt = 0;
+
+        function generateOTP() {
+            return Math.floor(100000 + Math.random() * 900000);
+        }
+
+        var otp = generateOTP();
+        localStorage.setItem('otp', otp);
+            
+        $("#email-verify-wrapper").show();
+        Email.send({
+            SecureToken : "2eac672c-ceaf-4038-9697-24c4cbf39010",
+            To : email,
+            From : "studybuddy123100@gmail.com",
+            Subject : "Verify your email",
+            Body : "PIN: "+otp
+        }).then(
+            // alert("OTP has been sent to "+email)
+            notification("OTP sent on "+email)
+        );
     });
 });

@@ -36,6 +36,7 @@ body::-webkit-scrollbar{
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    box-shadow: 5px 5px 15px black;
     background-color: var(--black);
     display: flex;
     flex-direction: column;
@@ -91,6 +92,7 @@ body::-webkit-scrollbar{
     height: 90%;
     width: 100%;
     border-radius: 1rem;
+    box-shadow: 5px 5px 15px black;
     background-color: var(--black);
 }
 #view-btn{
@@ -107,6 +109,7 @@ body::-webkit-scrollbar{
     width: 60%;
     padding: 2rem;
     border-radius: 1rem;
+    box-shadow: 5px 5px 15px black;
     background-color: var(--black);
 }
 #des-row1{
@@ -181,7 +184,7 @@ body::-webkit-scrollbar{
 }
 .report-wrappers{
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 5rem;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -191,12 +194,13 @@ body::-webkit-scrollbar{
     width: 30%;
     border-radius: 1rem;
     padding: 1rem;
-    margin: 1rem 2rem;
+    margin: 5rem 2rem;
+    box-shadow: 5px 5px 15px black;
+    border: 1px solid var(--black);
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid var(--black);
 }
 .report-img-cons{
     height: 4rem;

@@ -119,7 +119,7 @@
 												}
 											}
 										} else {
-											echo "No buddy account listed in account";
+											// echo "No buddy account listed in account";
 										}
 									}
 								} else {

@@ -18,9 +18,9 @@ window.paypal
             ],
           }),
         });
-        
+
         const orderData = await response.json();
-        
+
         if (orderData.id) {
           return orderData.id;
         } else {
@@ -28,7 +28,7 @@ window.paypal
           const errorMessage = errorDetail
             ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
             : JSON.stringify(orderData);
-          
+
           throw new Error(errorMessage);
         }
       } catch (error) {
@@ -44,15 +44,15 @@ window.paypal
             "Content-Type": "application/json",
           },
         });
-        
+
         const orderData = await response.json();
         // Three cases to handle:
         //   (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
         //   (2) Other non-recoverable errors -> Show a failure message
         //   (3) Successful transaction -> Show confirmation or thank you message
-        
+
         const errorDetail = orderData?.details?.[0];
-        
+
         if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
           // (1) Recoverable INSTRUMENT_DECLINED -> call actions.restart()
           // recoverable state, per https://developer.paypal.com/docs/checkout/standard/customize/handle-funding-failures/
@@ -86,7 +86,7 @@ window.paypal
     },
   })
   .render("#paypal-button-container");
-  
+
 // Example function to show a result to the user. Your site's UI library can be used instead.
 function resultMessage(message) {
   const container = document.querySelector("#result-message");

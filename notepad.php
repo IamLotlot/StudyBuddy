@@ -51,16 +51,16 @@
         if (isset($_SESSION['userOnline'])) {
 
             $username = $_SESSION['userOnline'];
-            // Get the fullname of the online user
+            // Get the userid of the online user
             $sql1 = "SELECT * FROM `account` WHERE `username` = '$username'";
             $result1 = mysqli_query($conn, $sql1);
             
             if ((mysqli_num_rows($result1) > 0)){
                 while ($row = mysqli_fetch_assoc($result1)) {
 
-                    $fullname = $row['fullname'];
+                    $userid = $row['userid'];
                     // Select the buddy of the online user from user1
-                    $sql2 = "SELECT * FROM `relationship` WHERE `user` = '$fullname'";
+                    $sql2 = "SELECT * FROM `relationship` WHERE `user` = '$userid'";
                     $result2 = mysqli_query($conn, $sql2);
 
                     if ((mysqli_num_rows($result2) > 0)){
@@ -68,7 +68,7 @@
                             
                             $buddy = $row['buddy'];
                             // Get the username of the buddy
-                            $sql3 = "SELECT * FROM `account` WHERE `fullname` = '$buddy'";
+                            $sql3 = "SELECT * FROM `account` WHERE `userid` = '$buddy'";
                             $result3 = mysqli_query($conn, $sql3);
 
                             if ((mysqli_num_rows($result3) > 0)){
@@ -78,7 +78,7 @@
                                     echo '<h2 class="buddies" onclick="selectBuddy(\''.$buddy.'\')">'.$username.'</h2>';
                                 }
                             } else {
-                                echo "No fullname named as: $buddy";
+                                echo "No user id labeled as: $buddy";
                             }
                         }
                     } else {

@@ -256,7 +256,8 @@ $(document).ready(function() {
 
             } else if (data == "Success") {
 
-                message = "You have a new buddy";
+                $("#chat-btn").prop("disabled", true);
+                notif_message = "You have a new buddy";
                 notification(notif_message);
                 
                 setTimeout(function () {

@@ -65,3 +65,16 @@ function viewProduct(id) {
     xhr.send("data=" + encodeURIComponent(dataToSend));
   }
 }
+
+//// 
+function validateNumber(inputField) {
+  const input = inputField.value;
+  const errorMessage = document.getElementById('errorMessage');
+
+  if (/^[0-9]{0,11}$/.test(input)) {
+      errorMessage.textContent = '';
+  } else {
+      errorMessage.textContent = 'Please enter a valid 11-digit number.';
+      inputField.value = '';
+  }
+}

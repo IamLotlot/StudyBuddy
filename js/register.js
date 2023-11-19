@@ -53,6 +53,7 @@ $(document).ready(function() {
   });
 
   $("#face-con").click(function() {
+      $('body').removeClass('disable-scroll');
       $(this).hide();
   });
 });

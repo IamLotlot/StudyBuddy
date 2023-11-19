@@ -21,8 +21,8 @@ section{
     height: 70vh;
     width: 20%;
     border-radius: 1rem;
-    /* border: 1px solid red; */
-    background-color: var(--white2);
+    background-color: var(--black);
+    border: 1px solid black;
     box-shadow: 2px 2px 5px 0 black;
     display: flex;
     flex-direction: column;
@@ -34,25 +34,25 @@ section{
     width: 80%;
     border-radius: 50%;
     margin-top: 2rem;
-    border: 1px solid black;
     cursor: pointer;
 }
 #badges-label{
     margin-top: 2rem;
+    color: var(--white);
 }
 #des-con{
     height: 70vh;
     width: 60%;
 }
 #des-row1{
-    height: 60%;
+    height: 70%;
     width: 90%;
     padding: 2rem;
     border-radius: 1rem;
     gap: 1rem;
     grid-template-columns: 1fr 1fr;
     box-shadow: 2px 2px 5px 0 black;
-    background-color: var(--white2);
+    background-color: var(--black);
     display: grid;
 }
 .des-sub-row{
@@ -73,10 +73,11 @@ section{
     width: 95%;
     padding-left: 0.5rem;
     border-radius: 0.5rem;
-    background-color: transparent;
+    background-color: var(--white);
 }
 .des-label{
     font-size: 1rem;
+    color: var(--white);
 }
 #btn-con{
     display: flex;
@@ -90,6 +91,58 @@ section{
     padding: 0.5rem 2rem 0.5rem 2rem;
     cursor: pointer;
 }
+#verify-btn{
+    margin-right: 2rem;
+}
 #update-btn{
     margin-left: 2rem;
+}
+#email-verify-wrapper{
+    height: 95vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#email-verify-con{
+    height: 40vh;
+    width: 30%;
+    border-radius: 1rem;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#email-verify-label{
+    font-size: 2rem;
+    color: var(--white);
+}
+#email-verify-input{
+    width: 50%;
+    font-size: 2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+#email-resend-otp{
+    margin: 1rem 0 1rem 0;
+    color: var(--green);
+}
+#email-btn-grp{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+}
+#email-confirm-btn, #email-back-btn{
+    width: 30%;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    cursor: pointer;
 }
