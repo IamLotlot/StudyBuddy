@@ -167,7 +167,7 @@ section{
 #msgBtn{
 
 }
-.fa-share-from-square{
+#sendMsg .fa-share-from-square{
     font-size: 2rem;
     margin-left: 2rem;
     color: var(--green);

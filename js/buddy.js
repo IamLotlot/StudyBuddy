@@ -15,6 +15,7 @@ var global_count = false;
 //// Page loads
 $(document).ready(function() {
   $("#messages").scrollTop($("#messages")[0].scrollHeight);
+  $("#msgCon").hide();
 });
 
 //// When the Send Icon in message is click it will activate the send button and clear the chat box

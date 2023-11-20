@@ -15,6 +15,7 @@
 <body onload="Online()">
 <?php
 	include 'nav.php';
+    include 'notepad.php';
 
     $course;
     $category;

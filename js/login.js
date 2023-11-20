@@ -49,6 +49,16 @@ function login() {
                     }
                     window.location.href = "home.php";
 
+                } else if (data == "Not-Verified") {
+
+                    notif_message = "Your account is not verified. Kindly wait for a notification through the provided email";
+                    notification(notif_message);
+                    
+                } else if (data == "Deativated") {
+
+                    notif_message = "Your account is deativated!";
+                    notification(notif_message);
+                    
                 } else if (data == "Failed") {
 
                     $("#message").text("Username or Password is incorrect!");
@@ -85,7 +95,8 @@ $(document).ready(function(){
 //// Back OTP function
 $(document).ready(function() {
     $('#email-back-btn').click(function() {
-        $("#email-verify-wrapper").hide();
+        // $("#email-verify-wrapper").hide();
+        window.location.reload();
     });
 });
 
@@ -218,9 +229,19 @@ $(document).ready(function() {
                     
                   } else if (data == "Success") {
 
-                    window.localStorage.href = "login.php";
-                    notif_message = email+"'s password has been updated";
+                    $("#email-verify-label").text("Success!");
+                    $("#email-password-input").prop("disabled", true);
+                    $("#email-back-btn").prop("disabled", true);
+                    $("#email-update-btn").prop("disabled", true);
+
+                    notif_message = "Your password has been updated";
                     notification(notif_message);
+
+                    function reloadPage() {
+                        window.location.reload();
+                    }
+                      
+                    setTimeout(reloadPage, 3000);
                     
                   } else {
                     console.log(data);

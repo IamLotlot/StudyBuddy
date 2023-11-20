@@ -60,8 +60,6 @@ function showProduct(productid, rate, state, name, description, price, seller, d
     $("#profile-img").attr('src', "documents/product/"+image);
     $("#view-btn").data('info', file);
 
-    $("#edit-btn").data('info', productid);
-    $("#update-btn").data('info', productid);
     $("#remove-btn").data('info', productid);
     $("#verify-btn").data('info', productid);
 
@@ -109,43 +107,18 @@ $(document).ready(function(){
     });
 });
 
-//// Edit button function
-$(document).ready(function(){
-    $("#edit-btn").click(function(){
-        var productId = $(this).data("info");
-
-        if (productId) {
-            
-        } else {
-
-            notif_message = "Select a product first";
-            notification(notif_message);
-        }
-    });
-});
-
-//// Update button function
-$(document).ready(function(){
-    $("#update-btn").click(function(){
-        var productId = $(this).data("info");
-
-        if (productId) {
-            
-        } else {
-
-            notif_message = "Select a product first";
-            notification(notif_message);
-        }
-    });
-});
-
 //// Remove button function
 $(document).ready(function(){
     $("#remove-btn").click(function(){
-        var productId = $(this).data("info");
+        var productId = $("#remove-btn").data("info");
+        var username = $("#seller").val();
+        var action = "remove";
 
         if (productId) {
-            
+            var result = confirm("Are you sure you want to remove this product?");
+            if (result) {
+                multiFunction(username, action, productId);
+            }
         } else {
 
             notif_message = "Select a product first";
@@ -157,13 +130,20 @@ $(document).ready(function(){
 //// Verify button function
 $(document).ready(function(){
     $("#verify-btn").click(function(){
-        var productId = $(this).data("info");
+        var productId = $("#verify-btn").data("info");
+        var state = $("#state").val();
+        var username = $("#seller").val();
         var action = "verify";
 
-        if (productId) {
+        if (state == "verified") {
+
+            notif_message = "The product is already verified!";
+            notification(notif_message);
+
+        } else if (productId) {
             var result = confirm("Are you sure you want to verify this product?");
             if (result) {
-                multiFunction(action, productId);
+                multiFunction(username, action, productId);
             }
         } else {
 
@@ -174,9 +154,8 @@ $(document).ready(function(){
 });
 
 //// Function for the add, edit, update, remove & verify buttons
-function multiFunction(){
-    
-    $.post("productsEx.php", { action: action, id: id })
+function multiFunction(username, action, productId){
+    $.post("productsEx.php", { username: username, action: action, id: productId })
     .done(function (data){
         if (data == "Unknown"){
             
@@ -196,6 +175,21 @@ function multiFunction(){
         } else if (data == "Verify_Success") {
 
             notif_message = "Successfully verified the product!";
+            notification(notif_message);
+
+        } else if (data == "Remove_ProductID") {
+
+            notif_message = "No product id in the database";
+            notification(notif_message);
+
+        } else if (data == "Remove_Failed") {
+
+            notif_message = "Failed to remove the product!";
+            notification(notif_message);
+
+        } else if (data == "Remove_Success") {
+
+            notif_message = "Successfully remove the product!";
             notification(notif_message);
 
         } else {

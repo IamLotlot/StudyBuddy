@@ -28,6 +28,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             $row2 = mysqli_fetch_array($result2);
             
             $role = $row2["role"];
+            $state = $row2["state"];
 
             // Get the current time in the Philippines
             date_default_timezone_set('Asia/Manila');
@@ -45,12 +46,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 echo "Admin";
         
             } else if ($role === "user") {
+                if ($state == "verified") {
 
-                $_SESSION['userOnline'] = $username;
-                echo "User";
-                
+                    $_SESSION['userOnline'] = $username;
+                    echo "User";
+                } else if ($state == "not-verified"){
+                    echo "Not-Verified";
+                } else if ($state == "deactivated"){
+                    echo "Deactivated";
+                }
             } else {
-
                 echo "Failed";
             }
         } else {

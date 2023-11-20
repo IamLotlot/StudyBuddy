@@ -19,16 +19,23 @@ require_once 'config.php';
 <body onload="Online()">
 <?php
 	include 'nav.php';
+  include 'notepad.php';
 ?>
+  <div id="celebration-wrapper" style="display: none;">
+    <div id="celebration-con">
+      <img src="css/img/celebrate.gif" alt="Infinite Loop GIF" id="celebrate-gif">
+    </div>
+  </div>
     <section>
         <div class="membership-plan">
             <h1>Monthly</h1>
             <div class="benefits">
-                <h2>P 49.99</h2>
+                <h2>P 59.99</h2>
                 <div><i class="fa-solid fa-circle-check"></i><h3>Profile Cosmetics</h3></div>
+                <div><i class="fa-solid fa-circle-check"></i><h3>Free Student Coins</h3></div>
                 <div><i class="fa-solid fa-circle-check"></i><h3>Contribution Bonus</h3></div>
                 <div><i class="fa-solid fa-circle-check"></i><h3>Discount</h3></div>
-                <div id="last"><i class="fa-solid fa-circle-check"></i><h3>Badges</h3></div>
+                <div id="last"><i class="fa-solid fa-circle-check"></i><h3>Subscriber Badge</h3></div>
             </div>
             <div class="payment-con" id="payment1" style="display: none;">
                 <div id="paypal-button-container"></div>
@@ -36,13 +43,14 @@ require_once 'config.php';
             <h4 id="buy-btn1">BUY</h4>
         </div>
         <div class="membership-plan">
-            <h1>Yearly</h1>
+            <h1>Yearly<span id="discount">30% OFF</span></h1>
             <div class="benefits">
-                <h2>P 469.99</h2>
+                <h2>P 504.99</h2>
                 <div><i class="fa-solid fa-circle-check"></i><h3>Profile Cosmetics</h3></div>
+                <div><i class="fa-solid fa-circle-check"></i><h3>Free Student Coins</h3></div>
                 <div><i class="fa-solid fa-circle-check"></i><h3>Contribution Bonus</h3></div>
                 <div><i class="fa-solid fa-circle-check"></i><h3>Discount</h3></div>
-                <div id="last"><i class="fa-solid fa-circle-check"></i><h3>Badges</h3></div>
+                <div id="last"><i class="fa-solid fa-circle-check"></i><h3>Subscriber Badge</h3></div>
             </div>
             <div class="payment-con" id="payment2" style="display: none;">
                 <div id="paypal-button-container"></div>
@@ -73,16 +81,40 @@ require_once 'config.php';
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: '200'
-              }
+                currency_code: 'USD',
+                value: '59.99'
+              },
+              // items: [{
+              //   name: 'Monthly Subscription',
+              //   description: 'Every month subscription',
+              //   quantity: '1',
+              //   category: 'SUBSCRIPTION',
+              //   unit_amount: {
+              //     currency_code: 'USD',
+              //     value: '59.99'
+              //   }
+              // }],
             }]
           })
         },
         onApprove: function(data, actions){
-          console.log('Data : '+data);
+          console.log('Data :' + data);
           console.log('Action : '+actions);
           return actions.order.capture().then(function(details){
-            console.log(details.payer.name.given_name);
+            purchaseSuccess(details.id,
+            details.payer.name.given_name,
+            details.payer.name.surname,
+            details.payer.email_address,
+            details.purchase_units[0].amount.value,
+            details.purchase_units[0].payee.email_address,
+            );
+            // console.log(details);
+            // console.log("Given Name: "+details.payer.name.given_name);
+            // console.log("Surname: "+details.payer.name.surname);
+            // console.log("Payer Email: "+details.payer.email_address);
+            // console.log("Value: "+details.purchase_units[0].amount.value);
+            // console.log("Payee: "+details.purchase_units[0].payee.email_address);
+
           })
         }
 

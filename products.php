@@ -87,9 +87,6 @@
 					<h1 class="des-labels" id="des-label">Description</h1>
 					<textarea name="description" id="des-text-area" readonly></textarea>
 					<div id="des-btn-grp">
-						<button class="des-btn" id="add-btn">Add</button>
-						<button class="des-btn" id="edit-btn">Edit</button>
-						<button class="des-btn" id="update-btn" style="display: none;">Update</button>
 						<button class="des-btn" id="remove-btn">Remove</button>
 						<button class="des-btn" id="verify-btn">Verify</button>
 					</div>

@@ -90,3 +90,32 @@ section{
     justify-content: center;
     cursor: pointer;
 }
+#discount{
+    height: 100%;
+    font-size: 1rem;
+    color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+/* Celebrate UI */
+#celebration-wrapper{
+    height: 95vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#celebration-con{
+    height: 70vh;
+    border: 1px solid red;
+}
+#celebrate-gif{
+    height: 100%;
+    width: 100%;
+}

@@ -132,6 +132,56 @@ function getUsername(label) {
 
 }
 
+//// Not-verified button search function 
+$(document).ready(function() {
+  $('#notverified-btn').click(function() {
+    
+    event.preventDefault();
+    
+      var search = $("#username-search").val();
+      var action = "not-verified";
+
+      fetch('accounts_search.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `search=${search}&action=${action}`,
+      })
+      .then(response => response.text())
+      .then(data => {
+          // Update the content of the element
+          $("#username-list").html(data);
+      })
+      .catch(error => console.error('Error:', error));
+  });
+});
+
+//// Verified button search function 
+$(document).ready(function() {
+  $('#verified-btn').click(function() {
+    
+      event.preventDefault();
+
+      var search = $("#username-search").val();
+      var action = "verified";
+
+      fetch('accounts_search.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `search=${search}&action=${action}`,
+      })
+      .then(response => response.text())
+      .then(data => {
+          // Update the content of the element
+          $("#username-list").html(data);
+      })
+      .catch(error => console.error('Error:', error));
+  });
+});
+
 //////////////////// JQuery //////////////////////////////
 //If
 // $(document).ready(function() {

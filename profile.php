@@ -15,6 +15,7 @@
 <body onload="Online()">
 <?php
 	include 'nav.php';
+    include 'notepad.php';
 ?>
 	<section>
 		<div id="email-verify-wrapper" style="display: none;">

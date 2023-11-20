@@ -43,7 +43,6 @@ include "db_conn.php";
 				
 				$name = $row["name"];
 				$description = $row["description"];
-				$rate = $row["rate"];
 				$price = $row["price"];
 				$seller = $row["seller"];
 				$date = $row["date"];
@@ -99,15 +98,97 @@ include "db_conn.php";
 				<div id="second-col">
 					<div id="descriptions">
 						<h1 id="name">'.$name.'</h1>
-						<h2 id="seller">'.$seller.'</h2>
-						<div id="rate" value="'.$rate.'">
-							<i class="fa-solid fa-star" id="star1"></i>
-							<i class="fa-solid fa-star" id="star2"></i>
-							<i class="fa-solid fa-star" id="star3"></i>
-							<i class="fa-solid fa-star" id="star4"></i>
-							<i class="fa-solid fa-star" id="star5"></i>
-						</div>
-						<h3>'.$description.'</h3>
+						<h2 id="seller">'.$seller.'</h2>';
+						$average = 0;
+						$count = 0;
+
+						$sql1 = "SELECT * FROM `product_rating` WHERE `productid` = '$id'";
+						$result1 = mysqli_query($conn, $sql1);
+
+						if (mysqli_num_rows($result1) > 0) {
+							while ($row1 = mysqli_fetch_assoc($result1)) {
+								
+								$rate = $row1["rate"];
+								$average = $average + $rate;
+								$count = $count + 1;
+							}
+							$total_rate = $average / $count;
+							$total_rate = ceil($total_rate);
+							if ($total_rate == 0){
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1"></i>
+									<i class="fa-solid fa-star" id="star2"></i>
+									<i class="fa-solid fa-star" id="star3"></i>
+									<i class="fa-solid fa-star" id="star4"></i>
+									<i class="fa-solid fa-star" id="star5"></i>
+								</div>';
+							} else if ($total_rate == 1) {
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star2"></i>
+									<i class="fa-solid fa-star" id="star3"></i>
+									<i class="fa-solid fa-star" id="star4"></i>
+									<i class="fa-solid fa-star" id="star5"></i>
+								</div>';
+							} else if ($total_rate == 2) {
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star3"></i>
+									<i class="fa-solid fa-star" id="star4"></i>
+									<i class="fa-solid fa-star" id="star5"></i>
+								</div>';
+							} else if ($total_rate == 3) {
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star4"></i>
+									<i class="fa-solid fa-star" id="star5"></i>
+								</div>';
+							} else if ($total_rate == 4) {
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star4" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star5"></i>
+								</div>';
+							} else if ($total_rate == 5) {
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star4" style="color: gold;"></i>
+									<i class="fa-solid fa-star" id="star5" style="color: gold;"></i>
+								</div>';
+							} else {
+								echo '
+								<div id="rate" value="'.$total_rate.'">
+									<i class="fa-solid fa-star" id="star1"></i>
+									<i class="fa-solid fa-star" id="star2"></i>
+									<i class="fa-solid fa-star" id="star3"></i>
+									<i class="fa-solid fa-star" id="star4"></i>
+									<i class="fa-solid fa-star" id="star5"></i>
+								</div>';
+							}
+						} else {
+							echo '
+							<div id="rate" value="0">
+								<i class="fa-solid fa-star" id="star1"></i>
+								<i class="fa-solid fa-star" id="star2"></i>
+								<i class="fa-solid fa-star" id="star3"></i>
+								<i class="fa-solid fa-star" id="star4"></i>
+								<i class="fa-solid fa-star" id="star5"></i>
+							</div>';
+						}
+						echo '<h3>'.$description.'</h3>
 						
 						<div id="image-container">
 							<img src="css/img/book2.jpg" alt="Image 1">
@@ -116,9 +197,13 @@ include "db_conn.php";
 						</div>
 					</div>
 					<div id="options">
-						<button id="rate-btn">Rate</button>
-						<button id="buy-btn" value="'.$price.'">'.$button.'</button>
-					</div>
+						<button id="rate-btn">Rate</button>';
+					if ($username == $seller) {
+						echo	'<button id="buy-btn" value="'.$price.'" disabled>Cannot Buy Your Own Product</button>';
+					} else {
+						echo	'<button id="buy-btn" value="'.$price.'">'.$button.'</button>';
+					}
+					'</div>
 				</div>
 				';
 			}

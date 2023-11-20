@@ -8,12 +8,14 @@
 	<link rel="icon" type="image/x-icon" href="css/img/StudyBuddy.ico">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/notepad.css">
     <link rel="stylesheet" href="css/market.css">
   	<script src="https://kit.fontawesome.com/8ef5e4d9da.js"></script>
 </head>
 <body onload="Online(); OnlineMarket()">
 <?php
 	include 'nav.php';
+    include 'notepad.php';
 ?>
     <section class="marketCon">
     	<div class="utilityCol">
@@ -62,7 +64,6 @@
 					if (mysqli_num_rows($result) > 0) {
 						while ($row = mysqli_fetch_assoc($result)) {
 							$productid = $row['productid'];
-							$rate = $row['rate'];
 							$name = $row['name'];
 							$price = $row['price'];
 							$seller = $row['seller'];
@@ -74,20 +75,100 @@
 							echo '
 							<div class="product" onclick="viewProduct('.$productid.')">
 							  <img src="documents/product/'.$image.'" class="productImage">
-							  <div class="description">
+							  <div class="description">';
+							  $average = 0;
+							  $count = 0;
+	  
+							  $sql1 = "SELECT * FROM `product_rating` WHERE `productid` = '$productid'";
+							  $result1 = mysqli_query($conn, $sql1);
+	  
+							  if (mysqli_num_rows($result1) > 0) {
+								  while ($row1 = mysqli_fetch_assoc($result1)) {
+									  
+									  $rate = $row1["rate"];
+									  $average = $average + $rate;
+									  $count = $count + 1;
+								  }
+								  $total_rate = $average / $count;
+								  $total_rate = ceil($total_rate);
+								  if ($total_rate == 0){
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1"></i>
+										  <i class="fa-solid fa-star" id="star2"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 1) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 2) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 3) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 4) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star4" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 5) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star4" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star5" style="color: gold;"></i>
+									  </div>';
+								  } else {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1"></i>
+										  <i class="fa-solid fa-star" id="star2"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  }
+							  } else {
+								  echo '
 								  <div>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-								  </div>
-								<label id="productName">'.$name.'</label>
-								<label id="productPrice">'.$price.'</label>
-								<label id="productSeller">'.$seller.'</label>
+									  <i class="fa-solid fa-star" id="star1"></i>
+									  <i class="fa-solid fa-star" id="star2"></i>
+									  <i class="fa-solid fa-star" id="star3"></i>
+									  <i class="fa-solid fa-star" id="star4"></i>
+									  <i class="fa-solid fa-star" id="star5"></i>
+								  </div>';
+							  }
+								echo '<label id="productName">'.$name.'</label>
+								<label id="productSeller">by '.$seller.'</label>
+								<label id="productPrice">'.$price.' SC</label>
 							  </div>
-							  <a><i class="fa-regular fa-bookmark wishlist"></i></a>
-							  <a><i class="fa-solid fa-basket-shopping purchase"></i></a>
 							</div>';
 						}
 					}
@@ -112,17 +193,99 @@
 							echo '
 							<div class="product" onclick="viewProduct('.$productid.')">
 							  <img src="documents/product/'.$image.'" class="productImage">
-							  <div class="description">
+							  <div class="description">';
+							  $average = 0;
+							  $count = 0;
+	  
+							  $sql1 = "SELECT * FROM `product_rating` WHERE `productid` = '$productid'";
+							  $result1 = mysqli_query($conn, $sql1);
+	  
+							  if (mysqli_num_rows($result1) > 0) {
+								  while ($row1 = mysqli_fetch_assoc($result1)) {
+									  
+									  $rate = $row1["rate"];
+									  $average = $average + $rate;
+									  $count = $count + 1;
+								  }
+								  $total_rate = $average / $count;
+								  $total_rate = ceil($total_rate);
+								  if ($total_rate == 0){
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1"></i>
+										  <i class="fa-solid fa-star" id="star2"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 1) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 2) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 3) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 4) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star4" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  } else if ($total_rate == 5) {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star2" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star3" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star4" style="color: gold;"></i>
+										  <i class="fa-solid fa-star" id="star5" style="color: gold;"></i>
+									  </div>';
+								  } else {
+									  echo '
+									  <div>
+										  <i class="fa-solid fa-star" id="star1"></i>
+										  <i class="fa-solid fa-star" id="star2"></i>
+										  <i class="fa-solid fa-star" id="star3"></i>
+										  <i class="fa-solid fa-star" id="star4"></i>
+										  <i class="fa-solid fa-star" id="star5"></i>
+									  </div>';
+								  }
+							  } else {
+								  echo '
 								  <div>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-									  <i class="fa-solid fa-star"></i>
-								  </div>
-								<label id="productName">'.$name.'</label>
-								<label id="productPrice">'.$price.'</label>
-								<label id="productSeller">'.$seller.'</label>
+									  <i class="fa-solid fa-star" id="star1"></i>
+									  <i class="fa-solid fa-star" id="star2"></i>
+									  <i class="fa-solid fa-star" id="star3"></i>
+									  <i class="fa-solid fa-star" id="star4"></i>
+									  <i class="fa-solid fa-star" id="star5"></i>
+								  </div>';
+							  }
+								echo '<label id="productName">'.$name.'</label>
+								<label id="productSeller">by '.$seller.'</label>
+								<label id="productPrice">'.$price.' SC</label>
 							  </div>
 							</div>';
 						}
@@ -134,6 +297,7 @@
     </section>
 	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/notepad.js"></script>
 	<script src="js/market.js"></script>
 </body>
 </html>

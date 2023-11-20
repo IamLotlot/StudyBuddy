@@ -1,113 +1,41 @@
-
+<!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8">
-</html>
-<body>
-  
-  <header>
-    <div class="background-element">
-    <p style="color:red;font-size:50px;">ZAIDE</p>
-    <div id="scrollable-content">
-    <div class="button-container">
-      <button class="button" onclick="location.href='dashboard.php'"><span class="icon"><ion-icon name="folder-sharp"></ion-icon></span><br>Dashboard</button>
-      <button class="button" onclick="location.href='Exercise1.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 1</button>
-      <button class="button" onclick="location.href='Exercise2.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 2</button>
-      <button class="button" onclick="location.href='Exercise3.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 3</button>
-      <button class="button" onclick="location.href='Exercise4.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 4</button>
-      <button class="button" onclick="location.href='Exercise5.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 5</button>
-      <button class="button" onclick="location.href='Exercise6.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 6</button>
-      <button class="button" onclick="location.href='Exercise7.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 7</button>
-      <button class="button" onclick="location.href='Exercise8.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 8</button>
-      <button class="button" onclick="location.href='Exercise9.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 9</button>
-      <button class="button" onclick="location.href='Exercise10.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 10</button>
-      <button class="button" onclick="location.href='Exercise11.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 11</button>
-      <button class="button" onclick="location.href='Exercise12.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Exercise 12</button>
-      <button class="button" onclick="location.href='Form1.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Form 1</button>
-      <button class="button" onclick="location.href='Form2.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Form 2</button>
-      <button class="button" onclick="location.href='Form3.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Form 3</button>
-      <button class="button" onclick="location.href='insert.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>Insert</button>
-      <button class="button" onclick="location.href='php1.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>PHP 1</button>
-      <button class="button" onclick="location.href='php2.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>PHP 2</button>
-      <button class="button" onclick="location.href='php3.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>PHP 3</button>
-      <button class="button" onclick="location.href='Prelim1.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>Prelim 1</button>
-      <button class="button" onclick="location.href='Prelim2.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>Prelim 2</button>
-      <button class="button" onclick="location.href='registration.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>Registration</button>
-      <button class="button" onclick="location.href='september13-1.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>September13-1</button>
-      <button class="button" onclick="location.href='september13-2.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>September13-2</button>
-      <button class="button" onclick="location.href='september13-3.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>September13-3</button>
-      <button class="button" onclick="location.href='september13-4.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>September13-4</button>
-      <button class="button" onclick="location.href='calculator.htm'"><ion-icon name="folder-sharp"></ion-icon></span><br>Calculator</button>
-      <button class="button" onclick="location.href='users.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>Users</button>
-      <button class="button" onclick="location.href='view.php'"><ion-icon name="folder-sharp"></ion-icon></span><br>View</button>
-    </div>
-    </div>
-  </header>
-<script src="script.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    box-sizing: border-box;
-  }
-
-  body {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 100px 100px;
-    background:#005c99;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    z-index: 99;
-    background-position: 0%;
-  }
-  .button:hover {
-    background-color: rgb(5, 8, 0);
-  }
-  .button {
-    width: 150%;
-    flex: 0 1 calc(20% - 10px); 
-    padding: 15px 20px;
-    margin: 15px;
-    background-color: transparent;
-    border: 2px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1em;
-    color:azure;
-    text-decoration: floralwhite;
-    position: relative;
-  }
-  .button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-</style>
-
 <head>
-  <style>
-    html {
-      scrollbar-width: normal;
-      scrollbar-color: white black;
-    }
-    #scrollable-content {
-  width: 100%; /* Set a specific width or height if needed */
-  height: 80vh; /* Set a specific height or remove if you want the element to expand naturally */
-  overflow: auto; /* This will show a scrollbar when the content overflows the element */
-}
-.background-element {
-  background: 005c99; /* This sets a red background with 50% opacity */
-  width: 100%;
-  height: 80vh;
-}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas to File Input</title>
 </head>
+<body>
+
+<canvas id="myCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
+<input type="file" id="fileInput">
+<button id="downloadBtn">Download Image</button>
+
+<script>
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+var fileInput = document.getElementById('fileInput');
+var downloadBtn = document.getElementById('downloadBtn');
+
+// Drawing on the canvas
+ctx.fillStyle = 'blue';
+ctx.fillRect(10, 10, 100, 100);
+
+// Handling download button click
+downloadBtn.addEventListener('click', function() {
+    // Get the data URL of the canvas
+    var canvasDataUrl = canvas.toDataURL('image/png');
+
+    // Create a new file input
+    var newFileInput = document.createElement('input');
+    newFileInput.type = 'file';
+    newFileInput.name = 'uploadedImage'; // Set the name if you are submitting this in a form
+    newFileInput.value = canvasDataUrl;
+
+    // Replace the existing file input with the new one
+    fileInput.parentNode.replaceChild(newFileInput, fileInput);
+});
+</script>
+
+</body>
+</html>

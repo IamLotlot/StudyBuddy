@@ -47,11 +47,11 @@ $(document).ready(function() {
         global_username = $("#username").val();
         global_password = $("#password").val();
         global_email = $("#email").val();
-        global_fullname = $("#fullname").val();
+        // global_fullname = $("#fullname").val();
         global_address = $("#address").val();
         global_yearSection = $("#year-section").val();
         global_age = $("#age").val();
-        global_studentId = $("#student-id").val();
+        // global_studentId = $("#student-id").val();
         global_sex = $("#sex").val();
         global_contact = $("#contact").val();
 
@@ -60,6 +60,8 @@ $(document).ready(function() {
         $("#cancel-btn").show();
         $(".des-input").prop("disabled", false);
         $("#email").prop("disabled", true);
+        $("#fullname").prop("disabled", true);
+        $("#student-id").prop("disabled", true);
     });
 });
 
@@ -69,11 +71,11 @@ $(document).ready(function() {
         $("#username").val(global_username);
         $("#password").val(global_password);
         $("#email").val(global_email);
-        $("#fullname").val(global_fullname);
+        // $("#fullname").val(global_fullname);
         $("#address").val(global_address);
         $("#year-section").val(global_yearSection);
         $("#age").val(global_age);
-        $("#student-id").val(global_studentId);
+        // $("#student-id").val(global_studentId);
         $("#sex").val(global_sex);
         $("#contact").val(global_contact);
 
@@ -90,16 +92,16 @@ $(document).ready(function() {
         var username = $("#username").val();
         var password = $("#password").val();
         var email = $("#email").val();
-        var fullname = $("#fullname").val();
+        // var fullname = $("#fullname").val();
         var address = $("#address").val();
         var yearSection = $("#year-section").val();
         var age = $("#age").val();
-        var studentId = $("#student-id").val();
+        // var studentId = $("#student-id").val();
         var sex = $("#sex").val();
         var contact = $("#contact").val();
 
-        if (username || password || email || fullname || address || yearSection || age || studentId || sex || contact){
-            $.post("profileEx.php", { username: username, password: password, email: email, fullname: fullname, address: address, yearSection: yearSection, age: age, studentId: studentId, sex: sex, contact: contact })
+        if (username || password || email || address || yearSection || age || sex || contact){
+            $.post("profileEx.php", { username: username, password: password, email: email, address: address, yearSection: yearSection, age: age, sex: sex, contact: contact })
               .done(function (data){
       
                   if (data == "Unknown") {

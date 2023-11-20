@@ -52,3 +52,7 @@ Search buddy function
 Custom notification/ UI alert
 
 E0F4FF
+
+Notepad label color
+Home background picture
+Cancel after search

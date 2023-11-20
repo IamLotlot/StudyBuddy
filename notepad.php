@@ -82,7 +82,7 @@
                             }
                         }
                     } else {
-                        echo "No fullname named as: $fullname";
+                        echo "Aw! You have no friends yet, try searching for one";
                     }
                 }
             } else {

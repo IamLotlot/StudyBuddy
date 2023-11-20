@@ -26,17 +26,17 @@
 						<img id="chosenPicture" name="chosenPicture" style="display: none;" onclick="">
 			    		<input type="file" id="profile" name="profile" style="display: none;" onchange="displayImage(this)">
 			    		<label for="profile" id="inputImg">+</label>
-			    		<label>Contact Number:</label><input type="contact" id="contact" name="contact" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11">
+			    		<label>Contact Number:</label><input type="contact" id="contact" name="contact" placeholder="09123456789" oninput="this.value = this.value.replace(/[^0-9]/g, '')" maxlength="11">
 			    	</div>
 			    	<div class="perCol2">
-			    		<label>Fullname:</label><input type="text" id="fullname" name="fullname" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
-			    		<label>Address:</label><input type="address" id="address" name="address" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
+			    		<label>Fullname:</label><input type="text" id="fullname" name="fullname" placeholder="First-Name  Middle-Name  Last-Name" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')">
+			    		<label>Address:</label><input type="address" id="address" name="address" placeholder="Street, Brgy., City, Provice/Region/State, Postal Code" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
 			    		<div class="perSeparator">
 			    			<div class="perBox">
-			    				<label>Year & Section:</label><input type="text" id="yearSection" name="yearSection">
+			    				<label>Year & Section:</label><input type="text" id="yearSection" name="yearSection" placeholder="Year-Section">
 			    			</div>
 			    			<div class="perBox">
-			    				<label>Student ID:</label><input type="text" id="studentid" name="studentid" oninput="this.value = this.value.replace(/[^0-9-]/g, '')">	
+			    				<label>Student ID:</label><input type="text" id="studentid" name="studentid" placeholder="0000-0000" oninput="this.value = this.value.replace(/[^0-9-]/g, '')">	
 			    			</div>
 			    			<div class="perBox">
 			    				<label>Age:</label><input type="number" id="age" name="age" oninput="this.value = this.value.replace(/[^0-9]/g, '')">	
@@ -57,7 +57,7 @@
 			    <div class="accCon">
 			    	<div class="accCol1">
 			    		<label>Username:</label><input type="text" class="accInput" id="username" name="username" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')">
-			    		<label>Email:</label><input type="email" class="accInput" id="email" name="email">
+			    		<label>Email:</label><input type="email" class="accInput" id="email" name="email" placeholder="example@email.com">
 			    	</div>
 			    	<div class="accCol2">
 			    		<label>Password:</label><input type="password" class="accInput" id="password" name="password">

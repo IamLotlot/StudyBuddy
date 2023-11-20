@@ -20,12 +20,70 @@
 
 //// Show function when buy is clicked
 $("#buy-btn1").click(function() {
-    $("#payment1").show();
-    $("#payment2").hide();
+  $.post("subscription_check.php", { username: global_online_username })
+    .done(function (data){
+        if (data == "Unknown"){
+          // DEBUG: Write a proper message
+          notif_message = "Unknown";
+          notification(notif_message);
+
+        } else if (data == "Success") {
+
+          localStorage.setItem("product", "1 Month Subscription");
+          $("#payment1").show();
+          $("#payment2").hide();
+
+        } else if (data == "Existing") {
+
+          notif_message = "You are already a subscriber!";
+          notification(notif_message);
+
+        } else {
+          console.log(data);
+        }
+    });
 });
 
 //// Show function when buy is clicked
 $("#buy-btn2").click(function() {
+    localStorage.setItem("product", "1 Year Subscription");
     $("#payment1").hide();
     $("#payment2").show();
 });
+
+//// Function for success purchase
+function purchaseSuccess(id, given_name, surname, payer_email, value, payee_email){
+    var product = localStorage.getItem("product");
+    $.post("subscriptionEx.php", { username: global_online_username, id: id, product: product, given_name: given_name, surname: surname, payer_email: payer_email, value: value, payee_email: payee_email })
+    .done(function (data){
+        if (data == "Unknown"){
+          // DEBUG: Write a proper message
+          notif_message = "Unknown";
+          notification(notif_message);
+
+        } else if (data == "Transaction") {
+
+          notif_message = "Cannot insert the transaction to the database!";
+          notification(notif_message);
+
+        } else if (data == "Failed") {
+
+          notif_message = "Couldn't insert the data into the database!";
+          notification(notif_message);
+
+        } else if (data == "Success") {
+            
+            $("#payment1").hide();
+            $("#celebration-wrapper").show();
+            function hideCelebrationWrapper() {
+                $("#celebration-wrapper").hide();
+            }
+            
+            // Set a 5-second timer to call the function
+            setTimeout(hideCelebrationWrapper, 8000);
+
+        } else {
+          console.log(data);
+        }
+    });
+}

@@ -14,6 +14,7 @@
 <body onload="Online()">
 <?php
 	include 'nav.php';
+    include 'notepad.php';
 ?>
 	<script src="js/jQuery-3.6.4.js"></script>
 	<script src="js/main.js"></script>

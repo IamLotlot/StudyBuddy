@@ -26,6 +26,7 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     padding: 50px 25px 50px 25px;
     margin-bottom: 20px;
+    box-shadow: 5px 5px 10px var(--black);
     background-color: var(--black);
 }
 #searchBar{
@@ -92,12 +93,13 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     transition: 0.3s;
     margin-bottom: 10px;
-    border-color: 1px sold var(--green);
+    padding: 0.5rem 0 0.5rem 0;
+    border: 1px solid var(--white);
+    color: var(--white);
+    background-color: var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--black);
-    background-color: var(--green);
     cursor: pointer;
 }
 .productBtn:hover{
@@ -111,6 +113,7 @@ body::-webkit-scrollbar{
     border-radius: 35px;
     padding-bottom: 20px;
     background-color: var(--black);
+    box-shadow: 5px 5px 10px var(--black);
     text-align: center;
 }
 .productCon{
@@ -131,7 +134,7 @@ body::-webkit-scrollbar{
 }
 .product:hover{
     transition: 0.5s ease;
-    background-color: var(--midgray);
+    background-color: var(--black3);
 }
 .product img{
     height: 250px;
@@ -154,12 +157,13 @@ body::-webkit-scrollbar{
     font-size: 15px;
     margin-top: 5px;
 }
-#productPrice{
-    font-size: 12px;
-    margin-bottom: 5px;
-}
 #productSeller{
-    color: var(--lightgray);
+    font-size: 0.8rem;
+    color: var(--white);
+}
+#productPrice{
+    font-size: 1rem;
+    margin-top: 0.5rem;
 }
 .product i{
     color: var(--white);

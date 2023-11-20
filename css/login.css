@@ -74,6 +74,20 @@ section{
     transition: 0.3s;
     color: var(--green);
 }
+#loginBtn{
+    width: 100%;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+    transition: 0.3s ease;
+    border: 1px solid var(--white);
+    cursor: pointer;
+}
+#loginBtn:hover{
+    transition: 0.3s ease;
+    color: var(--white);
+    background-color: var(--black);
+}
 .loginCol1 div{
     display: flex;
     align-content: center;

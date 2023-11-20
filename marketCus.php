@@ -17,6 +17,16 @@
 	include 'nav.php';
     include 'notepad.php';
 ?>
+	<div id="warning-wrapper" style="display: none;">
+		<div id="warning-con">
+			<h1 id="warning-title">Title</h1>
+			<p id="warning-description">Description</p>
+			<div id="warning-btn-grp">
+				<button class="warning-btn" id="warning-disagree-btn">Disagree</button>
+				<button class="warning-btn" id="warning-agree-btn">Agree</button>
+			</div>
+		</div>
+	</div>
     <form action="marketCusEx.php" method="post" enctype="multipart/form-data">
 		<section>
 			<div class="productCon">
@@ -47,8 +57,26 @@
 						$file = $row['file'];
 						  
 			    		echo '
-						<label class="product" onclick="getProduct(this)">'.$productid.'</label>
-						<input type="text" id="'.$productid.'-rate" value="'.$rate.'" style="display:none" disabled>
+						<label class="product" onclick="getProduct(this)">'.$productid.'</label>';
+						$average = 0;
+						$count = 0;
+						$total_rate = 0;
+
+						$sql1 = "SELECT * FROM `product_rating` WHERE `productid` = '$productid'";
+						$result1 = mysqli_query($conn, $sql1);
+
+						if (mysqli_num_rows($result1) > 0) {
+							while ($row1 = mysqli_fetch_assoc($result1)) {
+								
+								$rate = $row1["rate"];
+								$average = $average + $rate;
+								$count = $count + 1;
+							}
+							$total_rate = $average / $count;
+							$total_rate = ceil($total_rate);
+						}
+						echo '
+						<input type="text" id="'.$productid.'-rate" value="'.$total_rate.'" style="display:none" disabled>
 						<input type="text" id="'.$productid.'-name" value="'.$name.'" style="display:none" disabled>
 						<input type="text" id="'.$productid.'-price" value="'.$price.'" style="display:none" disabled>
 						<input type="text" id="'.$productid.'-seller" value="'.$seller.'" style="display:none" disabled>
@@ -64,23 +92,23 @@
 				<div class="pictureCon">
 					<img id="chosenPicture" name="chosenPicture">
 					<div class="rateCon">
-			              <i class="fa-solid fa-star"></i>
-			              <i class="fa-solid fa-star"></i>
-			              <i class="fa-solid fa-star"></i>
-			              <i class="fa-solid fa-star"></i>
-			              <i class="fa-solid fa-star"></i>
+			              <i class="fa-solid fa-star" id="star1"></i>
+			              <i class="fa-solid fa-star" id="star2"></i>
+			              <i class="fa-solid fa-star" id="star3"></i>
+			              <i class="fa-solid fa-star" id="star4"></i>
+			              <i class="fa-solid fa-star" id="star5"></i>
 					</div>
 				</div>
 				<div class="detailsCon">
 					<div class="detailsCol">
-						<label>Product ID:<input type="text" class="inputs" id="productID" name="productID" value="ID" readonly></label>
-						<label>Product Name:<input type="text" class="inputs" id="productName" name="productName" oninput="validateInput(this)"></label>
-						<label>Price:<input type="text" id="price" class="inputs" name="price" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></label>
+						<label>Product ID:<input type="text" class="inputs" id="productID" name="productID" value="ID (Auto-Generate)" readonly></label>
+						<label>Product Name:<input type="text" class="inputs" id="productName" name="productName" placeholder="(e.g ITEP306 Reviewer)" oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/g, '')"></label>
+						<label>Price (SC):<input type="text" id="price" class="inputs" name="price" placeholder="(e.g 19.99)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"></label>
 						<label>Product Picture:<input type="file" class="inputs" id="picture" name="picture" accept=".jpg, .jpeg, .png" onchange="displayImage(this)"></label>
 					</div>
 					<div class="detailsCol">
 						<label>Seller:<input type="text" class="inputs" id="seller" name="seller" readonly></label>
-						<label>Category:<input type="text" class="inputs" id="category" name="category"></label>
+						<label>Category:<input type="text" class="inputs" id="category" name="category" placeholder="(e.g Programming)"></label>
 						<label id="dateLabel">Date:<input type="date" class="inputs" id="date" name="date"></label>
 						<label>PDF:<input type="file" class="inputs" id="pdf" name="pdf" accept=".pdf" onchange="displayPDF(this)"></label>
 					</div>

@@ -15,6 +15,7 @@
 <body onload="Online()">
 <?php
 	include 'nav.php';
+    include 'notepad.php';
 	// function updateChat(){
 
 	// 	include 'db_conn.php';

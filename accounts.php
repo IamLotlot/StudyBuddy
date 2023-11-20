@@ -75,20 +75,20 @@
 						<img for="profileInput" id="profilePreview" style="display: none">
 					</div>
 					<div class="detailsCon">
-						<label>Username</label><input type="text" class="inputField" id="username" name="username" required>
-						<label>State</label><input type="text" class="inputField" id="state" name="state" value="not-verified" required>
-						<label>Role</label><input type="text" class="inputField" id="role" name="role" value="user" disabled required>
-						<label>Year & Section</label><input type="text" class="inputField" id="yearSection" name="yearSection" required>
-						<label>Student ID</label><input type="text" class="inputField" id="studentid" name="studentid" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>
-						<label>Address</label><input type="text" class="inputField" id="address" name="address" required>
+						<label>Username</label><input type="text" class="inputField" id="username" name="username">
+						<label>State</label><input type="text" class="inputField" id="state" name="state" value="not-verified">
+						<label>Role</label><input type="text" class="inputField" id="role" name="role" value="user" disabled>
+						<label>Year & Section</label><input type="text" class="inputField" id="yearSection" name="yearSection">
+						<label>Student ID</label><input type="text" class="inputField" id="studentid" name="studentid" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+						<label>Address</label><input type="text" class="inputField" id="address" name="address">
 					</div>
 					<div class="detailsCon">
-						<label>Password</label><input type="text" class="inputField" id="password" name="password" required>
-						<label>Email</label><input type="email" class="inputField" id="email" name="email" required>
-						<label>Fullname</label><input type="text" class="inputField" id="fullname" name="fullname" required>
-						<label>Age</label><input type="text" class="inputField" id="age" name="age" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>
-						<label>Sex</label><input type="text" class="inputField" id="sex" name="sex" required>
-						<label>Contact</label><input type="text" id="contact" name="contact" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" required>
+						<label>Password</label><input type="text" class="inputField" id="password" name="password">
+						<label>Email</label><input type="email" class="inputField" id="email" name="email">
+						<label>Fullname</label><input type="text" class="inputField" id="fullname" name="fullname">
+						<label>Age</label><input type="text" class="inputField" id="age" name="age" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
+						<label>Sex</label><input type="text" class="inputField" id="sex" name="sex">
+						<label>Contact</label><input type="text" id="contact" name="contact" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;">
 					</div>
 				</div>
 				<div class="secondCon">

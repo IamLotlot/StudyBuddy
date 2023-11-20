@@ -111,7 +111,7 @@ if (isset($_POST['removeBtn'])){
 
     if ($result) {
 
-        $sql2 = "UPDATE `account` SET `state`='diactivated' WHERE `username` = '$username'";
+        $sql2 = "UPDATE `account` SET `state` = 'diactivated' WHERE `username` = '$username'";
         $result2 = mysqli_query($conn, $sql2);
             
         echo '<script type="text/javascript">'; 

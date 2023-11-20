@@ -49,7 +49,7 @@ if (isset($_POST['addBtn_M'])) {
                 $category = $_POST['category'];
         
                 $sql = "INSERT INTO `market`(`productid`,`name`,`state`, `price`, `seller`, `date`, `category`, `image`, `file`) 
-                        VALUES ('','$productName',`not-verified`,'$price','$seller', '$date', '$category','$picture_new_name','$pdf_new_name')";
+                        VALUES ('','$productName','not-verified','$price','$seller', '$date', '$category','$picture_new_name','$pdf_new_name')";
         
                 $result = mysqli_query($conn, $sql);
         
